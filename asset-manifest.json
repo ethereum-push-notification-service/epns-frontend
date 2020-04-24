@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/my-app/epns-frontend/static/css/main.d1b05096.chunk.css",
-    "main.js": "/my-app/epns-frontend/static/js/main.ee89a0e8.chunk.js",
-    "main.js.map": "/my-app/epns-frontend/static/js/main.ee89a0e8.chunk.js.map",
-    "runtime-main.js": "/my-app/epns-frontend/static/js/runtime-main.8e897a33.js",
-    "runtime-main.js.map": "/my-app/epns-frontend/static/js/runtime-main.8e897a33.js.map",
-    "static/js/2.9ccf733b.chunk.js": "/my-app/epns-frontend/static/js/2.9ccf733b.chunk.js",
-    "static/js/2.9ccf733b.chunk.js.map": "/my-app/epns-frontend/static/js/2.9ccf733b.chunk.js.map",
-    "index.html": "/my-app/epns-frontend/index.html",
-    "precache-manifest.0078a7552983ea155e8862d7449b60c7.js": "/my-app/epns-frontend/precache-manifest.0078a7552983ea155e8862d7449b60c7.js",
-    "service-worker.js": "/my-app/epns-frontend/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/my-app/epns-frontend/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.9ccf733b.chunk.js.LICENSE.txt": "/my-app/epns-frontend/static/js/2.9ccf733b.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/my-app/epns-frontend/static/media/logo.5d5d9eef.svg"
+    "main.css": "/epns-frontend/static/css/main.d1b05096.chunk.css",
+    "main.js": "/epns-frontend/static/js/main.d20e9f77.chunk.js",
+    "main.js.map": "/epns-frontend/static/js/main.d20e9f77.chunk.js.map",
+    "runtime-main.js": "/epns-frontend/static/js/runtime-main.b06ac4f0.js",
+    "runtime-main.js.map": "/epns-frontend/static/js/runtime-main.b06ac4f0.js.map",
+    "static/js/2.9ccf733b.chunk.js": "/epns-frontend/static/js/2.9ccf733b.chunk.js",
+    "static/js/2.9ccf733b.chunk.js.map": "/epns-frontend/static/js/2.9ccf733b.chunk.js.map",
+    "index.html": "/epns-frontend/index.html",
+    "precache-manifest.abe954bbda89e33aacbeff624e7eef43.js": "/epns-frontend/precache-manifest.abe954bbda89e33aacbeff624e7eef43.js",
+    "service-worker.js": "/epns-frontend/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/epns-frontend/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.9ccf733b.chunk.js.LICENSE.txt": "/epns-frontend/static/js/2.9ccf733b.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/epns-frontend/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8e897a33.js",
+    "static/js/runtime-main.b06ac4f0.js",
     "static/js/2.9ccf733b.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.ee89a0e8.chunk.js"
+    "static/js/main.d20e9f77.chunk.js"
   ]
 }
