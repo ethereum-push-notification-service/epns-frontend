@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba1fb7e7.chunk.css",
-    "main.js": "/static/js/main.a382cdf4.chunk.js",
-    "main.js.map": "/static/js/main.a382cdf4.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.49407c38.js",
-    "runtime-main.js.map": "/static/js/runtime-main.49407c38.js.map",
-    "static/js/2.2ca17bc6.chunk.js": "/static/js/2.2ca17bc6.chunk.js",
-    "static/js/2.2ca17bc6.chunk.js.map": "/static/js/2.2ca17bc6.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.36aef2d5a038ff189796cb008df871dd.js": "/precache-manifest.36aef2d5a038ff189796cb008df871dd.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.ba1fb7e7.chunk.css.map": "/static/css/main.ba1fb7e7.chunk.css.map",
-    "static/js/2.2ca17bc6.chunk.js.LICENSE.txt": "/static/js/2.2ca17bc6.chunk.js.LICENSE.txt",
-    "static/media/bg.svg": "/static/media/bg.22b1bd34.svg",
-    "static/media/logo.svg": "/static/media/logo.e6e1ace4.svg"
+    "main.css": "https://epns.io/static/css/main.fca38781.chunk.css",
+    "main.js": "https://epns.io/static/js/main.689ac3fb.chunk.js",
+    "main.js.map": "https://epns.io/static/js/main.689ac3fb.chunk.js.map",
+    "runtime-main.js": "https://epns.io/static/js/runtime-main.b337a187.js",
+    "runtime-main.js.map": "https://epns.io/static/js/runtime-main.b337a187.js.map",
+    "static/css/2.3a221eca.chunk.css": "https://epns.io/static/css/2.3a221eca.chunk.css",
+    "static/js/2.dc0b5f7b.chunk.js": "https://epns.io/static/js/2.dc0b5f7b.chunk.js",
+    "static/js/2.dc0b5f7b.chunk.js.map": "https://epns.io/static/js/2.dc0b5f7b.chunk.js.map",
+    "index.html": "https://epns.io/index.html",
+    "precache-manifest.6bc2709f1eaf06c6b68d6c03f41003a3.js": "https://epns.io/precache-manifest.6bc2709f1eaf06c6b68d6c03f41003a3.js",
+    "service-worker.js": "https://epns.io/service-worker.js",
+    "static/css/2.3a221eca.chunk.css.map": "https://epns.io/static/css/2.3a221eca.chunk.css.map",
+    "static/css/main.fca38781.chunk.css.map": "https://epns.io/static/css/main.fca38781.chunk.css.map",
+    "static/js/2.dc0b5f7b.chunk.js.LICENSE.txt": "https://epns.io/static/js/2.dc0b5f7b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.49407c38.js",
-    "static/js/2.2ca17bc6.chunk.js",
-    "static/css/main.ba1fb7e7.chunk.css",
-    "static/js/main.a382cdf4.chunk.js"
+    "static/js/runtime-main.b337a187.js",
+    "static/css/2.3a221eca.chunk.css",
+    "static/js/2.dc0b5f7b.chunk.js",
+    "static/css/main.fca38781.chunk.css",
+    "static/js/main.689ac3fb.chunk.js"
   ]
 }
