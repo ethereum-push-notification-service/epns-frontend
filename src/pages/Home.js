@@ -204,7 +204,7 @@ function Home({ setBadgeCount, bellPressed }) {
               <FooterSub>
                 <FooterSubTitle>Check out Repo / Early (Alpha) Access</FooterSubTitle>
                 <FooterSubInner>
-                  <FooterLink bg="#e20880" href="https://github.com/ethereum-push-notification-system" target="_blank"><FaGithub size={20} color="#fff"/></FooterLink>
+                  <FooterLink bg="#e20880" href="https://github.com/ethereum-push-notification-service" target="_blank"><FaGithub size={20} color="#fff"/></FooterLink>
                   <FooterLink bg="#674c9f" href="https://play.google.com/store/apps/details?id=io.epns.epns" target="_blank"><FaGooglePlay size={20} color="#fff"/></FooterLink>
                   <FooterLink bg="#35c5f3" href="https://app.epns.io" target="_blank"><IoMdNotifications size={20} color="#fff"/></FooterLink>
                 </FooterSubInner>
