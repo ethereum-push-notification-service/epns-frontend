@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { AnimateOnChange } from 'react-animation';
 
 // Create Header
-function Bell({ badgeCount, bellPressedCB, width, height }) {
+function Bell({ belltheme, badgeCount, bellPressedCB, width, height }) {
   const [badge, setBadge] = React.useState(0);
   const [ring, setRing] = React.useState(false);
 
@@ -11,7 +11,7 @@ function Bell({ badgeCount, bellPressedCB, width, height }) {
     // Set new badge count and ring the bell
     setBadge(badgeCount);
 
-    if (badge > 0) {
+    if (badgeCount > 0) {
       setResetRinger();
     }
   }, [badgeCount]);
@@ -26,6 +26,8 @@ function Bell({ badgeCount, bellPressedCB, width, height }) {
 
   return (
     <Container
+      belltheme={belltheme}
+      badge={badgeCount}
       onClick={() => {
         if (bellPressedCB) {bellPressedCB();}
       }}
@@ -36,13 +38,7 @@ function Bell({ badgeCount, bellPressedCB, width, height }) {
       <BellImageAbs src="./bellball.png" width={width} height={height} />
       <BellImageAbs src="./ring.png" width={width} height={height} />
       {badge != 0 &&
-        <AnimateOnChange
-          animationIn="fadeIn"
-          animationOut="fadeOut"
-          durationOut={200}
-        >
-          <Badge>{badge}</Badge>
-        </AnimateOnChange>
+        <Badge>{badge}</Badge>
       }
     </Container>
   );
@@ -57,20 +53,14 @@ const Container = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  margin: 0px;
   position: relative;
   height: ${props => props.height || 40}px;
   width: ${props => props.width || 40}px;
-  &:hover {
-    opacity: 0.9;
-    cursor: pointer;
-    pointer: hand;
-  }
-  &:active {
-    opacity: 0.75;
-    cursor: pointer;
-    pointer: hand;
-  }
+
+  ${({ belltheme, badge }) => (belltheme==="white" && badge==0) && `
+    filter: brightness(0) invert(1);
+  `}
 `
 
 const tadaaa = keyframes`
@@ -81,21 +71,21 @@ const tadaaa = keyframes`
   }
 
   10%, 20% {
-    -webkit-transform: scale3d(.98, .98, .98) rotate3d(0, 0, 1, -5deg);
-    -ms-transform: scale3d(.98, .98, .98) rotate3d(0, 0, 1, -5deg);
-    transform: scale3d(.98, .98, .98) rotate3d(0, 0, 1, -5deg);
+    -webkit-transform: scale3d(.96, .96, .96) rotate3d(0, 0, 1, -5deg);
+    -ms-transform: scale3d(.96, .96, .96) rotate3d(0, 0, 1, -5deg);
+    transform: scale3d(.96, .96, .96) rotate3d(0, 0, 1, -5deg);
   }
 
   30%, 50%, 70%, 90% {
-    -webkit-transform: scale3d(1.08, 1.08, 1.08) rotate3d(0, 0, 10, 5deg);
-    -ms-transform: scale3d(1.08, 1.08, 1.08) rotate3d(0, 0, 10, 5deg);
-    transform: scale3d(1.08, 1.08, 1.08) rotate3d(0, 0, 10, 5deg);
+    -webkit-transform: scale3d(1.10, 1.10, 1.10) rotate3d(0, 0, 10, 5deg);
+    -ms-transform: scale3d(1.10, 1.10, 1.10) rotate3d(0, 0, 10, 5deg);
+    transform: scale3d(1.10, 1.10, 1.10) rotate3d(0, 0, 10, 5deg);
   }
 
   40%, 60%, 80% {
-    -webkit-transform: scale3d(1.08, 1.08, 1.08) rotate3d(0, 0, 1, -5deg);
-    -ms-transform: scale3d(1.08, 1.08, 1.08) rotate3d(0, 0, 1, -5deg);
-    transform: scale3d(1.08, 1.08, 1.08) rotate3d(0, 0, 1, -5deg);
+    -webkit-transform: scale3d(1.10, 1.10, 1.10) rotate3d(0, 0, 1, -5deg);
+    -ms-transform: scale3d(1.10, 1.10, 1.10) rotate3d(0, 0, 1, -5deg);
+    transform: scale3d(1.10, 1.10, 1.10) rotate3d(0, 0, 1, -5deg);
   }
 
   100% {
@@ -123,14 +113,20 @@ const BellImageAbs = styled(BellImage)`
 `
 
 const Badge = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: normal;
+  max-width: 15px;
+  border-radius: 10px;
+  text-overflow: ellipsis;
   position: absolute;
   font-size: 10px;
   color: #fff;
   padding: 2px 4px;
-  border-radius: 100%;
-  background: rgba(208.0, 44.0, 30.0, 1.0);
-  top: 0px;
-  left: 5px;
+  background: rgba(208.0,44.0,30.0,1.0);
+  top: -2px;
+  right: -2px;
   font-weight: bold;
 `
 

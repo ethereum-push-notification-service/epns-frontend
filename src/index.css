@@ -349,94 +349,55 @@ template {
 }
 
 /**
- * react-toastify
- */
-/** Classes for the displayed toast **/
-.Toastify__toast {
-}
-.Toastify__toast--rtl {
-}
-.Toastify__toast--dark {
-}
-.Toastify__toast--default {
-}
-.Toastify__toast--info {
-}
-.Toastify__toast--success {
-}
-.Toastify__toast--warning {
-}
-.Toastify__toast--error {
-}
-.Toastify__toast-body {
-  font-size: 12px;
-  line-height: 1.5em;
-}
-
-/** Classes for the close button. Better use your own closeButton **/
-.Toastify__close-button {
-}
-.Toastify__close-button--default {
-}
-.Toastify__close-button > svg {
-}
-.Toastify__close-button:hover, .Toastify__close-button:focus {
-}
-
-/** Classes for the progress bar **/
-.Toastify__progress-bar {
-}
-.Toastify__progress-bar--animated {
-}
-.Toastify__progress-bar--controlled {
-}
-.Toastify__progress-bar--rtl {
-}
-.Toastify__progress-bar--default {
-}
-.Toastify__progress-bar--dark {
-  background: #e1087f !important;
-}
-
-/**
  * Custom CSS
  */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
-* {
-  font-family: 'Open Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+span, p, label, div {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.25em;
 }
 
-b {
-  color: #e20880;
+button, a, a:before, a:after {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  border: 0;
+  outline: 0;
+
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #BBB;
-  opacity: 1; /* Firefox */
+h1 {
+  font-family: 'Monstrat', Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.25em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  text-shadow: 0 0 20px rgb(255 255 255 / 60%);
+  letter-spacing: 0.1em;
 }
 
-/*
- *  SCROLL STYLES - https://codepen.io/GhostRider/pen/GHaFw
- */
-/* Secondary */
-#scrollstyle-secondary::-webkit-scrollbar-track {
-	background-color: #EEE;
-	border-radius: 10px;
+h2, h3, h4, h5, h6 {
+  font-family: 'Monstrat', Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.25em;
 }
 
-#scrollstyle-secondary::-webkit-scrollbar {
-	width: 6px;
-	background-color: #EEE;
-}
-
-#scrollstyle-secondary::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear,
-									   left top,
-									   left bottom,
-									   color-stop(0.44, #35c5f3),
-									   color-stop(0.72, #35b0f3),
-									   color-stop(0.86, #35a1f3));
+.contentBox {
+  width: 100%;
+  align-self: center;
+  max-width: 1140px;
+  flex: 1;
+  display: flex;
 }
 
 .videoWrapper {
