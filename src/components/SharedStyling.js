@@ -41,14 +41,17 @@ export const Item = styled.div`
   flex-wrap: wrap;
   position: relative;
   justify-content: center;
+  background: ${props => props.bg || 'transparent'};
   flex: ${props => props.flex || '1'};
   flex-direction: ${props => props.direction || 'column'};
   align-self: ${props => props.self || 'auto'};
   align-items: ${props => props.align || 'center'};
   justify-content: ${props => props.justify || 'center'};
-  margin: ${props => props.margin || '10px 20px'};
-  min-width: ${props => props.minWidth || '280px'};
-  column-gap: ${props => props.columnGap || '40px'};
+  margin: ${props => props.margin || '0px'};
+  min-width: ${props => props.minWidth || 'auto'};
+  column-gap: ${props => props.columnGap || 'initial'};
+  row-gap: ${props => props.rowGap || 'initial'};
+  font-size: ${props => props.size || "inherit"};
 `
 
 export const ItemH = styled(Item)`
@@ -80,11 +83,25 @@ export const H1 = styled.h1`
 `
 
 export const H2 = styled.h2`
-
+  color: ${props => props.color || '#000'};
+  font-weight: ${props => props.weight || 600};
+  font-size: ${props => props.size || "2rem"};
+  text-transform: ${props => props.textTransform || "inherit"};
+  margin: ${props => props.margin || "20px 0px"};
+  padding: ${props => props.padding || "0px"};
+  letter-spacing: ${props => props.spacing || "inherit"};
+  font-family: ${props => props.family || "'Source Sans Pro', Helvetica, sans-serif"};
 `
 
 export const H3 = styled.h3`
-
+  color: ${props => props.color || 'rgb(0 0 0 / 0.5)'};
+  font-weight: ${props => props.weight || 300};
+  font-size: ${props => props.size || "1rem"};
+  text-transform: ${props => props.textTransform || "uppercase"};
+  margin: ${props => props.margin || "-15px 0px 20px 0px"};
+  padding: ${props => props.padding || "0px"};
+  letter-spacing: ${props => props.spacing || "0.1em"};
+  font-family: ${props => props.family || "'Source Sans Pro', Helvetica, sans-serif"};
 `
 
 export const Image = styled.img`
@@ -97,20 +114,24 @@ export const P = styled.p`
   color: ${props => props.color || '#000'};
 
   font-weight: ${props => props.weight || 300};
-  font-size: ${props => props.size || "1.2rem"};
+  font-size: ${props => props.size || "inherit"};
   letter-spacing: ${props => props.spacing || "normal"};
 `
 
 export const Span = styled.span`
   color: ${props => props.color || '#000'};
+  background: ${props => props.bg || 'transparent'};
   font-weight: ${props => props.weight || 300};
-  font-size: ${props => props.size || "1.25rem"};
-  margin: ${props => props.margin || "0"};
-  letter-spacing: ${props => props.spacing || "normal"};
+  font-size: ${props => props.size || "inherit"};
+  text-transform: ${props => props.textTransform || "inherit"};
+  margin: ${props => props.margin || "0px"};
+  padding: ${props => props.padding || "0px"};
+  letter-spacing: ${props => props.spacing || "inherit"};
 `
 
 export const Anchor = styled.a`
-  border-radius: 2px;
+  display: flex;
+  border-radius: ${props => props.radius || "0px"};
   font-weight: ${props => props.weight || 400};
   color: ${props => props.color || "#fff"};
   background: ${props => props.bg || "#e20880"};
@@ -120,6 +141,7 @@ export const Anchor = styled.a`
   border-radius: ${props => props.borderRadius || "2px"};
   position: relative;
   text-decoration: none;
+  overflow: ${props => props.overflow || "hidden"};
   z-index: 3;
 
   &:before {
@@ -141,7 +163,7 @@ export const Anchor = styled.a`
     left: 0;
     right: 0;
     bottom: 0;
-    background: #000;
+    background: ${props => props.hoverBG || "#000"};
     opacity: 0;
     z-index: -1;
   }

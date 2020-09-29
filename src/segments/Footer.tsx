@@ -66,6 +66,7 @@ const Footer = styled.footer`
   align-items: stretch;
   justify-content: center;
   position: relative;
+  margin: 60px 0px 0px 0px;
 `
 
 const HeadAnchor = styled(Anchor)`

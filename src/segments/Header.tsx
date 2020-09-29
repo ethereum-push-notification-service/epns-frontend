@@ -11,6 +11,7 @@ import Bell from 'components/Bell';
 // Create Header
 function Head() {
   const [badge, setBadge] = React.useState(0);
+  const [showMenu, setShowMenu] = React.useState(false);
 
   return (
     <Header>
@@ -23,105 +24,108 @@ function Head() {
               title="Homepage of EPNS"
               hoverBG="#e20880"
               padding="0px"
+              overflow="visible"
             >
               <Bell belltheme="white" badgeCount={badge} bellPressedCB={() => setBadge(badge + 1)} width={32} height={32} />
             </HeadAnchor>
           </Item>
 
-          <NavPrimary direction="row" align="stretch" justify="flex-start" minWidth="auto" columnGap="20px" margin="0px">
-            <NavItems>
-              <NavItem align="center" margin="0px" minWidth="auto" flex="0">
-                <HeadAnchor
-                  href="https://app.epns.io"
-                  target="_blank"
-                  title="Read Whitepaper"
-                  bg="transparent"
-                  hoverBG="#fff"
-                  padding="4px 15px"
-                >
-                  Whitepaper
-                </HeadAnchor>
-              </NavItem>
-
-              <NavSub align="center" margin="0px" minWidth="auto" flex="none">
-                <NavItem align="center" margin="0px" minWidth="auto" flex="none">
+          {!showMenu &&
+            <NavPrimary direction="row" align="stretch" justify="flex-start" minWidth="auto" columnGap="20px" margin="0px">
+              <NavItems>
+                <NavItem align="center" margin="0px" minWidth="auto" flex="0">
                   <HeadAnchor
                     href="https://app.epns.io"
                     target="_blank"
-                    title="Documentation"
+                    title="Read Whitepaper"
                     bg="transparent"
                     hoverBG="#fff"
                     padding="4px 15px"
                   >
-                    <ItemH minWidth="auto" margin="0px" columnGap="5px">
-                      <Span color="#fff" weight="400" size="0.8rem" spacing="0.2em">Docs</Span>
-                      <BsChevronDown size={12} color="#fff"/>
-                    </ItemH>
+                    Whitepaper
                   </HeadAnchor>
                 </NavItem>
 
-                <NavSubItems>
-                  <NavSubItem align="center" margin="0px" minWidth="auto" flex="0">
+                <NavSub align="center" margin="0px" minWidth="auto" flex="none">
+                  <NavItem align="center" margin="0px" minWidth="auto" flex="none">
                     <HeadAnchor
                       href="https://app.epns.io"
                       target="_blank"
-                      title="Read Integration Guide"
+                      title="Documentation"
                       bg="transparent"
                       hoverBG="#fff"
                       padding="4px 15px"
                     >
-                      Integration Guide
+                      <ItemH minWidth="auto" margin="0px" columnGap="5px">
+                        <Span color="#fff" weight="400" size="0.8rem" spacing="0.2em">Docs</Span>
+                        <BsChevronDown size={12} color="#fff"/>
+                      </ItemH>
                     </HeadAnchor>
-                  </NavSubItem>
-                </NavSubItems>
-              </NavSub>
+                  </NavItem>
 
-              <NavItem align="center" margin="0px" minWidth="auto" flex="0">
-                <HeadAnchor
-                  href="https://app.epns.io"
-                  target="_blank"
-                  title="Read our story"
-                  bg="transparent"
-                  hoverBG="#fff"
-                  padding="4px 15px"
-                >
-                  Blog
-                </HeadAnchor>
-              </NavItem>
+                  <NavSubItems>
+                    <NavSubItem align="center" margin="0px" minWidth="auto" flex="0">
+                      <HeadAnchor
+                        href="https://app.epns.io"
+                        target="_blank"
+                        title="Read Integration Guide"
+                        bg="transparent"
+                        hoverBG="#fff"
+                        padding="4px 15px"
+                      >
+                        Integration Guide
+                      </HeadAnchor>
+                    </NavSubItem>
+                  </NavSubItems>
+                </NavSub>
 
-              <NavItem align="center" margin="0px" minWidth="auto" flex="0">
-                <HeadAnchor
-                  href="https://app.epns.io"
-                  target="_blank"
-                  title="Contact Us"
-                  bg="transparent"
-                  hoverBG="#fff"
-                  padding="4px 15px"
-                >
-                  Contact
-                </HeadAnchor>
-              </NavItem>
-            </NavItems>
-          </NavPrimary>
+                <NavItem align="center" margin="0px" minWidth="auto" flex="0">
+                  <HeadAnchor
+                    href="https://app.epns.io"
+                    target="_blank"
+                    title="Read our story"
+                    bg="transparent"
+                    hoverBG="#fff"
+                    padding="4px 15px"
+                  >
+                    Blog
+                  </HeadAnchor>
+                </NavItem>
+
+                <NavItem align="center" margin="0px" minWidth="auto" flex="0">
+                  <HeadAnchor
+                    href="https://app.epns.io"
+                    target="_blank"
+                    title="Contact Us"
+                    bg="transparent"
+                    hoverBG="#fff"
+                    padding="4px 15px"
+                  >
+                    Contact
+                  </HeadAnchor>
+                </NavItem>
+
+                <NavItem align="center" justify="flex-end" margin="0px" minWidth="auto" flex="1">
+                  <Anchor
+                    href="https://app.epns.io"
+                    target="_blank"
+                    title="Visit dApp"
+                    bg="transparent"
+                    margin="10px 0px"
+                    border="1px solid #fff"
+                    padding="4px 15px"
+                    hover="#e20880"
+                    radius="2px"
+                  >
+                    Alpha dApp
+                  </Anchor>
+                </NavItem>
+
+              </NavItems>
+            </NavPrimary>
+          }
+
         </Nav>
-
-        <NavPrimary flex="initial" justify="flex-end" minWidth="auto" columnGap="20px" margin="0px 20px">
-          <Item align="flex-end" minWidth="auto" flex="initial" margin="0px">
-            <Anchor
-              href="https://app.epns.io"
-              target="_blank"
-              title="Visit dApp"
-              bg="transparent"
-              margin="10px 0px"
-              border="1px solid #fff"
-              padding="4px 15px"
-              hover="#e20880"
-            >
-              Alpha dApp
-            </Anchor>
-          </Item>
-        </NavPrimary>
-
       </Section>
     </Header>
   );
@@ -172,7 +176,11 @@ const NavItems = styled.ul`
 
 const NavItem = styled.li`
   display: flex;
-  align-items: center;
+  flex: ${props => props.flex || '1'};
+  align-self: ${props => props.self || 'auto'};
+  align-items: ${props => props.align || 'center'};
+  justify-content: ${props => props.justify || 'center'};
+
   position: relative;
 `
 
@@ -181,7 +189,7 @@ const HeadAnchor = styled(Anchor)`
   align-self: stretch;
   align-items: center;
   flex: 1;
-  
+
   &:before {
     content: '';
     position: absolute;

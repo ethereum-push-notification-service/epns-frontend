@@ -19,7 +19,16 @@ import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { Controls, PlayState, Tween } from 'react-gsap';
 
+import TeamMember from 'components/TeamMember';
+
 gsap.registerPlugin(TextPlugin);
+
+const randomTeamQuotes = [
+  "ONE AMONG US DOESN'T LIKE FARMING 🙀😱",
+  "ONE AMONG US HAS A CAT 🐈",
+  "ONE AMONG US HAS A NAME KNOWN TO JUST A FEW 🦸🏻",
+  "ONE AMONG US HAS MORE BTC THAN ETH 😬",
+]
 
 // Create Header
 function Home() {
@@ -30,6 +39,7 @@ function Home() {
 
   // For Featured
   const [featuredShowAll, setFeaturedShowAll] = React.useState(false);
+  const [playTeaserVideo, setPlayTeaserVideo] = React.useState(false);
 
   // For the mail form
   const [mailListProcessing, setMailListProcessing] = React.useState(0);
@@ -43,25 +53,6 @@ function Home() {
 
   // Handle ANIMATIONS
   // ---------
-  function initBlobsBackground() {
-		// if ($(".p1-blob-animated").length >= 1) {
-    //
-		// 	$(".p1-blob-animated").each(function() {
-		// 		var $blob1 = $(this).find(".p1-anim-blob1").first();
-		// 		var $blob2 = $(this).find(".p1-anim-blob2").first();
-		// 		var $blob3 = $(this).find(".p1-anim-blob3").first();
-		// 		var $blob4 = $(this).find(".p1-anim-blob4").first();
-    //
-		// 		var tl = new TimelineMax({repeat: -1});
-		// 			tl.to($blob1, 2, {morphSVG: {shape: $blob2, shapeIndex: [4], precompile: ["M87.78,212 C93.61,166.8 45.85,108.9 77.03,75.72 147.9,0.23 309,13.37 387.6,80.44 471.8,152.4 517.2,325.6 442.9,407.5 350.2,509.8 43.77,516.2 29.67,378.8 20.48,289.3 80.25,270.39 87.78,212 z","M38.35,160.1 C74.92,86.34 178.1,44.04 260.1,51.51 348.2,59.54 441.6,126.9 473.5,209.4 499.3,276 485,371.9 431.9,419.6 348.2,494.9 185.6,517.4 95.49,449.9 16.71,390.8 -5.39,248.3 38.35,160.1 z"]}, ease: Linear.easeIn})
-		// 			.to($blob1, 2, {morphSVG: {shape: $blob3, shapeIndex: [0], precompile: ["M38.35,160.1 C74.92,86.34 178.1,44.04 260.1,51.51 348.2,59.54 441.6,126.9 473.5,209.4 499.3,276 485,371.9 431.9,419.6 348.2,494.9 185.6,517.4 95.49,449.9 56.09,420.35 30.87,369.95 20.97,315.91 11.06,261.87 16.47,204.2 38.35,160.1 z","M161,54.69 C230.4,4.98 303.7,8.66 414.4,92.19 465.7,130.9 432.3,211.4 460,279.5 481,331.2 449.7,430.4 381.1,427 287.1,422.3 172.4,503.8 99.27,444.6 21.03,381.1 10.32,258.3 55.25,145.6 73.73,99.3 129.3,77.36 161,54.69 z"]}, ease: Linear.easeIn})
-		// 			.to($blob1, 2, {morphSVG: {shape: $blob4, shapeIndex: [0], precompile: ["M161,54.69 C230.4,4.98 303.7,8.66 414.4,92.19 465.7,130.9 432.3,211.4 460,279.5 481,331.2 449.7,430.4 381.1,427 287.1,422.3 172.4,503.8 99.27,444.6 21.03,381.1 10.32,258.3 55.25,145.6 73.73,99.3 129.3,77.36 161,54.69 z","M119.8,69.41 C213.5,18.01 367.2,-1.3 440.4,76.58 482.9,121.9 435.3,200.8 432.9,262.89 431.1,310.6 461.3,372.1 427.7,406 342.4,492 158.3,499.3 64.62,422.5 10.09,377.8 18.76,282.6 32.51,213.5 43.46,158.4 70.61,96.36 119.8,69.41 z"]}, ease: Linear.easeIn})
-		// 			.to($blob1, 2, {morphSVG: {shape: $blob3, shapeIndex: [0], precompile: ["M119.8,69.41 C213.5,18.01 367.2,-1.3 440.4,76.58 482.9,121.9 435.3,200.8 432.9,262.89 431.1,310.6 461.3,372.1 427.7,406 342.4,492 158.3,499.3 64.62,422.5 10.09,377.8 18.76,282.6 32.51,213.5 43.46,158.4 70.61,96.36 119.8,69.41 z","M161,54.69 C230.4,4.98 303.7,8.66 414.4,92.19 465.7,130.9 432.3,211.4 460,279.5 481,331.2 449.7,430.4 381.1,427 287.1,422.3 172.4,503.8 99.27,444.6 21.03,381.1 10.32,258.3 55.25,145.6 73.73,99.3 129.3,77.36 161,54.69 z"]}, ease: Linear.easeIn})
-		// 			.to($blob1, 4, {morphSVG: {shape: $blob1, shapeIndex: [0], precompile: ["M161,54.69 C230.4,4.98 303.7,8.66 414.4,92.19 465.7,130.9 432.3,211.4 460,279.5 481,331.2 449.7,430.4 381.1,427 287.1,422.3 172.4,503.8 99.27,444.6 21.03,381.1 10.32,258.3 55.25,145.6 73.73,99.3 129.3,77.36 161,54.69 z","M77.03,75.72 C147.9,0.23 309,13.37 387.6,80.44 471.8,152.4 517.2,325.6 442.9,407.5 350.2,509.8 43.77,516.2 29.67,378.8 20.48,289.3 80.25,270.39 87.78,212 90.69,189.4 80.21,163.62 72.89,139.35 65.58,115.08 61.44,92.31 77.03,75.72 z"]}, ease: Linear.easeIn});
-    //
-		// 		tl.progress(randomDecimal(0, 1));
-		// 	});
-		}
 
   // HANDLE EMAIL
   // ---------
@@ -135,18 +126,16 @@ function Home() {
       {/* HERO SECTION */}
       <SectionFSHero padding="15px 0px 0px 0px">
         <Content className="contentBox">
-          <ItemH>
-            <Item align="flex-start" margin="0px">
+          <ItemH columnGap="40px" margin="0px 20px">
+            <Item align="flex-start">
               <H1>Ethereum Push Notification Service</H1>
-              <Span margin="-30px 0 0 0"><Span color="#e20880" weight="700" size="0.9rem">Subscribe. </Span><Span color="#674c9f" weight="700" size="0.9rem">Notify. </Span><Span color="#35c5f3" weight="700" size="0.9rem">Earn.</Span></Span>
+              <Span margin="-25px 0 0 0"><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Subscribe. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Notify. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Earn.</Span></Span>
 
-                  <Tween to={{ text: 'Protocol for Decentralized, Platform Agnostic, Incentivized Notifications from Blockchain!' }} duration={2} delay={3}>
-                    <Span margin="20px 0px" color="#fff" size="1.5rem" weight="200">Protocol for Decentralized, Platform Agnostic, Incentivized Notifications from Blockchain!</Span>
-                  </Tween>
+                <Span margin="20px 0px" color="rgba(255, 255, 255, 0.5)" size="1.5rem" weight="200">Protocol for <Span color="#fff" weight="400">Platform Agnostic, </Span><Span color="#fff" weight="400">Incentivized Notifications</Span> from <Span color="rgba(255, 255, 255, 0.5)" weight="600">Blockchain!</Span></Span>
 
               <ItemH align="flex-start" justify="flex-start" margin="10px 0" columnGap="20px">
-                <Anchor href="https://whitepaper.epns.io" target="_blank" bg="#674c9f" margin="10px 0px">Read Whitepaper</Anchor>
-                <Anchor href="https://whitepaper.epns.io" target="_blank" bg="#674c9f" margin="10px 0px">Integrate</Anchor>
+                <Anchor href="https://whitepaper.epns.io" target="_blank" bg="#674c9f" margin="10px 0px" radius="2px">Read Whitepaper</Anchor>
+                <Anchor href="https://whitepaper.epns.io" target="_blank" bg="#674c9f" margin="10px 0px" radius="2px">Integrate</Anchor>
               </ItemH>
 
             </Item>
@@ -185,7 +174,7 @@ function Home() {
       {/* FEATURED SECTION */}
       <Section theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)" padding="0px 0px 50px 0px">
         <Content className="contentBox">
-          <Item margin="40px 20px 60px 20px">
+          <Item margin="20px 20px 20px 20px">
             <Featured>
               <Feature
                 disabled={true}
@@ -199,93 +188,113 @@ function Home() {
               <Feature
                 href="https://blog.ethereum.org/2020/08/19/esp-beyond-grants/"
                 target="_blank"
+                title="Ethereum Push Notification featured on Official Ethereum Blog"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./esp.png" />
+                  <FeatureImage src="./esp.png" alt="Ethereum Support Program Logo" />
                 </Item>
               </Feature>
 
               <Feature
                 href="https://cointelegraph.com/news/dapps-can-now-send-push-notifications-to-ethereum-wallet-users"
                 target="_blank"
+                title="Coin Telegraph talks about Push Notifications from Ethereum Push Notification Service"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./cointelegraph.png" />
+                  <FeatureImage src="./cointelegraph.png" alt="Coin Telegraph Logo" />
                 </Item>
               </Feature>
 
               <Feature
                 href="https://twitter.com/epnsproject/status/1299018919143849984?s=20"
                 target="_blank"
+                title="Ethereum Push Notification Service selected as top 20 project and unvelied at fireside"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./gitcoin.png" />
+                  <FeatureImage src="./kernel.png" alt="Gitcoin Kernel Logo" />
                 </Item>
               </Feature>
 
               <Feature
                 href="https://medium.com/@ideovc/hello-its-your-users-calling-7599c679e28d"
                 target="_blank"
+                title="IDEO Collab selected and mentored Ethereum Push Notification Service as 30 projects from 120 projects for Product Validation Day"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./ideo.png" />
+                  <FeatureImage src="./ideo.png" alt="IDEO Collab Product Validation Day Logo" />
                 </Item>
               </Feature>
 
               <Feature
                 href="https://podcast.ethhub.io/ethhub-weekly-119-yield-farming-defi-valuations-on-the-rise-eths-value-prop-epns-introduced-consensys-staking-as-a-service-reddits-scaling-ethereum-challenge-and-matter-labs-zk-sync"
                 target="_blank"
+                title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./ethhub.png" />
+                  <FeatureImage src="./ethhub.png" alt="EthHub Logo" />
                 </Item>
               </Feature>
 
               <Feature
                 href="https://twitter.com/DeFi_Dad/status/1297544923219189760?s=20"
                 target="_blank"
+                title="DeFi Dad upcoming podcast about EPNS"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./defidad.png" />
+                  <FeatureImage src="./defidad.png" alt="DeFi Dad Logo" />
                 </Item>
               </Feature>
 
               <Feature
                 href="https://www.edcon.io/#maodian"
                 target="_blank"
+                title="EDCON Panel featuring Harsh Rajat, founder, EPNS talks about DeFi Cross Composability"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./edcon.png" />
+                  <FeatureImage src="./edcon.png" alt="Edcon Logo" />
                 </Item>
               </Feature>
 
               {featuredShowAll &&
                 <>
                   <Feature
-                    href="https://medium.com/paradigm-fund/ethereum-biweekly-vol-46-ecosystem-and-projects-updates-development-tools-and-research-articles-c2732e1502aa"
+                    href="https://inc42.com/buzz/cryptocurrency-this-week-wazirx-talks-defi-indias-crypto-ban-more/"
                     target="_blank"
+                    title="INC42 talks about epnsproject and how dApps can benefit from it"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./paradigm.png" />
+                      <FeatureImage src="./inc42.png" alt="INC42 Logo" />
+                    </Item>
+                  </Feature>
+
+                  <Feature
+                    href="https://medium.com/paradigm-fund/ethereum-biweekly-vol-46-ecosystem-and-projects-updates-development-tools-and-research-articles-c2732e1502aa"
+                    target="_blank"
+                    title="Paradigm features epnsproject"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./paradigm.png" alt="Paradigm Logo" />
                     </Item>
                   </Feature>
 
                   <Feature
                     href="https://defipulse.com/defi-list"
                     target="_blank"
+                    title="DefiPulse includes epnsproject in their esteemed list!"
                     bg="#e20880"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./defipulse.png" />
+                      <FeatureImage src="./defipulse.png" alt="DefiPulse Logo" />
                     </Item>
                   </Feature>
 
                   <Feature
                     href="https://mojkripto.com/ethereum-push-notification-service-epns-interview/?lang=en"
                     target="_blank"
+                    title="MojKripto deep dives into Ethereum Push Notification Service and the team behind it!"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./mojkripto.png" />
+                      <FeatureImage src="./mojkripto.png" alt="MojKripto Logo"/>
                     </Item>
                   </Feature>
                 </>
@@ -294,6 +303,7 @@ function Home() {
               <Feature
                 href="#"
                 onClick={(e) => {e.preventDefault(); setFeaturedShowAll(!featuredShowAll)}}
+                title="Toggle Show All / Fewer items in feature section"
                 bg="#e20880"
               >
                 <ItemH minWidth="auto" justify="" columnGap="10px">
@@ -329,28 +339,85 @@ function Home() {
       </Section>
 
       {/* VISION SECTION */}
-      <Section theme="#fff" padding="0px 0px 30px 0px">
+      <Section theme="#fff" padding="20px 0px 20px 0px">
         <Content className="contentBox">
-          <Item margin="40px 20px 60px 20px" align="flex-start">
-            <H2>What is Ethereum Push Notification Service?</H2>
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            {playTeaserVideo &&
+              <PreviewOuter>
+                <Anchor
+                  href="#"
+                  bg="transparent"
+                  onClick={(e) => {e.preventDefault(); setPlayTeaserVideo(!playTeaserVideo)}}
+                >
+                  <Content className="contentBox">
+                    <Preview>
+                      <div class='videoWrapper'><iframe src="https://www.youtube.com/embed/kwwnlmUpRsk?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    </Preview>
+                  </Content>
+                </Anchor>
+              </PreviewOuter>
+            }
+
+            <Item align="flex-start" margin="0px 0px 20px 0px">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span weight="200">The </Span><Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Problem</Span>
+              </H2>
+              <H3>Why EPNS is the missing piece of Web3 Infrastructure</H3>
+              <Span size="1.2rem">Blockchain still operates in stone age, the communicate layer is non-existent even for crucial DeFi related activities. Contrast this to traditional services and we quickly see how notifications have made everything from payments, social, games, services a breeze. This is what Ethereum Push Notification aims to build.</Span>
+            </Item>
+
+            <ItemH columnGap="40px" rowGap="20px">
+              <Item minWidth="auto" align="center">
+                <Anchor
+                  href="#"
+                  bg="transparent"
+                  onClick={(e) => {e.preventDefault(); setPlayTeaserVideo(!playTeaserVideo)}}
+                >
+                  <Image src="youtubeplay.png" />
+                </Anchor>
+              </Item>
+
+              <Item align="flex-start" size="1.2rem">
+                <Item align="flex-start">
+                  <H2 color="#e20880">What<Span weight="200"> are we </Span><Span weight="200" color="#e20880">#BUIDLing?</Span></H2>
+                  <Span>We are building a decentralized middleware through which any blockchain app (or even centralized one) can send notifications to wallet addresses.</Span>
+                </Item>
+                <Item align="flex-start">
+                  <H2 color="#35c5f3">Why<Span weight="200"> is it required?</Span></H2>
+                  <Span>Notifications improve user engagement and experience. For blockchain apps to be enter mainstream, they need to reach out to users instead of expecting users to come to them.</Span>
+                </Item>
+                <Item align="flex-start">
+                  <H2 color="#674c9f">Incentivized<Span weight="200"> Notifications!?</Span></H2>
+                  <Span>Not only users are able to receive notifications, but they can earn from them as well! EPNS uses DeFi to <b>Lend</b> out staking fee from services and distributes the <b>Interest</b> generated by it to the users who have opted in to recieve notifications from specific service!</Span>
+                </Item>
+              </Item>
+
+            </ItemH>
           </Item>
+
         </Content>
+        <WaveOuter>
+          <WaveInner>
+            <Wave fill='#f1f1f1'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 15,
+                speed: 0.5,
+                points: 4
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
       </Section>
 
       {/* SUBSCRIBE SECTION */}
-      <Section theme="#fafafa" padding="0px 0px 30px 0px">
+      {/*}
+      <Section theme="#f1f1f1" padding="0px 0px 30px 0px">
 
         <Content className="contentBox">
-          <Item margin="40px 20px 60px 20px">
-            <Item self="stretch" align="stretch" margin="40px 0px">
-              <Controls playState={PlayState.stop}>
-                <Tween to={{ text: 'This is the new text.' }} duration={2}>
-                  <span>This is a text.</span>
-                </Tween>
-              </Controls>
-            </Item>
-
-            <Item self="stretch" align="stretch" margin="40px 0px">
+          <Item margin="20px 20px 0px 20px">
+            <Item self="stretch" align="stretch" margin="0px 0px 40px 0px">
               <FooterSubInner>
                 {mailListProcessing == 0 &&
                   <Showoff><IoMdRocket size={24} color="#674c9f"/></Showoff>
@@ -399,31 +466,12 @@ function Home() {
               </FooterSubInner>
             </Item>
 
-            <ItemH self="stretch" align="stretch" margin="20px 0px" columnGap="40px">
-              <Item>
-                <FooterSubTitle>Follow our story!  <IoMdHeart size={18} color="#C51104"/></FooterSubTitle>
-                <FooterSubInner>
-                  <FooterLink bg="#e20880" href="https://twitter.com/epnsproject" target="_blank"><FaTwitter size={20} color="#fff"/></FooterLink>
-                  <FooterLink bg="#674c9f" href="https://t.me/epnsproject" target="_blank"><FaTelegramPlane size={20} color="#fff"/></FooterLink>
-                  <FooterLink bg="#35c5f3" href="https://medium.com/@epnsproject" target="_blank"><FaMedium size={20} color="#fff"/></FooterLink>
-                </FooterSubInner>
-              </Item>
-              <Item>
-                <FooterSubTitle>Check out Repo / Early (Alpha) Access</FooterSubTitle>
-                <FooterSubInner>
-                  <FooterLink bg="#e20880" href="https://github.com/ethereum-push-notification-service" target="_blank"><FaGithub size={20} color="#fff"/></FooterLink>
-                  <FooterLink bg="#674c9f" href="https://play.google.com/store/apps/details?id=io.epns.epns" target="_blank"><FaGooglePlay size={20} color="#fff"/></FooterLink>
-                  <FooterLink bg="#35c5f3" href="https://app.epns.io" target="_blank"><IoMdNotifications size={20} color="#fff"/></FooterLink>
-                </FooterSubInner>
-              </Item>
-            </ItemH>
-
           </Item>
         </Content>
 
         <WaveOuter>
           <WaveInner>
-            <Wave fill='#fafafa'
+            <Wave fill='#fff'
               paused={true}
               options={{
                 height: 10,
@@ -435,13 +483,141 @@ function Home() {
           </WaveInner>
         </WaveOuter>
       </Section>
+      */}
 
-      <Section theme="#fafafa">
-
+      {/* TEAM SECTION | 1=Founder, 2=Founder+Lead, 3=Founder+Team, 4=Lead, 5=Team, 6=Advisor */}
+      <Section theme="#fff" padding="20px 0px 20px 0px">
         <Content className="contentBox">
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            <H2 textTransform="uppercase" spacing="0.1em">
+              <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Meet</Span><Span weight="200"> the Team</Span>
+            </H2>
+            <H3>{randomTeamQuotes[Math.floor(Math.random() * (randomTeamQuotes.length))]}</H3>
+            <ItemH self="stretch" align="stretch" margin="20px 0px" rowGap="20px" columnGap="40px" minWidth="auto">
+              <TeamMember
+                img="Harsh.jpg"
+                type={2}
+                name="Harsh Rajat"
+                title="Founder / Project Lead"
+                twitter="https://twitter.com/harshrajat"
+                linkedin="https://www.linkedin.com/in/harshrajat/"
+                email="mailto://harsh@epns.io"
+              />
+              <TeamMember
+                img="Richa.jpg"
+                type={2}
+                name="Richa Joshi"
+                title="Co-Founder / Marketing Lead"
+                twitter="https://twitter.com/riijo"
+                linkedin="https://www.linkedin.com/in/richa-joshi-90b04126/"
+                email="mailto://richa@epns.io"
+              />
+              <TeamMember
+                img="Jaf.jpg"
+                type={4}
+                name="Jafett Sandi"
+                title="Product / Dev Lead"
+                twitter="https://twitter.com/jafetsc"
+                linkedin="https://www.linkedin.com/in/jafettsandi/"
+                email="mailto://jaf@epns.io"
+              />
+              <TeamMember
+                img="Andrew.jpg"
+                type={4}
+                name="Andrew Redden"
+                title="Protocol / Bizdev Lead"
+                twitter="https://twitter.com/androolloyd"
+                linkedin="https://www.linkedin.com/in/androolloyd/"
+                email="mailto://andrew@epns.io"
+              />
+              <TeamMember
+                img="Awosika.jpg"
+                type={4}
+                name="Awosika Ayodeji"
+                title="Community Lead"
+                twitter="https://twitter.com/Ebunayo08"
+                linkedin="https://www.linkedin.com/in/ayodeji-israel-awosika-69924124/"
+                email="mailto://ayodeji@epns.io"
+              />
+              <TeamMember
+                img="Jude.jpg"
+                type={5}
+                name="Jude Dike"
+                title="Developer"
+                linkedin="https://www.linkedin.com/in/dikejudein/"
+              />
+              <TeamMember
+                img="Victor.jpg"
+                type={5}
+                name="Victor Nwagbogwu"
+                title="Developer (Intern)"
+                linkedin="https://www.linkedin.com/in/victor-nwagbogwu/"
+              />
+              <TeamMember
+                img="Robin.jpg"
+                type={5}
+                name="Robin Roy Thomas"
+                title="Content Writer (Intern)"
+                twitter="https://twitter.com/robin_rrtx"
+                linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
+              />
+              <TeamMember
+                img="Nischal.jpg"
+                type={6}
+                name="Nischal Shetty"
+                title="Founder / CEO, WazirX"
+                twitter="https://twitter.com/NischalShetty"
+                linkedIn="https://www.linkedin.com/in/nischalshetty/"
+              />
+              <TeamMember
+                img="DefiDad.jpg"
+                type={6}
+                name="DeFi Dad"
+                title="CMO, Zapier.Fi"
+                twitter="https://twitter.com/DeFi_Dad"
+              />
+              <TeamMember
+                img="Vivek.jpg"
+                type={6}
+                name="Vivek Singh"
+                title="Co-Founder, Gitcoin"
+                twitter="https://twitter.com/vsinghdothings"
+                linkedin="https://www.linkedin.com/in/vivek-singh-b5a4b675/"
+              />
 
+            </ItemH>
+
+          </Item>
         </Content>
       </Section>
+
+      {/* MISC SECTION */}
+      {/*
+      <Section theme="#fafafa" padding="0px 0px 30px 0px">
+        <Content className="contentBox">
+          <Item margin="20px 20px 0px 20px" align="flex-start">
+              <ItemH self="stretch" align="stretch" margin="20px 0px" columnGap="40px">
+                <Item>
+                  <FooterSubTitle>Follow our story!  <IoMdHeart size={18} color="#C51104"/></FooterSubTitle>
+                  <FooterSubInner>
+                    <FooterLink bg="#e20880" href="https://twitter.com/epnsproject" target="_blank"><FaTwitter size={20} color="#fff"/></FooterLink>
+                    <FooterLink bg="#674c9f" href="https://t.me/epnsproject" target="_blank"><FaTelegramPlane size={20} color="#fff"/></FooterLink>
+                    <FooterLink bg="#35c5f3" href="https://medium.com/@epnsproject" target="_blank"><FaMedium size={20} color="#fff"/></FooterLink>
+                  </FooterSubInner>
+                </Item>
+                <Item>
+                  <FooterSubTitle>Check out Repo / Early (Alpha) Access</FooterSubTitle>
+                  <FooterSubInner>
+                    <FooterLink bg="#e20880" href="https://github.com/ethereum-push-notification-service" target="_blank"><FaGithub size={20} color="#fff"/></FooterLink>
+                    <FooterLink bg="#674c9f" href="https://play.google.com/store/apps/details?id=io.epns.epns" target="_blank"><FaGooglePlay size={20} color="#fff"/></FooterLink>
+                    <FooterLink bg="#35c5f3" href="https://app.epns.io" target="_blank"><IoMdNotifications size={20} color="#fff"/></FooterLink>
+                  </FooterSubInner>
+                </Item>
+              </ItemH>
+          </Item>
+        </Content>
+      </Section>
+      */}
     </>
   );
 }
@@ -485,6 +661,35 @@ const FeatureImage = styled(Image)`
   ${Feature}:hover & {
     filter: saturate(1) brightness(1) invert(0);
   }
+`
+
+const PreviewOuter = styled.div `
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Preview = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: 40px 20px;
+  border-left: 10px solid #35c4f3;
+  border-radius: 10px;
+`
+
+const ColoredBox = styled.div`
+  width: ${props => props.width || '100px'};
+  height: ${props => props.height || '40px'};
+  background: ${props => props.bg || 'transparent'};
 `
 
 const FooterSubTitle = styled.div`
