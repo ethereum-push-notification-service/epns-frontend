@@ -16,6 +16,7 @@ import Foot from 'segments/Footer';
 
 import Home from 'pages/Home';
 import Privacy from 'pages/Privacy';
+import Terms from 'pages/Terms';
 
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/">
             <Home />
+          </Route>
+          <Route path="/tos">
+            <Terms />
           </Route>
         </Switch>
       </ParentContainer>

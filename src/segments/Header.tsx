@@ -16,7 +16,7 @@ function Head() {
   return (
     <Header>
       <Section className="contentBox" flexDirection="row">
-        <Nav direction="row" align="stretch" justify="flex-start" minWidth="auto" columnGap="20px" margin="0px 20px">
+        <Nav direction="row" align="stretch" justify="flex-start" minWidth="auto" margin="0px 20px" size="0.8rem">
           <Item align="center" margin="0px" minWidth="auto" flex="0">
             <HeadAnchor
               href="#"
@@ -26,14 +26,14 @@ function Head() {
               padding="0px"
               overflow="visible"
             >
-              <Bell belltheme="white" badgeCount={badge} bellPressedCB={() => setBadge(badge + 1)} width={32} height={32} />
+              <Bell belltheme="white" hideBadge={false} badgeCount={badge} bellPressedCB={() => setBadge(badge + 1)} width={32} height={32} />
             </HeadAnchor>
           </Item>
 
           {!showMenu &&
-            <NavPrimary direction="row" align="stretch" justify="flex-start" minWidth="auto" columnGap="20px" margin="0px">
+            <NavPrimary direction="row" align="stretch" justify="flex-start" minWidth="auto" margin="0px 0px 0px 10px">
               <NavItems>
-                <NavItem align="center" margin="0px" minWidth="auto" flex="0">
+                <NavItem align="center" margin="0px 10px" minWidth="auto" flex="0">
                   <HeadAnchor
                     href="https://app.epns.io"
                     target="_blank"
@@ -46,7 +46,7 @@ function Head() {
                   </HeadAnchor>
                 </NavItem>
 
-                <NavSub align="center" margin="0px" minWidth="auto" flex="none">
+                <NavSub align="center" margin="0px 10px" minWidth="auto" flex="none">
                   <NavItem align="center" margin="0px" minWidth="auto" flex="none">
                     <HeadAnchor
                       href="https://app.epns.io"
@@ -57,7 +57,7 @@ function Head() {
                       padding="4px 15px"
                     >
                       <ItemH minWidth="auto" margin="0px" columnGap="5px">
-                        <Span color="#fff" weight="400" size="0.8rem" spacing="0.2em">Docs</Span>
+                        <Span color="#fff" weight="400" size="0.8rem" spacing="0.2em" margin="0px 5px 0px 0px">Docs</Span>
                         <BsChevronDown size={12} color="#fff"/>
                       </ItemH>
                     </HeadAnchor>
@@ -113,9 +113,9 @@ function Head() {
                     bg="transparent"
                     margin="10px 0px"
                     border="1px solid #fff"
-                    padding="4px 15px"
+                    padding="8px 15px"
+                    radius="4px"
                     hover="#e20880"
-                    radius="2px"
                   >
                     Alpha dApp
                   </Anchor>

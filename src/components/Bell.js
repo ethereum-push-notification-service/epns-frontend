@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { AnimateOnChange } from 'react-animation';
 
 // Create Header
-function Bell({ belltheme, badgeCount, bellPressedCB, width, height }) {
+function Bell({ belltheme, badgeCount, bellPressedCB, hideBadge, width, height }) {
   const [badge, setBadge] = React.useState(0);
   const [ring, setRing] = React.useState(false);
 
@@ -37,7 +37,7 @@ function Bell({ belltheme, badgeCount, bellPressedCB, width, height }) {
       <BellImage ring={ring} src="./bell.png" className="tadaaa" ringme={ring} width={width} height={height} />
       <BellImageAbs src="./bellball.png" width={width} height={height} />
       <BellImageAbs src="./ring.png" width={width} height={height} />
-      {badge != 0 &&
+      {badge != 0 && (hideBadge == false || !hideBadge) &&
         <Badge>{badge}</Badge>
       }
     </Container>

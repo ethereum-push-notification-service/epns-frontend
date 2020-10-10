@@ -2,33 +2,39 @@ import React from "react";
 import ReactGA from 'react-ga';
 
 import styled, { css } from 'styled-components';
-import {Section, SectionFS, SectionFSHero, Content, Item, ItemH, WaveOuter, WaveInner, H1, H2, H3, Image, P, Span, Anchor, Button} from 'components/SharedStyling';
-
-import Loader from 'react-loader-spinner'
+import {Section, SectionFS, SectionFSHero, Content, Item, ItemH, ItemBreak, WaveOuter, WaveInner, Arc, H1, H2, H3, Image, P, Span, Anchor, Button, Showoff, FormSubmision, Input, TextField, HideAt} from 'components/SharedStyling';
 
 import YouTube from 'react-youtube';
-import ParticlesBg from "particles-bg";
+import { Tweet } from 'react-twitter-widgets'
+
+import Loader from 'react-loader-spinner';
+
+import Wave from 'react-wavify';
+
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 import { GiTwitter } from 'react-icons/gi';
-import { FaCheckCircle, FaBolt, FaTwitter, FaTelegramPlane, FaMedium, FaGithub, FaGooglePlay } from 'react-icons/fa';
-import { IoMdRocket, IoMdHeart, IoMdNotifications } from 'react-icons/io';
-import { BsChevronExpand } from 'react-icons/bs';
+import { FaCheckCircle, FaSeedling } from 'react-icons/fa';
+import { IoMdRocket } from 'react-icons/io';
+import { BsChevronExpand, BsChevronUp, BsChevronDown } from 'react-icons/bs';
+import { VscClose } from 'react-icons/vsc';
+import { RiHeartsFill } from 'react-icons/ri';
+import { GiReceiveMoney } from 'react-icons/gi';
 
-import Wave from 'react-wavify'
-import { gsap } from 'gsap';
-import { TextPlugin } from 'gsap/TextPlugin';
-import { Controls, PlayState, Tween } from 'react-gsap';
-
+import Medium from 'components/Medium';
 import TeamMember from 'components/TeamMember';
-
-gsap.registerPlugin(TextPlugin);
 
 const randomTeamQuotes = [
   "ONE AMONG US DOESN'T LIKE FARMING 🙀😱",
   "ONE AMONG US HAS A CAT 🐈",
-  "ONE AMONG US HAS A NAME KNOWN TO JUST A FEW 🦸🏻",
+  "ONE AMONG US HAS A NAME KNOWN TO SOME 🦸🏻",
   "ONE AMONG US HAS MORE BTC THAN ETH 😬",
 ]
+
+const contactFormTopics = [
+  'Support', 'Career', 'Others'
+];
 
 // Create Header
 function Home() {
@@ -41,11 +47,26 @@ function Home() {
   const [featuredShowAll, setFeaturedShowAll] = React.useState(false);
   const [playTeaserVideo, setPlayTeaserVideo] = React.useState(false);
 
-  // For the mail form
+  // For the mailing list
   const [mailListProcessing, setMailListProcessing] = React.useState(0);
   const [mailListName, setMailListName] = React.useState('');
   const [mailListEmail, setMailListEmail] = React.useState('');
   const [mailListError, setMailListError] = React.useState('');
+
+  // For Integrations
+  const [integrationShowAll, setIntegrationShowAll] = React.useState(false);
+
+  // For Partners
+  const [partnersShowAll, setPartnersShowAll] = React.useState(false);
+
+  // For the contact form
+  const [contactFormProcessing, setContactFormProcessing] = React.useState(0);
+  const [contactFormName, setContactFormName] = React.useState('');
+  const [contactFormEmail, setContactFormEmail] = React.useState('');
+  const [contactFormTopic, setContactFormTopic] = React.useState(contactFormTopics[0]);
+  const [contactFormSub, setContactFormSub] = React.useState('');
+  const [contactFormMsg, setContactFormMsg] = React.useState('');
+  const [contactFormError, setContactFormError] = React.useState('');
 
   React.useEffect(() => {
 
@@ -56,7 +77,7 @@ function Home() {
 
   // HANDLE EMAIL
   // ---------
-  const handleSubmission = (e) => {
+  const handleMailingListSubmit = (e) => {
     e.preventDefault();
 
     // Check everything in order
@@ -99,11 +120,11 @@ function Home() {
         })
         .then(response => response.json())
         .then(jsondata => {
-            console.log(jsondata);
+            // console.log(jsondata);
             setMailListProcessing(2);
           })
         .catch(err => {
-          console.log(err);
+          // console.log(err);
           setMailListError("Mayday! Mayday! something went wrong. Please retry...");
           setMailListProcessing(0);
         });
@@ -113,10 +134,76 @@ function Home() {
       setMailListProcessing(0);
     }
   }
+  // ---------
 
+  // HANDLE CONTACT FORM
+  // ---------
+  const handleContactFormSubmit = (e) => {
+    e.preventDefault();
+
+    // Check everything in order
+    if (validateEmail(contactFormEmail)) {
+
+      if (isEmpty(contactFormName)) {
+        setContactFormError("Name can't be empty");
+        setContactFormProcessing(0);
+      }
+      else if (isEmpty(contactFormSub)) {
+        setContactFormError("Subject can't be empty");
+        setContactFormProcessing(0);
+      }
+      else if (isEmpty(contactFormMsg)) {
+        setContactFormError("Message can't be empty");
+        setContactFormProcessing(0);
+      }
+      else {
+        setContactFormProcessing(1);
+
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: contactFormEmail,
+            name: contactFormName,
+            topic: contactFormTopic,
+            sub: contactFormSub,
+            msg: contactFormMsg
+          })
+        };
+
+        fetch('https://backend.epns.io/apis/mailing/send_mail', requestOptions)
+          .then(response => response.json())
+          .then(jsondata => {
+              // console.log(jsondata);
+              setContactFormProcessing(2);
+            })
+          .catch(err => {
+            // console.log(err);
+            setContactFormError("Mayday! Mayday! something went wrong. Please retry...");
+            setContactFormProcessing(0);
+          });
+      }
+    }
+    else {
+      setContactFormError("Incorrect e-mail, please check and retry!");
+      setContactFormProcessing(0);
+    }
+  }
+  // ---------
+
+  // HELPER METHODS
+  // ---------
   const validateEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  const isEmpty = (field) => {
+    if (field.trim().length == 0) {
+      return true;
+    }
+
+    return false;
   }
   // ---------
 
@@ -133,15 +220,15 @@ function Home() {
 
                 <Span margin="20px 0px" color="rgba(255, 255, 255, 0.5)" size="1.5rem" weight="200">Protocol for <Span color="#fff" weight="400">Platform Agnostic, </Span><Span color="#fff" weight="400">Incentivized Notifications</Span> from <Span color="rgba(255, 255, 255, 0.5)" weight="600">Blockchain!</Span></Span>
 
-              <ItemH align="flex-start" justify="flex-start" margin="10px 0" columnGap="20px">
-                <Anchor href="https://whitepaper.epns.io" target="_blank" bg="#674c9f" margin="10px 0px" radius="2px">Read Whitepaper</Anchor>
-                <Anchor href="https://whitepaper.epns.io" target="_blank" bg="#674c9f" margin="10px 0px" radius="2px">Integrate</Anchor>
+              <ItemH align="flex-start" justify="flex-start" margin="10px -10px 10px -10px" size="0.8rem">
+                <Anchor href="https://whitepaper.epns.io" title="Read Whitepaper of Ethereum Push Notification Service (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Read Whitepaper</Anchor>
+                <Anchor href="https://whitepaper.epns.io" title="Integrate Ethereum Push Notification Service Protocol (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Integrate</Anchor>
               </ItemH>
 
             </Item>
 
             <HeroBanner margin="0px">
-              <Image src="heroaltv5.png" />
+              <Image src="heroaltv5.png" srcSet="heroaltv5@2x.png 2x, heroaltv5@3x.png 3x" alt="Hero Banner for Ethereum Push Notification Service" />
             </HeroBanner>
           </ItemH>
         </Content>
@@ -171,10 +258,11 @@ function Home() {
         </WaveOuter>
       </SectionFSHero>
 
+
       {/* FEATURED SECTION */}
-      <Section theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)" padding="0px 0px 50px 0px">
+      <Section theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)" padding="0px 0px 80px 0px">
         <Content className="contentBox">
-          <Item margin="20px 20px 20px 20px">
+          <Item margin="20px 0px 20px 0px">
             <Featured>
               <Feature
                 disabled={true}
@@ -191,7 +279,7 @@ function Home() {
                 title="Ethereum Push Notification featured on Official Ethereum Blog"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./esp.png" alt="Ethereum Support Program Logo" />
+                  <FeatureImage src="./esp.png" srcSet="esp@2x.png 2x, esp@3x.png 3x" alt="Ethereum Support Program Logo" />
                 </Item>
               </Feature>
 
@@ -201,7 +289,7 @@ function Home() {
                 title="Coin Telegraph talks about Push Notifications from Ethereum Push Notification Service"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./cointelegraph.png" alt="Coin Telegraph Logo" />
+                  <FeatureImage src="./cointelegraph.png" srcSet="cointelegraph@2x.png 2x, cointelegraph@3x.png 3x" alt="Coin Telegraph Logo" />
                 </Item>
               </Feature>
 
@@ -211,7 +299,7 @@ function Home() {
                 title="Ethereum Push Notification Service selected as top 20 project and unvelied at fireside"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./kernel.png" alt="Gitcoin Kernel Logo" />
+                  <FeatureImage src="./kernel.png" srcSet="kernel@2x.png 2x, kernel@3x.png 3x" alt="Gitcoin Kernel Logo" />
                 </Item>
               </Feature>
 
@@ -221,7 +309,7 @@ function Home() {
                 title="IDEO Collab selected and mentored Ethereum Push Notification Service as 30 projects from 120 projects for Product Validation Day"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./ideo.png" alt="IDEO Collab Product Validation Day Logo" />
+                  <FeatureImage src="./ideo.png" srcSet="ideo@2x.png 2x, ideo@3x.png 3x" alt="IDEO Collab Product Validation Day Logo" />
                 </Item>
               </Feature>
 
@@ -231,7 +319,7 @@ function Home() {
                 title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./ethhub.png" alt="EthHub Logo" />
+                  <FeatureImage src="./ethhub.png" srcSet="ethhub@2x.png 2x, ethhub@3x.png 3x" alt="EthHub Logo" />
                 </Item>
               </Feature>
 
@@ -241,7 +329,7 @@ function Home() {
                 title="DeFi Dad upcoming podcast about EPNS"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./defidad.png" alt="DeFi Dad Logo" />
+                  <FeatureImage src="./defidad.png" srcSet="defidad@2x.png 2x, defidad@3x.png 3x" alt="DeFi Dad Logo" />
                 </Item>
               </Feature>
 
@@ -251,7 +339,7 @@ function Home() {
                 title="EDCON Panel featuring Harsh Rajat, founder, EPNS talks about DeFi Cross Composability"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./edcon.png" alt="Edcon Logo" />
+                  <FeatureImage src="./edcon.png" srcSet="edcon@2x.png 2x, edcon@3x.png 3x" alt="Edcon Logo" />
                 </Item>
               </Feature>
 
@@ -263,7 +351,7 @@ function Home() {
                     title="INC42 talks about epnsproject and how dApps can benefit from it"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./inc42.png" alt="INC42 Logo" />
+                      <FeatureImage src="./inc42.png" srcSet="inc42@2x.png 2x, inc42@3x.png 3x" alt="INC42 Logo" />
                     </Item>
                   </Feature>
 
@@ -273,7 +361,7 @@ function Home() {
                     title="Paradigm features epnsproject"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./paradigm.png" alt="Paradigm Logo" />
+                      <FeatureImage src="./paradigm.png" srcSet="paradigm@2x.png 2x, paradigm@3x.png 3x" alt="Paradigm Logo" />
                     </Item>
                   </Feature>
 
@@ -284,7 +372,7 @@ function Home() {
                     bg="#e20880"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./defipulse.png" alt="DefiPulse Logo" />
+                      <FeatureImage src="./defipulse.png" srcSet="defipulse@2x.png 2x, defipulse@3x.png 3x" alt="DefiPulse Logo" />
                     </Item>
                   </Feature>
 
@@ -294,7 +382,7 @@ function Home() {
                     title="MojKripto deep dives into Ethereum Push Notification Service and the team behind it!"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./mojkripto.png" alt="MojKripto Logo"/>
+                      <FeatureImage src="./mojkripto.png" srcSet="mojkripto@2x.png 2x, mojkripto@3x.png 3x" alt="MojKripto Logo"/>
                     </Item>
                   </Feature>
                 </>
@@ -338,132 +426,310 @@ function Home() {
         </WaveOuter>
       </Section>
 
-      {/* VISION SECTION */}
-      <Section theme="#fff" padding="20px 0px 20px 0px">
+
+      {/* PROBLEM AND SOLUTION - PART 1 */}
+      <Section theme="#fff" padding="0px 0px 0px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
+            {/* THE PROBLEM */}
+            <Item align="flex-start" padding="0px 0px 40px 0px">
+              <Item align="stretch" justify="flex-start" margin="0px 0px 20px 0px">
+                <H2 textTransform="uppercase" spacing="0.1em">
+                  <Span weight="200">The </Span><Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Problem</Span>
+                </H2>
+                <H3 maxWidth="400px">Why EPNS is the missing piece of Web3 Infrastructure</H3>
+              </Item>
+
+              <ItemH margin="10px -20px 10px -20px" align="stretch" flex="auto">
+                <EmphasisBlock margin="10px 10px">
+                  <EmphasisImage margin="20px" padding="20px">
+                    <Image src="stone.png" srcSet="stone@2x.png 2x, stone@3x.png 3x" alt="Cavemen representing the current blockchain communication" />
+                  </EmphasisImage>
+
+                  <EmphasisText>
+                    Services expect Users to repeatedly check their Actions.
+                  </EmphasisText>
+                </EmphasisBlock>
+
+                <EmphasisBlock margin="10px 10px">
+                  <EmphasisImage>
+                    <Image src="quiet.png" srcSet="quiet@2x.png 2x, quiet@3x.png 3x" atl="Missing poster of EPNS alert" />
+                  </EmphasisImage>
+
+                  <EmphasisText>
+                    Lack of Alerts for any Web3 Activity to Wallet Addresses.
+                  </EmphasisText>
+                </EmphasisBlock>
+
+                <EmphasisBlock margin="10px 10px">
+                  <EmphasisImage>
+                    <Image src="angry.png" srcSet="angry@2x.png 2x, angry@3x.png 3x" alt="Angry Unicorn cat for missing out on important alerts" />
+                  </EmphasisImage>
+
+                  <EmphasisText>
+                    Leads to Communication Void, UX and Engagement suffers Terribly.
+                  </EmphasisText>
+                </EmphasisBlock>
+              </ItemH>
+            </Item>
+
+            {/* THE SOLUTION */}
             {playTeaserVideo &&
               <PreviewOuter>
-                <Anchor
+                <PreviewBG
                   href="#"
                   bg="transparent"
                   onClick={(e) => {e.preventDefault(); setPlayTeaserVideo(!playTeaserVideo)}}
+                  flex="1"
+
                 >
                   <Content className="contentBox">
+                    <PreviewClose
+                      href="#"
+                      bg="transparent"
+                      hover="transparent"
+                      hoverBG="transparent"
+                      onClick={(e) => {e.preventDefault(); setPlayTeaserVideo(!playTeaserVideo)}}
+                    >
+                      <VscClose size={40} color="#fff"/>
+                    </PreviewClose>
                     <Preview>
-                      <div class='videoWrapper'><iframe src="https://www.youtube.com/embed/kwwnlmUpRsk?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                      <div class='videoWrapper'><iframe src="https://www.youtube.com/embed/kwwnlmUpRsk?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                     </Preview>
                   </Content>
-                </Anchor>
+                </PreviewBG>
               </PreviewOuter>
             }
 
-            <Item align="flex-start" margin="0px 0px 20px 0px">
-              <H2 textTransform="uppercase" spacing="0.1em">
-                <Span weight="200">The </Span><Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Problem</Span>
-              </H2>
-              <H3>Why EPNS is the missing piece of Web3 Infrastructure</H3>
-              <Span size="1.2rem">Blockchain still operates in stone age, the communicate layer is non-existent even for crucial DeFi related activities. Contrast this to traditional services and we quickly see how notifications have made everything from payments, social, games, services a breeze. This is what Ethereum Push Notification aims to build.</Span>
+            <Item padding="20px 0px 60px 0px">
+              <Item self="stretch" align="flex-end" tabletAlign="flex-start" margin="20px 0px" textAlign="right" tabletTextAlign="left" >
+                <H2 textTransform="uppercase" spacing="0.1em">
+                  <Span weight="200">The </Span><Span bg="#674c9f" color="#fff" weight="600" padding="0px 8px">Solution</Span>
+                </H2>
+                <H3>Creating a decentralized middleware for all dapps / smart contracts / web3 services</H3>
+              </Item>
+
+              <ItemH margin="20px -30px" columnGap="60px" rowGap="30px">
+                <Item margin="30px 30px" minWidth="auto" align="center" minWidth="280px">
+                  <Anchor
+                    href="#"
+                    bg="transparent"
+                    onClick={(e) => {e.preventDefault(); setPlayTeaserVideo(!playTeaserVideo)}}
+                    radius="12px"
+                  >
+                    <Image src="youtubeplay.png" srcSet="youtubeplay@2x.png 2x, youtubeplay@3x.png 3x" />
+                  </Anchor>
+                </Item>
+
+                <Item margin="10px 30px" align="flex-start" size="1.2rem" rowGap="60px" minWidth="280px">
+                  <ShadowBox align="flex-start" bg="#e20880" margin="30px 0px">
+                    <Showoff
+                      right="-20px"
+                      bottom="-20px"
+                      opacity="0.2"
+                    >
+                      <FaSeedling size={140} color="#fff"/>
+                    </Showoff>
+                    <H2 textTransform="uppercase" spacing="0.1em" margin="30px 0px 0px -1px">
+                      <Span bg="#fff" color="#000" weight="600" padding="0px 8px">Content Independent</Span>
+                    </H2>
+                    <Span margin="20px" color="#fff" weight="200">Protocol doesn't dictate what what content can or can't be delivered to users of a service, that option is left on the Service. In other words, <b>Services decide what to communicate</b> to their users!</Span>
+                  </ShadowBox>
+                  <ShadowBox align="flex-start" bg="#674c9f" margin="30px 0px">
+                    <Showoff
+                      right="-20px"
+                      bottom="-20px"
+                      opacity="0.2"
+                    >
+                      <RiHeartsFill size={140} color="#fff"/>
+                    </Showoff>
+                    <H2 textTransform="uppercase" spacing="0.1em" margin="30px 0px 0px -1px">
+                      <Span bg="#fff" color="#000" weight="600" padding="0px 8px">User Centric</Span>
+                    </H2>
+                    <Span margin="20px" color="#fff" weight="200"><b>User always opts in</b> for alerts from a service before they can notify you. Indirect consent, while an option will require the service to reward you first!</Span>
+                  </ShadowBox>
+                  <ShadowBox align="flex-start" bg="#35c5f3" margin="30px 0px">
+                    <Showoff
+                      right="-20px"
+                      bottom="-20px"
+                      opacity="0.2"
+                    >
+                      <GiReceiveMoney size={140} color="#fff"/>
+                    </Showoff>
+                    <H2 textTransform="uppercase" spacing="0.1em" margin="30px 0px 0px -1px">
+                      <Span bg="#fff" color="#000" weight="600" padding="0px 8px">Incentivized Alerts!</Span>
+                    </H2>
+                    <Span margin="20px" color="#fff">We are a DeFi protocol but a different one! We use <b>Staking</b> by Service, that is <b>Lend</b> out to AAVE to generate <b>Interest</b> which is distributed among the service's subscribers.</Span>
+                  </ShadowBox>
+                </Item>
+
+              </ItemH>
             </Item>
-
-            <ItemH columnGap="40px" rowGap="20px">
-              <Item minWidth="auto" align="center">
-                <Anchor
-                  href="#"
-                  bg="transparent"
-                  onClick={(e) => {e.preventDefault(); setPlayTeaserVideo(!playTeaserVideo)}}
-                >
-                  <Image src="youtubeplay.png" />
-                </Anchor>
-              </Item>
-
-              <Item align="flex-start" size="1.2rem">
-                <Item align="flex-start">
-                  <H2 color="#e20880">What<Span weight="200"> are we </Span><Span weight="200" color="#e20880">#BUIDLing?</Span></H2>
-                  <Span>We are building a decentralized middleware through which any blockchain app (or even centralized one) can send notifications to wallet addresses.</Span>
-                </Item>
-                <Item align="flex-start">
-                  <H2 color="#35c5f3">Why<Span weight="200"> is it required?</Span></H2>
-                  <Span>Notifications improve user engagement and experience. For blockchain apps to be enter mainstream, they need to reach out to users instead of expecting users to come to them.</Span>
-                </Item>
-                <Item align="flex-start">
-                  <H2 color="#674c9f">Incentivized<Span weight="200"> Notifications!?</Span></H2>
-                  <Span>Not only users are able to receive notifications, but they can earn from them as well! EPNS uses DeFi to <b>Lend</b> out staking fee from services and distributes the <b>Interest</b> generated by it to the users who have opted in to recieve notifications from specific service!</Span>
-                </Item>
-              </Item>
-
-            </ItemH>
           </Item>
-
         </Content>
-        <WaveOuter>
-          <WaveInner>
-            <Wave fill='#f1f1f1'
-              paused={true}
-              options={{
-                height: 20,
-                amplitude: 15,
-                speed: 0.5,
-                points: 4
-              }}
-            />
-          </WaveInner>
-        </WaveOuter>
       </Section>
 
+
       {/* SUBSCRIBE SECTION */}
-      {/*}
-      <Section theme="#f1f1f1" padding="0px 0px 30px 0px">
+      <Section theme="#f1f1f1" padding="10px 0px 30px 0px" overflow="hidden">
+        <BlurBG />
+        <Arc arcRGB="#ffffff" top="-55px"/>
 
-        <Content className="contentBox">
-          <Item margin="20px 20px 0px 20px">
-            <Item self="stretch" align="stretch" margin="0px 0px 40px 0px">
-              <FooterSubInner>
-                {mailListProcessing == 0 &&
-                  <Showoff><IoMdRocket size={24} color="#674c9f"/></Showoff>
-                }
-                <FormSubmision onSubmit={handleSubmission}>
-                  {mailListProcessing == 0 &&
-                    <>
-                      <FormTitle>Subscribe to our mailing list!</FormTitle>
-                      <Row>
-                        <Header>Name</Header>
-                        <Input placeholder="John Wick" value={mailListName} onChange={(e) => {setMailListName(e.target.value)}} autocomplete="name" />
-                      </Row>
+        <Content className="contentBox" padding="60px 0px 40px 0px">
+          <Item margin="0px 20px 0px 20px">
+            <Item self="stretch" align="stretch" margin="20px 0px 40px 0px">
+              <Showoff
+                left="-130px"
+                tabletLeft="-60px"
+                transform="rotate(45deg)"
+                tabletOpacity="0.4"
+              >
+                <IoMdRocket size={120} color="#fff"/>
+              </Showoff>
 
-                      <RowEmail>
-                        <Header>Email</Header>
-                        <Input required placeholder="john@wick.com" value={mailListEmail} onChange={(e) => {setMailListEmail(e.target.value)}} autocomplete="email"  />
-                      </RowEmail>
-                    </>
-                  }
+              <ItemH>
+                <FormSubmision
+                  flex="1"
+                  direction="row"
+                  margin="20px 0px"
+                  justify="center"
+                  rowGap="20px"
+                  columnGap="20px"
+                  size="1.1rem"
+                  onSubmit={handleMailingListSubmit}
+                >
 
-                  {mailListProcessing != 2 &&
-                    <Subscribe theme='#e20880' disabled={mailListProcessing}>
-                      {mailListProcessing == 1 &&
-                        <Loader
-                           type="Oval"
-                           color="#fff"
-                           height={16}
-                           width={16}
-                          />
-                      }
+                  <Item align="stretch">
+                    <Span weight="300" textTransform="uppercase" color="#fff" spacing="0.1em">Subscribe to our mailing list!</Span>
+                    <ItemH margin="10px -15px" rowGap="20px" columnGap="20px">
                       {mailListProcessing == 0 &&
-                        <Submit type="submit" value="Submit" />
+                        <>
+                          <Item flex="1" margin="10px 15px" justify="flex-start" align="stretch" minWidth="280px">
+                            <Input
+                              radius="4px"
+                              padding="12px"
+                              bg="#fff"
+                              border="12px"
+                              placeholder="John Wick"
+                              value={mailListName}
+                              onChange={(e) => {setMailListName(e.target.value)}}
+                              autocomplete="name"
+                            />
+                              {mailListName.trim().length == 0 &&
+                                <Span
+                                  padding="4px 10px"
+                                  right="0px"
+                                  top="0px"
+                                  pos="absolute"
+                                  color="#fff"
+                                  bg="#000"
+                                  size="0.7rem"
+                                  z="1"
+                                >
+                                  Name
+                                </Span>
+                              }
+                          </Item>
+
+                          <Item flex="5" margin="10px 15px" justify="flex-start" align="stretch" minWidth="280px">
+                            <Input
+                              required
+                              placeholder="john@wick.com"
+                              radius="4px"
+                              padding="12px"
+                              bg="#fff"
+                              value={mailListEmail}
+                              onChange={(e) => {setMailListEmail(e.target.value)}}
+                              autocomplete="email"
+                            />
+                              {mailListEmail.trim().length == 0 &&
+                                <Span
+                                  padding="4px 10px"
+                                  right="0px"
+                                  top="0px"
+                                  pos="absolute"
+                                  color="#fff"
+                                  bg="#000"
+                                  size="0.7rem"
+                                  z="1"
+                                >
+                                  E-mail
+                                </Span>
+                              }
+                          </Item>
+                        </>
                       }
-                    </Subscribe>
-                  }
 
-                  {mailListProcessing == 2 &&
-                    <Text><Gap><FaCheckCircle size={24} color="#674c9f"/></Gap>Thanks for Subscribing! We will be in Touch :)</Text>
-                  }
+                      <Item flex="1" margin="10px 15px" justify="stretch" self="stretch" align="stretch" minWidth="280px">
+                        {mailListProcessing != 2 &&
+                          <Button
+                            bg='#000'
+                            color='#fff'
+                            flex="1"
+                            radius="4px"
+                            disabled={mailListProcessing}
+                          >
+                            {mailListProcessing == 1 &&
+                              <Loader
+                                 type="Oval"
+                                 color="#fff"
+                                 height={24}
+                                 width={24}
+                                />
+                            }
+                            {mailListProcessing == 0 &&
+                              <Input cursor="hand" color="#fff" weight="400" size="0.8em" spacing="0.2em" type="submit" value="Submit" />
+                            }
+                          </Button>
+                        }
+                      </Item>
+                    </ItemH>
+                  </Item>
 
-                  {mailListError && mailListProcessing == 0 &&
-                    <FormError>{mailListError}</FormError>
-                  }
+                  <ItemBreak />
+
+                  <Item align="center">
+                    {mailListProcessing == 2 &&
+                      <ItemH
+                        color="#fff"
+                        bg="#000"
+                        padding="10px 15px"
+                        columnGap="0px"
+                        rowGap="0px"
+                      >
+                        <FaCheckCircle size={24} color="#fff"/>
+                        <Span
+                          padding="0px 0px 0px 8px"
+                          color="#fff"
+                          textTransform="uppercase"
+                          spacing="0.1em"
+                        >
+                          Thanks for Subscribing! We will be in Touch :)
+                        </Span>
+                      </ItemH>
+                    }
+
+                    {mailListError && mailListProcessing == 0 &&
+                      <Item
+                        color="#fff"
+                        bg="#000"
+                        padding="10px 15px"
+                        columnGap="0px"
+                        rowGap="0px"
+                      >
+                        <Span
+                          color="#fff"
+                          textTransform="uppercase"
+                          spacing="0.1em"
+                        >
+                          {mailListError}
+                        </Span>
+                      </Item>
+                    }
+                  </Item>
                 </FormSubmision>
 
-              </FooterSubInner>
+              </ItemH>
             </Item>
 
           </Item>
@@ -474,25 +740,300 @@ function Home() {
             <Wave fill='#fff'
               paused={true}
               options={{
-                height: 10,
-                amplitude: 15,
-                speed: 0.5,
-                points: 4
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
               }}
             />
           </WaveInner>
         </WaveOuter>
       </Section>
-      */}
 
-      {/* TEAM SECTION | 1=Founder, 2=Founder+Lead, 3=Founder+Team, 4=Lead, 5=Team, 6=Advisor */}
-      <Section theme="#fff" padding="20px 0px 20px 0px">
+
+      {/* NOTIFICATION SECTION - PART 2 */}
+      <Section theme="#fff" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
-            <H2 textTransform="uppercase" spacing="0.1em">
-              <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Meet</Span><Span weight="200"> the Team</Span>
-            </H2>
-            <H3>{randomTeamQuotes[Math.floor(Math.random() * (randomTeamQuotes.length))]}</H3>
+            <Item align="stretch" justify="flex-start" margin="0px 0px 40px 0px">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span bg="#35c5f3" color="#fff" weight="600" padding="0px 8px">Notifications</Span><Span weight="200"> Enabled Platforms</Span>
+              </H2>
+            </Item>
+
+
+
+          </Item>
+        </Content>
+
+        <WaveOuter>
+          <WaveInner>
+            <Wave fill='#f1f1f1'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
+      </Section>
+
+
+      {/* PARTNERS AND COLLABORATORS */}
+      <Section theme="#f1f1f1" padding="20px 0px 80px 0px">
+        <Content className="contentBox">
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="0px 0px 40px 0px" textAlign="right" tabletTextAlign="left">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Partners</Span><Span weight="200"> AND <Span bg="#674c9f" color="#fff" weight="600" padding="0px 8px">Collaborators</Span></Span>
+              </H2>
+              <H3>Let's talk partnerships</H3>
+            </Item>
+
+            <ItemH margin="20px 0px 40px 0px" rowGap="40px" columnGap="40px" align="stretch" justify="space-between">
+              <Partner minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://medium.com/"
+                  target="_blank"
+                  title="Article talking about collaboration between Unstoppable Domain and Ethereuem Push Notificaion Service"
+                  bg="#fff"
+                  hover="#eee"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item margin="30px 60px" maxWidth="320px">
+                      <Image
+                        src="./unstoppable.png"
+                        srcSet="unstoppable@2x.png 2x, unstoppable@3x.png 3x"
+                        alt="UnstoppableDomains Logo"
+                      />
+                    </Item>
+                    <Span bg="#000" color="#fff" margin="20px 0px" padding="12px" textAlign="center">EPNS Collaborates with Unstoppable Domains</Span>
+                  </Item>
+                </Anchor>
+              </Partner>
+
+              <Partner minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://medium.com/ethereum-push-notification-service/epns-awarded-aave-grant-cc618dd48915"
+                  target="_blank"
+                  title="Article talking Ethereum Push Notification Service winning grant from AAVE"
+                  bg="#fff"
+                  hover="#000"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item margin="30px 60px" maxWidth="320px">
+                      <Image
+                        src="./aave.png"
+                        srcSet="aave@2x.png 2x, aave@3x.png 3x"
+                        alt="AAVE Logo"
+                      />
+                    </Item>
+                    <Span bg="#000" color="#fff" margin="20px 0px" padding="12px" textAlign="center">EPNS wins Grant from AAVE 👻</Span>
+                  </Item>
+                </Anchor>
+              </Partner>
+
+              <Partner minWidth="280px">
+                <Anchor
+                  href="https://medium.com/ethereum-push-notification-service/epns-secures-partnership-with-matic-along-with-a-sweet-grant-b956a85c3151"
+                  target="_blank"
+                  title="Article talking about winning Grant and Partnership with Matic"
+                  bg="#fff"
+                  hover="#000"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item margin="30px 60px" maxWidth="320px">
+                      <Image
+                        src="./matic.png"
+                        srcSet="matic@2x.png 2x, matic@3x.png 3x"
+                        alt="Matic Logo"
+                      />
+                    </Item>
+                    <Span bg="#000" color="#fff" margin="20px 0px" padding="12px" textAlign="center">EPNS Wins Grants / Partners with Matic</Span>
+                  </Item>
+                </Anchor>
+              </Partner>
+
+              {/* Future ones
+              {partnersShowAll &&
+                <>
+                  <Partner align="stretch">
+                    <Anchor
+                      href="https://medium.com/"
+                      target="_blank"
+                      title="Article talking about Uniswap and Ethereuem Push Notificaion Service Partnership"
+                      bg="#fff"
+                      hover="#000"
+                      radius="12px"
+                      align="stretch"
+                    >
+                      <Item>
+                        <Item margin="30px 60px" maxWidth="320px" align="stretch">
+                          <Image
+                            src="./uniswap.png"
+                            srcSet="uniswap@2x.png 2x, uniswap@3x.png 3x"
+                            alt="Uniswap Logo"
+                          />
+                        </Item>
+                        <Span bg="#000" color="#fff" margin="20px 0px" padding="12px">Uniswap will integrate EPNS Protocol</Span>
+                      </Item>
+                    </Anchor>
+                  </Partner>
+
+                  <Partner minWidth="280px" align="stretch">
+                    <Anchor
+                      href="https://medium.com/"
+                      target="_blank"
+                      title="Article talking about how Gitcoin will be integrating EPNS Protocol"
+                      bg="#fff"
+                      hover="#eee"
+                      radius="12px"
+                      align="stretch"
+                    >
+                      <Item>
+                        <Item margin="30px 60px" maxWidth="320px">
+                          <Image
+                            src="./gitcoin.png"
+                            srcSet="gitcoin@2x.png 2x, gitcoin@3x.png 3x"
+                            alt="Gitcoin Logo"
+                          />
+                        </Item>
+                        <Span bg="#000" color="#fff" margin="20px 0px" padding="12px" textAlign="center">EPNS ❤️ Gitcoin</Span>
+                      </Item>
+                    </Anchor>
+                  </Partner>
+                </>
+              }
+
+              <ItemBreak />
+
+              <Partner minWidth="280px" align="stretch" margin="-30px 0px 0px 0px">
+                <Anchor
+                  href="#"
+                  onClick={(e) => {e.preventDefault(); setPartnersShowAll(!partnersShowAll)}}
+                  title="Toggle Show All / Fewer items in partners and collaborators section"
+                  bg="#fff"
+                  hover="#eee"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <ItemH minWidth="auto">
+                    <Item minWidth="auto" flex="none">
+                      {!partnersShowAll &&
+                        <BsChevronDown size={40} color="#000"/>
+                      }
+                      {partnersShowAll &&
+                        <BsChevronUp size={40} color="#000"/>
+                      }
+                    </Item>
+                  </ItemH>
+                </Anchor>
+              </Partner>
+              */}
+            </ItemH>
+          </Item>
+        </Content>
+
+        <WaveOuter>
+          <WaveInner>
+            <Wave fill='#e20880'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
+      </Section>
+
+
+      {/* FOLLOW OUR STORY */}
+      <Section theme="#e20880" padding="20px 0px 80px 0px">
+        <Content className="contentBox">
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            <Item align="stretch" justify="flex-start" margin="0px 0px 40px 0px">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span weight="200" color="#fff">What's the </Span><Span bg="#000" color="#fff" weight="600" padding="0px 8px">Latest</Span>
+              </H2>
+              <H3 color="#fff">Our Journey so far</H3>
+            </Item>
+
+            <Medium numberOfPosts={3} />
+
+            <ItemH margin="20px 0px 20px 0px" justify="space-between" align="flex-start" columnGap="40px" rowGap="40px">
+              <TweetItem>
+                <Tweet
+                  tweetId="1305795954742898691"
+                  options={{ theme: "dark", align: "center" }}
+                />
+              </TweetItem>
+
+              <TweetItem>
+                <Tweet
+                  tweetId="1273731681287933953"
+                  options={{ theme: "dark", align: "center" }}
+                />
+              </TweetItem>
+            </ItemH>
+
+            <Item margin="0px 0px 40px 0px" align="flex-end" justify="space-between">
+              <Anchor
+                href="https://medium.com/ethereum-push-notification-service"
+                target="_blank"
+                title="Read Medium Blog of Ethereum Push Notification Service"
+                bg="#000"
+                color="#fff"
+                spacing="0.2em"
+                size="0.8rem"
+                margin="10px 0px"
+                radius="4px"
+              >
+                Read More
+              </Anchor>
+            </Item>
+
+          </Item>
+        </Content>
+
+        <WaveOuter>
+          <WaveInner>
+            <Wave fill='#fff'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
+      </Section>
+
+
+      {/* TEAM SECTION | 1=Founder, 2=Founder+Lead, 3=Founder+Team, 4=Lead, 5=Team, 6=Advisor */}
+      <Section theme="#fff" padding="20px 0px 80px 0px">
+        <Content className="contentBox">
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            <Item align="stretch" justify="flex-start" margin="0px 0px 20px 0px">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Meet</Span><Span weight="200"> the Team</Span>
+              </H2>
+              <H3>{randomTeamQuotes[Math.floor(Math.random() * (randomTeamQuotes.length))]}</H3>
+            </Item>
+
             <ItemH self="stretch" align="stretch" margin="20px 0px" rowGap="20px" columnGap="40px" minWidth="auto">
               <TeamMember
                 img="Harsh.jpg"
@@ -561,6 +1102,8 @@ function Home() {
                 twitter="https://twitter.com/robin_rrtx"
                 linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
               />
+            </ItemH>
+            <ItemH self="stretch" align="stretch" margin="20px 0px" rowGap="20px" columnGap="40px" minWidth="auto">
               <TeamMember
                 img="Nischal.jpg"
                 type={6}
@@ -573,7 +1116,7 @@ function Home() {
                 img="DefiDad.jpg"
                 type={6}
                 name="DeFi Dad"
-                title="CMO, Zapier.Fi"
+                title="COO, Zapper.Fi"
                 twitter="https://twitter.com/DeFi_Dad"
               />
               <TeamMember
@@ -589,35 +1132,687 @@ function Home() {
 
           </Item>
         </Content>
+
+        <WaveOuter>
+          <WaveInner>
+            <Wave fill='#35c5f3'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
       </Section>
 
-      {/* MISC SECTION */}
-      {/*
-      <Section theme="#fafafa" padding="0px 0px 30px 0px">
+
+      {/* CONTACT US SECTION */}
+      <Section theme="#35c5f3" padding="20px 0px 80px 0px">
         <Content className="contentBox">
-          <Item margin="20px 20px 0px 20px" align="flex-start">
-              <ItemH self="stretch" align="stretch" margin="20px 0px" columnGap="40px">
-                <Item>
-                  <FooterSubTitle>Follow our story!  <IoMdHeart size={18} color="#C51104"/></FooterSubTitle>
-                  <FooterSubInner>
-                    <FooterLink bg="#e20880" href="https://twitter.com/epnsproject" target="_blank"><FaTwitter size={20} color="#fff"/></FooterLink>
-                    <FooterLink bg="#674c9f" href="https://t.me/epnsproject" target="_blank"><FaTelegramPlane size={20} color="#fff"/></FooterLink>
-                    <FooterLink bg="#35c5f3" href="https://medium.com/@epnsproject" target="_blank"><FaMedium size={20} color="#fff"/></FooterLink>
-                  </FooterSubInner>
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="0px 0px 20px 0px" textAlign="right" tabletTextAlign="left">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span bg="#fff" color="#000" weight="600" padding="0px 8px">Contact</Span><Span weight="200" color="#fff"> Us!</Span>
+              </H2>
+              <H3 color="#fff">Get in Touch</H3>
+            </Item>
+
+            <Item margin="20px 0px" justify="stretch">
+              <FormSubmision
+                flex="1"
+                direction="row"
+                margin="20px 0px"
+                justify="stretch"
+                rowGap="20px"
+                columnGap="20px"
+                size="1.1rem"
+                onSubmit={handleContactFormSubmit}
+              >
+
+                <Item align="stretch" justify="stretch" rowGap="20px" columnGap="20px">
+                  {contactFormProcessing == 0 &&
+                    <>
+                      <ItemH rowGap="20px" columnGap="20px" align="stretch">
+
+                        <Item flex="1" justify="flex-start" align="stretch" minWidth="280px">
+                          <Input
+                            radius="4px"
+                            padding="12px"
+                            bg="#fff"
+                            border="12px"
+                            placeholder="John Wick"
+                            value={contactFormName}
+                            onChange={(e) => {setContactFormName(e.target.value)}}
+                            autocomplete="name"
+                          />
+                            {contactFormName.trim().length == 0 &&
+                              <Span
+                                padding="4px 10px"
+                                right="0px"
+                                top="0px"
+                                pos="absolute"
+                                color="#fff"
+                                bg="#000"
+                                size="0.7rem"
+                                z="1"
+                              >
+                                Name
+                              </Span>
+                            }
+                        </Item>
+
+                        <Item flex="5" justify="flex-start" align="stretch" minWidth="280px">
+                          <Input
+                            required
+                            placeholder="john@wick.com"
+                            radius="4px"
+                            padding="12px"
+                            bg="#fff"
+                            value={contactFormEmail}
+                            onChange={(e) => {setContactFormEmail(e.target.value)}}
+                            autocomplete="email"
+                          />
+                            {contactFormEmail.trim().length == 0 &&
+                              <Span
+                                padding="4px 10px"
+                                right="0px"
+                                top="0px"
+                                pos="absolute"
+                                color="#fff"
+                                bg="#000"
+                                size="0.7rem"
+                                z="1"
+                              >
+                                E-mail
+                              </Span>
+                            }
+                        </Item>
+                      </ItemH>
+
+                      <Item flex="5" justify="flex-start" align="stretch" minWidth="280px">
+                        <DropdownStyled options={contactFormTopics} onChange={(option) => setContactFormTopic(option.value)} value={contactFormTopic} placeholder="Select an option" />
+                      </Item>
+
+                      <Item justify="center" align="stretch" minWidth="280px">
+                        <Input
+                          required
+                          placeholder="I want to tell you guys a secret!"
+                          radius="4px"
+                          padding="12px"
+                          bg="#fff"
+                          value={contactFormSub}
+                          onChange={(e) => {setContactFormSub(e.target.value)}}
+                          autocomplete="subject"
+                        />
+                          {contactFormSub.trim().length == 0 &&
+                            <Span
+                              padding="4px 10px"
+                              right="0px"
+                              top="0px"
+                              pos="absolute"
+                              color="#fff"
+                              bg="#000"
+                              size="0.7rem"
+                              z="1"
+                            >
+                              Subject
+                            </Span>
+                          }
+                      </Item>
+
+                      <Item justify="center" align="stretch" minWidth="280px">
+                        <TextField
+                          required
+                          placeholder="This is where you will tell us that secret, or a bug or whatever is on your mind."
+                          rows="6"
+                          radius="4px"
+                          padding="12px"
+                          bg="#fff"
+                          value={contactFormMsg}
+                          onChange={(e) => {setContactFormMsg(e.target.value)}}
+                          autocomplete="message"
+                        />
+                      </Item>
+                    </>
+                  }
+
+                  <Item align="center">
+                    {contactFormProcessing == 2 &&
+                      <ItemH
+                        color="#e20880"
+                        bg="#000"
+                        padding="10px 15px"
+                        columnGap="0px"
+                        rowGap="0px"
+                      >
+                        <FaCheckCircle size={24} color="#fff"/>
+                        <Span
+                          padding="0px 0px 0px 8px"
+                          color="#fff"
+                          textTransform="uppercase"
+                          spacing="0.1em"
+                        >
+                          Message Sent! We will be in Touch :)
+                        </Span>
+                      </ItemH>
+                    }
+
+                    {contactFormError && contactFormProcessing == 0 &&
+                      <Item
+                        color="#e20880"
+                        bg="#000"
+                        padding="10px 15px"
+                        columnGap="0px"
+                        rowGap="0px"
+                      >
+                        <Span
+                          color="#fff"
+                          textTransform="uppercase"
+                          spacing="0.1em"
+                        >
+                          {contactFormError}
+                        </Span>
+                      </Item>
+                    }
+                  </Item>
+
+                  <Item justify="stretch" self="stretch" align="stretch" minWidth="280px">
+                    {contactFormProcessing != 2 &&
+                      <Button
+                        bg='#000'
+                        color='#fff'
+                        flex="1"
+                        radius="4px"
+                        disabled={contactFormProcessing}
+                      >
+                        {contactFormProcessing == 1 &&
+                          <Loader
+                             type="Oval"
+                             color="#fff"
+                             height={24}
+                             width={24}
+                            />
+                        }
+                        {contactFormProcessing == 0 &&
+                          <Input cursor="hand" color="#fff" weight="400" size="0.8em" spacing="0.2em" type="submit" value="Submit" />
+                        }
+                      </Button>
+                    }
+                  </Item>
                 </Item>
-                <Item>
-                  <FooterSubTitle>Check out Repo / Early (Alpha) Access</FooterSubTitle>
-                  <FooterSubInner>
-                    <FooterLink bg="#e20880" href="https://github.com/ethereum-push-notification-service" target="_blank"><FaGithub size={20} color="#fff"/></FooterLink>
-                    <FooterLink bg="#674c9f" href="https://play.google.com/store/apps/details?id=io.epns.epns" target="_blank"><FaGooglePlay size={20} color="#fff"/></FooterLink>
-                    <FooterLink bg="#35c5f3" href="https://app.epns.io" target="_blank"><IoMdNotifications size={20} color="#fff"/></FooterLink>
-                  </FooterSubInner>
-                </Item>
-              </ItemH>
+              </FormSubmision>
+            </Item>
+
+          </Item>
+        </Content>
+
+        <WaveOuter>
+          <WaveInner>
+            <Wave fill='#fff'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
+      </Section>
+
+
+      {/* INVESTORS SECTION */}
+      <Section theme="#fff" padding="20px 0px 120px 0px">
+        <Content className="contentBox">
+          <Item align="stretch" justify="flex-start" margin="0px 20px">
+            <Item align="stretch" align="flex-start" margin="0px 0px 20px 0px">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span bg="#35c5f3" color="#fff" weight="600" padding="0px 8px">Backed</Span><Span weight="200"> By</Span>
+              </H2>
+            </Item>
+
+            <VCs margin="0px 0px 20px 0px"s align="stretch" justify="center">
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://www.thelao.io/"
+                  target="_blank"
+                  title="Learn about our Investor - TheLAO"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/thelao.png"
+                        srcSet="./investors/thelao@2x.png 2x, ./investors/thelao@3x.png 3x"
+                        alt="Logo of The LAO, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://www.metacartel.org/"
+                  target="_blank"
+                  title="Learn about our Investor - Meta Cartel"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/metacartel.png"
+                        srcSet="./investors/metacartel@2x.png 2x, ./investors/metacartel@3x.png 3x"
+                        alt="Logo of Meta Cartel, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://koji.capital/"
+                  target="_blank"
+                  title="Learn about our Investor - KOJI Capital"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/kojicapital.png"
+                        srcSet="./investors/kojicapital@2x.png 2x, ./investors/kojicapital@3x.png 3x"
+                        alt="Logo of KOJI Capital, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://proofsystems.io/"
+                  target="_blank"
+                  title="Learn about our Investor - ProofSystems"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/proofsystems.png"
+                        srcSet="./investors/proofsystems@2x.png 2x, ./investors/proofsystems@3x.png 3x"
+                        alt="Logo of Proof Systems, Digital Marketing Agency"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://moonwhale.io"
+                  target="_blank"
+                  title="Learn about our Investor - Moonwhale"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/moonwhale.png"
+                        srcSet="./investors/moonwhale@2x.png 2x, ./investors/moonwhale@3x.png 3x"
+                        alt="Logo of Moonwhale, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://fourthrevolution.capital"
+                  target="_blank"
+                  title="Learn about our Investor - Fourth Revolution Capital"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/fourthrevolution.png"
+                        srcSet="./investors/fourthrevolution@2x.png 2x, ./investors/fourthrevolution@3x.png 3x"
+                        alt="Logo of Fourth Revolution Capital, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+            </VCs>
+
+            <Angels margin="20px 0px 20px 0px"s align="stretch" justify="center">
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://balajis.com/"
+                  target="_blank"
+                  title="Learn about our Investor - Balaji S Srinivasan, Serial Entreprenuer"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/balaji.png"
+                        srcSet="./investors/balaji@2x.png 2x, ./investors/balaji@3x.png 3x"
+                        alt="Sketch of Investor - Balaji S Srinivasan, Serial Entrepreneur"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Balaji S. Srinivasan</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Serial Entrepreneur</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/nkennethk"
+                  target="_blank"
+                  title="Learn about our Investor - Kenneth Ng, Ethereum Foundation"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/ken.png"
+                        srcSet="./investors/ken@2x.png 2x, ./investors/ken@3x.png 3x"
+                        alt="Sketch of Investor - Kenneth Ng, Ethereum Foundation"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Kenneth Ng</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Ethereum Foundation</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/nanexcool"
+                  target="_blank"
+                  title="Learn about our Investor - Mariano Conti"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/mariano.png"
+                        srcSet="./investors/mariano@2x.png 2x, ./investors/mariano@3x.png 3x"
+                        alt="Sketch of Investor - Mariano Conti"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Mariano Conti</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Awesome Guy</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/notscottmoore"
+                  target="_blank"
+                  title="Learn about our Investor - Scott Moore, Co-Founder, Gitcoin"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/scott.png"
+                        srcSet="./investors/scott@2x.png 2x, ./investors/scott@3x.png 3x"
+                        alt="Sketch of Investor - Scott Moore, Co-Founder, Gitcoin"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Scott Moore</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Co-Founder, Gitcoin</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/Beler"
+                  target="_blank"
+                  title="Learn about our Investor - Luka Sukik, Entreprenuer"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/lukasukik.png"
+                        srcSet="./investors/lukasukik@2x.png 2x, ./investors/lukasukik@3x.png 3x"
+                        alt="Sketch of Investor - Luka Sukik, Entrepreneur"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Luka Sučić</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entrepreneur</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/sassal0x"
+                  target="_blank"
+                  title="Learn about our Investor - Anthony Sassano, EthHub"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/anthony.png"
+                        srcSet="./investors/anthony@2x.png 2x, ./investors/anthony@3x.png 3x"
+                        alt="Sketch of Investor - Anthony Sassano, EthHub"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Anthony Sassano</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">EthHub / DailyGWEI</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/DeFi_Dad"
+                  target="_blank"
+                  title="Learn about our Investor - DeFiDad, COO, Zapper.Fi"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/defidadinv.png"
+                        srcSet="./investors/defidadinv@2x.png 2x, ./investors/defidadinv@3x.png 3x"
+                        alt="Sketch of Investor - DeFiDad, COO, Zapper.Fi"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">DeFi Dad</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">All Things DeFi</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/ravidsrk"
+                  target="_blank"
+                  title="Learn about our Investor - Ravindra Kumar, Founder, Frontier Wallet"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/ravindra.png"
+                        srcSet="./investors/ravindra@2x.png 2x, ./investors/ravindra@3x.png 3x"
+                        alt="Sketch of Investor - Ravindra Kumar, Founder, Frontier Wallet"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ravindra Kumar</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Founder, Frontier Wallet</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+            </Angels>
+
+            <HideAt hideAt="768px">
+              <Angels>
+                <Investor minWidth="280px" align="stretch">
+                  <Anchor
+                    href="https://twitter.com/benlakoff"
+                    target="_blank"
+                    title="Learn about our Investor - Ben Lakoff, Entrepreneur"
+                    bg="#fff"
+                    hoverBG="transparent"
+                    radius="12px"
+                    align="stretch"
+                  >
+                    <Item>
+                      <Item>
+                        <Image
+                          src="./investors/ben.png"
+                          srcSet="./investors/ben@2x.png 2x, ./investors/ben@3x.png 3x"
+                          alt="Sketch of Investor - Ben Lakoff, Entrepreneur"
+                        />
+                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ben Lakoff</Span>
+                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entreprenuer</AngelJob>
+                      </Item>
+                    </Item>
+                  </Anchor>
+                </Investor>
+
+                <Investor minWidth="280px" align="stretch">
+                  <Anchor
+                    href="https://www.linkedin.com/in/dannychrist/"
+                    target="_blank"
+                    title="Learn about our Investor - Danny J.C., Angel Investor"
+                    bg="#fff"
+                    hoverBG="transparent"
+                    radius="12px"
+                    align="stretch"
+                  >
+                    <Item>
+                      <Item>
+                        <Image
+                          src="./investors/danny.png"
+                          srcSet="./investors/danny@2x.png 2x, ./investors/danny@3x.png 3x"
+                          alt="Sketch of Investor - Danny J.C., Angel Investor"
+                        />
+                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Danny J. C.</Span>
+                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                      </Item>
+                    </Item>
+                  </Anchor>
+                </Investor>
+
+                <Investor minWidth="280px" align="stretch">
+                  <Anchor
+                    href="https://br.capital/#team"
+                    target="_blank"
+                    title="Learn about our Investor - Evgeny Zandman, Anger Investor"
+                    bg="#fff"
+                    hoverBG="transparent"
+                    radius="12px"
+                    align="stretch"
+                  >
+                    <Item>
+                      <Item>
+                        <Image
+                          src="./investors/evgeny.png"
+                          srcSet="./investors/evgeny@2x.png 2x, ./investors/evgeny@3x.png 3x"
+                          alt="Sketch of Investor - Evgeny Zandman, Anger Investor"
+                        />
+                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Evgeny Zandman</Span>
+                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Anger Investor</AngelJob>
+                      </Item>
+                    </Item>
+                  </Anchor>
+                </Investor>
+
+                <Investor minWidth="280px" align="stretch">
+                  <Anchor
+                    href="#"
+                    disabled={true}
+                    target="_blank"
+                    title="Learn about our Investor -  Thomsa Kaseng AO, Angel Investor"
+                    bg="#fff"
+                    hoverBG="transparent"
+                    radius="12px"
+                    align="stretch"
+                  >
+                    <Item>
+                      <Item>
+                        <Image
+                          src="./investors/thomas.png"
+                          srcSet="./investors/thomas@2x.png 2x, ./investors/thomas@3x.png 3x"
+                          alt="Sketch of Investor - Thomsa Kaseng AO, Angel Investor"
+                        />
+                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
+                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                      </Item>
+                    </Item>
+                  </Anchor>
+                </Investor>
+
+              </Angels>
+            </HideAt>
+
           </Item>
         </Content>
       </Section>
-      */}
+
     </>
   );
 }
@@ -632,7 +1827,6 @@ const HeroBanner = styled(Item)`
 const Featured = styled.div`
   display: flex;
   justify-content: space-between;
-  column-gap: 40px;
   align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
@@ -641,7 +1835,7 @@ const Featured = styled.div`
 const Feature = styled.a`
   display: flex;
   flex: 1;
-  margin: 20px 0px;
+  margin: 20px;
   min-width: 220px;
   max-width: 340px;
   padding: 10px;
@@ -663,17 +1857,38 @@ const FeatureImage = styled(Image)`
   }
 `
 
-const PreviewOuter = styled.div `
+const EmphasisBlock = styled(Item)`
+  min-width: 280px;
+
+`
+
+const EmphasisImage = styled(Item)`
+  padding: 20px;
+  margin: 20px 0px 20px;
+`
+
+const EmphasisText = styled(Span)`
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 0px 20px;
+`
+
+const PreviewOuter = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgb(0 0 0 / 0.5);
+  background: rgb(0 0 0 / 0.75);
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+const PreviewBG = styled(Anchor)`
+  position: initial;
 `
 
 const Preview = styled.div`
@@ -686,186 +1901,211 @@ const Preview = styled.div`
   border-radius: 10px;
 `
 
-const ColoredBox = styled.div`
-  width: ${props => props.width || '100px'};
-  height: ${props => props.height || '40px'};
-  background: ${props => props.bg || 'transparent'};
+const PreviewClose = styled(Anchor)`
+  align-self: flex-end;
+  margin-bottom: -40px;
 `
 
-const FooterSubTitle = styled.div`
-  padding: 8px 10px;
-  font-size: 14px;
-  font-weight: 200;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fafafa;
-  border-bottom: 1px solid #ddd;
-`
-
-const FooterSubInner = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 10px;
-`
-
-const FooterSubFull = styled(FooterSubInner)`
-  flex: 0 0 100%;
-  flex-direction: column;
-  align-items: stretch;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+const ShadowBox = styled(Item)`
+  border-radius: 12px;
+  border: ${props => props.border || '0px solid transparent'};
+  min-width: 280px;
   overflow: hidden;
-  padding: 0px;
-  margin-bottom: 20px;
-  background: #fafafa;
-  position: relative;
-  border-left: 10px solid #674c9f;
-  border-radius: 10px;
 `
 
-const Showoff = styled.div`
-`
-
-const FormTitle = styled.h2`
-  flex: 100%;
-  padding: 0px 10px;
-  font-size: 14px;
-  font-weight: 200;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #674b9f;
-`
-
-const FormSubmision = styled.form`
-  display: flex;
-  align-items: center;
-  align-content: center;
-  align-self: stretch;
-  flex: 1;
-  flex-wrap: wrap;
-  justify-content: center;
-`
-
-const FormError = styled.label`
-  background: #e1087f;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  flex-basis: 100%;
-  padding: 7px 5px;
-  border-radius: 4px;
-  margin: 5px 10px;
-`
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  position: relative;
-`
-
-const RowEmail = styled(Row)`
-  min-width: 300px;
-  flex: 3;
-`
-
-const Header = styled.label`
-  font-size: 10px;
+const BlurBG = styled.div`
+  background: linear-gradient(300deg,#e20880,#35c5f3,#674c9f,#e20880);
+  background-size: 800% 800%;
+  background-size: 1200% 1200%;
+  animation: BGColorTransition 30s ease infinite;
   position: absolute;
-  top: 3px;
-  left: 15px;
-  padding: 2px 4px;
-  font-weight: bold;
-  background: #fafafa;
-  color: #e1087f;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
 `
 
-const Text = styled.span`
-  display: flex;
-  font-weight: 300;
-  color: #000;
-  letter-spacing: 0.1em;
-  font-size: 13px;
-  align-items: center;
-  text-transform: uppercase;
-`
+const Partner = styled(Item)`
+  flex: 0 1 30%;
+  min-width: auto;
 
-const Gap = styled.span`
-  padding-right: 6px;
-`
-
-const Input = styled.input`
-  outline: 0px;
-  border: 1px solid #35c4f3;
-  margin: 10px;
-  padding: 10px 8px;
-  flex: 1;
-  border-radius: 6px;
-  font-size: 14px;
-`
-
-const Subscribe = styled.button`
-  border: 0;
-  outline: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  border-radius: 20px;
-  font-size: 14px;
-  background: ${props => props.theme || '#674c9f'};
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 400;
-  flex: 0;
-  margin: 10px;
-  flex-grow: 1;
-  &:hover {
-    opacity: 0.9;
-    cursor: pointer;
-    pointer: hand;
+  @media (max-width: 768px) {
+    flex: 1;
+    min-width: 280px;
   }
-  &:active {
-    opacity: 0.75;
-    cursor: pointer;
-    pointer: hand;
+
+  ${Anchor} {
+    flex: 1;
+  }
+
+  ${Image} {
+    filter: brightness(0);
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover ${Image} {
+    filter: brightness(1);
+  }
+
+  ${Span} {
+    align-self: stretch;
+    text-align: center;
   }
 `
 
-const Submit = styled.input`
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: #fff;
+const TweetItem = styled(Item)`
+
+  div {
+    width: 530px;
+  }
+
+  @media (max-width: 1140px) {
+    width: 280px;
+    flex: 1;
+
+    div {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    justify-content: center;
+
+    div {
+    }
+  }
 `
 
-const FooterLink = styled.a`
-  margin: 10px;
-  padding: 8px;
-  border-radius: 4px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: ${(props) => props.bg ? props.bg : "rgb(180,180,180)"};
-
-  &:hover {
-    opacity: 0.9;
-    cursor: pointer;
-    pointer: hand;
+const DropdownStyled = styled(Dropdown)`
+  .Dropdown-control {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 52px 12px 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
   }
-  &:active {
-    opacity: 0.75;
-    cursor: pointer;
-    pointer: hand;
+
+  .Dropdown-placeholder {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
+  }
+
+  .Dropdown-arrow {
+    top: 18px;
+    bottom: 0;
+    border-color: #fff transparent transparent;
+  }
+
+  .Dropdown-menu {
+    border: 1px solid #000;
+    box-shadow: none;
+    background-color: #000;
+    border-radius: 0px;
+    margin-top: -3px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .Dropdown-option {
+    background-color: rgb(35 35 35);
+    color: #ffffff99;
+
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7em;
+    padding: 15px 20px;
+  }
+
+  .Dropdown-option:hover {
+    background-color: #000000;
+    color: #fff;
+  }
+`
+
+const Investor = styled(Item)`
+
+`
+
+const AngelJob = styled(Span)`
+
+`
+
+const VCs = styled(ItemH)`
+  column-gap: 20px;
+  row-gap: 20px;
+
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    column-gap: 20px;
+    row-gap: 20px;
+
+    justify-content: space-around;
+  }
+
+  ${Investor} {
+    flex: 0 1 14%;
+    min-width: auto;
+
+    @media (max-width: 768px) {
+      flex: 0 1 25%;
+      min-width: 130px;
+    }
+
+    @media (max-width: 480px) {
+      flex: 1;
+      max-width: 100px;
+    }
+  }
+
+  ${Anchor} {
+    &:hover {
+      box-shadow: 0px 0px 30px -10px #23323442;
+    }
+  }
+`
+
+const Angels = styled(VCs)`
+  column-gap: 20px;
+  row-gap: 20px;
+
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    column-gap: 10px;
+    row-gap: 10px;
+
+    justify-content: space-around;
+  }
+
+  ${Investor} {
+    flex: 0 1 20%;
+    min-width: auto;
+
+    @media (max-width: 768px) {
+      flex: 0 1 25%;
+      min-width: 200px;
+    }
+
+    @media (max-width: 480px) {
+      flex: 0 1 50%;
+      min-width: 130px;
+    }
+  }
+
+  ${AngelJob} {
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  ${Anchor} {
+    padding: 20px 20px 20px 20px;
   }
 `
 

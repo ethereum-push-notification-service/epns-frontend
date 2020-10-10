@@ -20,9 +20,9 @@ function Privacy() {
       {/* HERO SECTION */}
       <SectionHero padding="50px 0px 80px 0px">
         <Content className="contentBox">
-          <Item>
+          <Item margin="0px 20px">
             <H1>Privacy Policy</H1>
-            <Span color="#fff" margin="-20px 0 0 0" size="1rem">Defines how EPNS  collects, handles and processes data.</Span>
+            <Span color="#fff" margin="-20px 0 0 0" size="1rem">Defines how EPNS collects, handles and processes data.</Span>
           </Item>
         </Content>
         <WaveOuter>
