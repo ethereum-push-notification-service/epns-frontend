@@ -18,7 +18,7 @@ function TeamMember( {img, type, name, title, twitter, linkedin, email }) {
   // to create blockies
 
   return (
-    <Item margin="20px 0px" minWidth="240px">
+    <Item margin="20px 20px" minWidth="240px">
       {(twitter || linkedin || email) &&
         <Converse margin="0px">
           <ConverseInner>

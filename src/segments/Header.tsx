@@ -56,7 +56,7 @@ function Head() {
                       hoverBG="#fff"
                       padding="4px 15px"
                     >
-                      <ItemH minWidth="auto" margin="0px" columnGap="5px">
+                      <ItemH minWidth="auto" margin="0px">
                         <Span color="#fff" weight="400" size="0.8rem" spacing="0.2em" margin="0px 5px 0px 0px">Docs</Span>
                         <BsChevronDown size={12} color="#fff"/>
                       </ItemH>
@@ -94,8 +94,7 @@ function Head() {
 
                 <NavItem align="center" margin="0px" minWidth="auto" flex="0">
                   <HeadAnchor
-                    href="https://app.epns.io"
-                    target="_blank"
+                    href="./#contact"
                     title="Contact Us"
                     bg="transparent"
                     hoverBG="#fff"

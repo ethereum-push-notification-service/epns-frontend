@@ -4,6 +4,7 @@ export const Section = styled.section`
   display: flex;
   align-self: stretch;
   justify-content: center;
+  align-items: ${props => props.align || 'initial'};
   flex-direction: ${props => props.flexDirection || 'column'};
   background: ${props => props.theme || 'transparent'};
   background: ${props => props.gradient || 'undefined'};

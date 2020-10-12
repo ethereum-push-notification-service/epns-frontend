@@ -13,9 +13,10 @@ function Medium({ numberOfPosts }) {
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/ethereum-push-notification-service')
-     .then((res) => res.json())
-     .then((data) => {
+    if (numberOfPosts) {
+      fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/ethereum-push-notification-service')
+      .then((res) => res.json())
+      .then((data) => {
          // Fillter the array
          const res = data.items //This is an array with the content. No feed, no info about author etc..
          const postsArray = res.filter(item => item.categories.length > 0) // That's the main trick* !
@@ -25,11 +26,13 @@ function Medium({ numberOfPosts }) {
          //console.log(limitedPosts);
          setPostsLoaded(true);
       })
+    }
+
   }, [numberOfPosts]);
 
   // RENDER
   return (
-    <ItemH margin="20px 0px 20px 0px" align="stretch" columnGap="40px" rowGap="40px">
+    <ItemH margin="-20px" align="stretch" columnGap="40px" rowGap="40px">
       {!postsLoaded &&
         <Loader
          type="Oval"

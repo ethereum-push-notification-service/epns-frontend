@@ -108,26 +108,26 @@ function Foot() {
       {/* FOOTER SECTION */}
       <Section theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)">
         <Content className="contentBox" padding="0px 0px 20px 0px">
-          <Item margin="0px 20px">
+          <Item margin="0px 0px">
             {/* DIVIDE SECTION */}
-            <ItemH self="stretch" margin="0px 0px 40px 0px">
+            <ItemH self="stretch" margin="0px 20px 40px 20px">
               {/* LOGO AND ABOUT US */}
               <Item flex="1" minWidth="200px" maxWidth="400px">
-                <ItemH margin="0px 0px 20px 0px" columnGap="20px" rowGap="20px">
-                  <Item margin="10px 0px" height="80px" width="80px" bg="#fff" radius="80px" flex="initial">
+                <ItemH margin="0px -10px 10px -10px" columnGap="20px" rowGap="20px">
+                  <Item margin="20px 10px" height="80px" width="80px" bg="#fff" radius="80px" flex="initial">
                     <Bell belltheme="color" width={48} height={48} badgeCount={badgeCounter} bellPressedCB={() => setBadgeCounter(badgeCounter + 1)} hideBadge={true}/>
                   </Item>
-                  <Span textTransform="uppercase" size="1.2em" spacing="0.2em" color="#fff" flex="inherit">Ethereum Push Notification Service</Span>
+                  <Span margin="10px 10px" textTransform="uppercase" size="1.2em" spacing="0.2em" color="#fff" flex="inherit">Ethereum Push Notification Service</Span>
                 </ItemH>
 
-                <Span color="#ffffffcc" size="1.2em" weight="200">
+                <Span color="#ffffffcc" margin="10px 0px" size="1.2em" weight="200">
                   Ethereum Push Notification Service (EPNS) is a decentralized notification protocol that enables any dApps or smart contracts to send platform agnostic, incentivized and dynamic notifications
                 </Span>
               </Item>
             </ItemH>
 
             {/* FOOTER LINKS */}
-            <Item self="center" maxWidth="800px">
+            <Item self="center" margin="0px 20px" maxWidth="800px">
               {/* MAILING LIST */}
               <ItemH margin="20px 0px 40px 0px" self="stretch">
                 <FormSubmision
@@ -320,7 +320,7 @@ function Foot() {
               </ItemH>
             </Item>
 
-            <ItemH self="stretch" justify="center" minWidth="auto" columnGap="20px" rowGap="20px" size="0.8em" margin="40px 0px 0px 0px">
+            <ItemH self="stretch" justify="center" minWidth="auto" size="0.8em" margin="40px 20px 0px 20px">
               <Item align="center" margin="0px" minWidth="auto" flex="initial">
                 <Anchor
                   href="https://epns.io/privacy"

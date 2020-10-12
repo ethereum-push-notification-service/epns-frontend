@@ -14,13 +14,13 @@ import Wave from 'react-wavify';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-import { GiTwitter } from 'react-icons/gi';
 import { FaCheckCircle, FaSeedling } from 'react-icons/fa';
 import { IoMdRocket } from 'react-icons/io';
 import { BsChevronExpand, BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { VscClose } from 'react-icons/vsc';
 import { RiHeartsFill } from 'react-icons/ri';
 import { GiReceiveMoney } from 'react-icons/gi';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 import Medium from 'components/Medium';
 import TeamMember from 'components/TeamMember';
@@ -33,7 +33,7 @@ const randomTeamQuotes = [
 ]
 
 const contactFormTopics = [
-  'Support', 'Career', 'Others'
+  'Support', 'Integrate', 'Career', 'Others'
 ];
 
 // Create Header
@@ -211,7 +211,7 @@ function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <SectionFSHero padding="15px 0px 0px 0px">
+      <SectionFSHero id="hero" padding="15px 0px 0px 0px">
         <Content className="contentBox">
           <ItemH columnGap="40px" margin="0px 20px">
             <Item align="flex-start">
@@ -228,7 +228,7 @@ function Home() {
             </Item>
 
             <HeroBanner margin="0px">
-              <Image src="heroaltv5.png" srcSet="heroaltv5@2x.png 2x, heroaltv5@3x.png 3x" alt="Hero Banner for Ethereum Push Notification Service" />
+              <Image src="./hero/heroaltv5.png" srcSet="./hero/heroaltv5@2x.png 2x, ./hero/heroaltv5@3x.png 3x" alt="Hero Banner for Ethereum Push Notification Service" />
             </HeroBanner>
           </ItemH>
         </Content>
@@ -260,7 +260,7 @@ function Home() {
 
 
       {/* FEATURED SECTION */}
-      <Section theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)" padding="0px 0px 80px 0px">
+      <Section id="featured" theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)" padding="0px 0px 80px 0px">
         <Content className="contentBox">
           <Item margin="20px 0px 20px 0px">
             <Featured>
@@ -279,7 +279,7 @@ function Home() {
                 title="Ethereum Push Notification featured on Official Ethereum Blog"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./esp.png" srcSet="esp@2x.png 2x, esp@3x.png 3x" alt="Ethereum Support Program Logo" />
+                  <FeatureImage src="./featured/esp.png" srcSet="./featured/esp@2x.png 2x, ./featured/esp@3x.png 3x" alt="Ethereum Support Program Logo" />
                 </Item>
               </Feature>
 
@@ -289,7 +289,7 @@ function Home() {
                 title="Coin Telegraph talks about Push Notifications from Ethereum Push Notification Service"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./cointelegraph.png" srcSet="cointelegraph@2x.png 2x, cointelegraph@3x.png 3x" alt="Coin Telegraph Logo" />
+                  <FeatureImage src="./featured/cointelegraph.png" srcSet="./featured/cointelegraph@2x.png 2x, ./featured/cointelegraph@3x.png 3x" alt="Coin Telegraph Logo" />
                 </Item>
               </Feature>
 
@@ -299,7 +299,7 @@ function Home() {
                 title="Ethereum Push Notification Service selected as top 20 project and unvelied at fireside"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./kernel.png" srcSet="kernel@2x.png 2x, kernel@3x.png 3x" alt="Gitcoin Kernel Logo" />
+                  <FeatureImage src="./featured/kernel.png" srcSet="./featured/kernel@2x.png 2x, ./featured/kernel@3x.png 3x" alt="Gitcoin Kernel Logo" />
                 </Item>
               </Feature>
 
@@ -309,7 +309,7 @@ function Home() {
                 title="IDEO Collab selected and mentored Ethereum Push Notification Service as 30 projects from 120 projects for Product Validation Day"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./ideo.png" srcSet="ideo@2x.png 2x, ideo@3x.png 3x" alt="IDEO Collab Product Validation Day Logo" />
+                  <FeatureImage src="./featured/ideo.png" srcSet="./featured/ideo@2x.png 2x, ./featured/ideo@3x.png 3x" alt="IDEO Collab Product Validation Day Logo" />
                 </Item>
               </Feature>
 
@@ -319,7 +319,7 @@ function Home() {
                 title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./ethhub.png" srcSet="ethhub@2x.png 2x, ethhub@3x.png 3x" alt="EthHub Logo" />
+                  <FeatureImage src="./featured/ethhub.png" srcSet="./featured/ethhub@2x.png 2x, ./featured/ethhub@3x.png 3x" alt="EthHub Logo" />
                 </Item>
               </Feature>
 
@@ -329,7 +329,7 @@ function Home() {
                 title="DeFi Dad upcoming podcast about EPNS"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./defidad.png" srcSet="defidad@2x.png 2x, defidad@3x.png 3x" alt="DeFi Dad Logo" />
+                  <FeatureImage src="./featured/defidad.png" srcSet="./featured/defidad@2x.png 2x, ./featured/defidad@3x.png 3x" alt="DeFi Dad Logo" />
                 </Item>
               </Feature>
 
@@ -339,7 +339,7 @@ function Home() {
                 title="EDCON Panel featuring Harsh Rajat, founder, EPNS talks about DeFi Cross Composability"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./edcon.png" srcSet="edcon@2x.png 2x, edcon@3x.png 3x" alt="Edcon Logo" />
+                  <FeatureImage src="./featured/edcon.png" srcSet="./featured/edcon@2x.png 2x, ./featured/edcon@3x.png 3x" alt="Edcon Logo" />
                 </Item>
               </Feature>
 
@@ -351,7 +351,7 @@ function Home() {
                     title="INC42 talks about epnsproject and how dApps can benefit from it"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./inc42.png" srcSet="inc42@2x.png 2x, inc42@3x.png 3x" alt="INC42 Logo" />
+                      <FeatureImage src="./featured/inc42.png" srcSet="./featured/inc42@2x.png 2x, ./featured/inc42@3x.png 3x" alt="INC42 Logo" />
                     </Item>
                   </Feature>
 
@@ -361,7 +361,7 @@ function Home() {
                     title="Paradigm features epnsproject"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./paradigm.png" srcSet="paradigm@2x.png 2x, paradigm@3x.png 3x" alt="Paradigm Logo" />
+                      <FeatureImage src="./featured/paradigm.png" srcSet="./featured/paradigm@2x.png 2x, ./featured/paradigm@3x.png 3x" alt="Paradigm Logo" />
                     </Item>
                   </Feature>
 
@@ -372,7 +372,7 @@ function Home() {
                     bg="#e20880"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./defipulse.png" srcSet="defipulse@2x.png 2x, defipulse@3x.png 3x" alt="DefiPulse Logo" />
+                      <FeatureImage src="./featured/defipulse.png" srcSet="./featured/defipulse@2x.png 2x, ./featured/defipulse@3x.png 3x" alt="DefiPulse Logo" />
                     </Item>
                   </Feature>
 
@@ -382,7 +382,7 @@ function Home() {
                     title="MojKripto deep dives into Ethereum Push Notification Service and the team behind it!"
                   >
                     <Item minWidth="auto">
-                      <FeatureImage src="./mojkripto.png" srcSet="mojkripto@2x.png 2x, mojkripto@3x.png 3x" alt="MojKripto Logo"/>
+                      <FeatureImage src="./featured/mojkripto.png" srcSet="./featured/mojkripto@2x.png 2x, ./featured/mojkripto@3x.png 3x" alt="MojKripto Logo"/>
                     </Item>
                   </Feature>
                 </>
@@ -428,7 +428,7 @@ function Home() {
 
 
       {/* PROBLEM AND SOLUTION - PART 1 */}
-      <Section theme="#fff" padding="0px 0px 0px 0px">
+      <Section id="solution" theme="#fff" padding="20px 0px 0px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             {/* THE PROBLEM */}
@@ -443,7 +443,7 @@ function Home() {
               <ItemH margin="10px -20px 10px -20px" align="stretch" flex="auto">
                 <EmphasisBlock margin="10px 10px">
                   <EmphasisImage margin="20px" padding="20px">
-                    <Image src="stone.png" srcSet="stone@2x.png 2x, stone@3x.png 3x" alt="Cavemen representing the current blockchain communication" />
+                    <Image src="./problem/stone.png" srcSet="./problem/stone@2x.png 2x, ./problem/stone@3x.png 3x" alt="Cavemen representing the current blockchain communication" />
                   </EmphasisImage>
 
                   <EmphasisText>
@@ -453,7 +453,7 @@ function Home() {
 
                 <EmphasisBlock margin="10px 10px">
                   <EmphasisImage>
-                    <Image src="quiet.png" srcSet="quiet@2x.png 2x, quiet@3x.png 3x" atl="Missing poster of EPNS alert" />
+                    <Image src="./problem/quiet.png" srcSet="./problem/quiet@2x.png 2x, ./problem/quiet@3x.png 3x" atl="Missing poster of EPNS alert" />
                   </EmphasisImage>
 
                   <EmphasisText>
@@ -463,7 +463,7 @@ function Home() {
 
                 <EmphasisBlock margin="10px 10px">
                   <EmphasisImage>
-                    <Image src="angry.png" srcSet="angry@2x.png 2x, angry@3x.png 3x" alt="Angry Unicorn cat for missing out on important alerts" />
+                    <Image src="./problem/angry.png" srcSet="./problem/angry@2x.png 2x, ./problem/angry@3x.png 3x" alt="Angry Unicorn cat for missing out on important alerts" />
                   </EmphasisImage>
 
                   <EmphasisText>
@@ -501,7 +501,7 @@ function Home() {
               </PreviewOuter>
             }
 
-            <Item padding="20px 0px 60px 0px">
+            <Item padding="20px 0px 30px 0px">
               <Item self="stretch" align="flex-end" tabletAlign="flex-start" margin="20px 0px" textAlign="right" tabletTextAlign="left" >
                 <H2 textTransform="uppercase" spacing="0.1em">
                   <Span weight="200">The </Span><Span bg="#674c9f" color="#fff" weight="600" padding="0px 8px">Solution</Span>
@@ -571,9 +571,21 @@ function Home() {
 
 
       {/* SUBSCRIBE SECTION */}
-      <Section theme="#f1f1f1" padding="10px 0px 30px 0px" overflow="hidden">
+      <Section id="subscribe" theme="#f1f1f1" padding="10px 0px 30px 0px" overflow="hidden">
         <BlurBG />
-        <Arc arcRGB="#ffffff" top="-55px"/>
+        <WaveOuter bottom="auto" top="70px">
+          <WaveInner transform="rotate(180deg)">
+            <Wave fill='#fff'
+              paused={true}
+              options={{
+                height: 20,
+                amplitude: 30,
+                speed: 0.35,
+                points: 3
+              }}
+            />
+          </WaveInner>
+        </WaveOuter>
 
         <Content className="contentBox" padding="60px 0px 40px 0px">
           <Item margin="0px 20px 0px 20px">
@@ -601,10 +613,10 @@ function Home() {
 
                   <Item align="stretch">
                     <Span weight="300" textTransform="uppercase" color="#fff" spacing="0.1em">Subscribe to our mailing list!</Span>
-                    <ItemH margin="10px -15px" rowGap="20px" columnGap="20px">
+                    <ItemH margin="10px -10px" rowGap="20px" columnGap="20px">
                       {mailListProcessing == 0 &&
                         <>
-                          <Item flex="1" margin="10px 15px" justify="flex-start" align="stretch" minWidth="280px">
+                          <Item flex="1" margin="10px 10px" justify="flex-start" align="stretch" minWidth="280px">
                             <Input
                               radius="4px"
                               padding="12px"
@@ -631,7 +643,7 @@ function Home() {
                               }
                           </Item>
 
-                          <Item flex="5" margin="10px 15px" justify="flex-start" align="stretch" minWidth="280px">
+                          <Item flex="5" margin="10px 10px" justify="flex-start" align="stretch" minWidth="280px">
                             <Input
                               required
                               placeholder="john@wick.com"
@@ -660,7 +672,7 @@ function Home() {
                         </>
                       }
 
-                      <Item flex="1" margin="10px 15px" justify="stretch" self="stretch" align="stretch" minWidth="280px">
+                      <Item flex="1" margin="10px 10px" justify="stretch" self="stretch" align="stretch" minWidth="280px">
                         {mailListProcessing != 2 &&
                           <Button
                             bg='#000'
@@ -751,8 +763,8 @@ function Home() {
       </Section>
 
 
-      {/* NOTIFICATION SECTION - PART 2 */}
-      <Section theme="#fff" padding="20px 0px 80px 0px">
+      {/* NOTIFICATION DELIVERED SECTION */}
+      <Section id="supported" theme="#fff" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" justify="flex-start" margin="0px 0px 40px 0px">
@@ -761,6 +773,105 @@ function Home() {
               </H2>
             </Item>
 
+            <ItemH margin="0px -20px 40px -20px" rowGap="40px" columnGap="40px" align="stretch" justify="space-around">
+
+              <Supported margin="20px" minWidth="280px" align="center">
+                <Anchor
+                  href="https://play.google.com/store/apps/details?id=io.epns.epns"
+                  target="_blank"
+                  title="Download Ethereum Push Notification Service (EPNS) from Google Play"
+                  direction="column"
+                  bg="#fff"
+                  hover="#fafafa"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item margin="0px 0px 5px 0px" self="center">
+                    <Image
+                      src="./supported/epnsplay.png"
+                      srcSet="./supported/epnsplay@2x.png 2x, ./supported/epnsplay@3x.png 3x"
+                      alt="Ethereum Push Notification Service (EPNS) + Google Play Logo"
+                    />
+                  </Item>
+                  <Item margin="5px 0px">
+                    <Span size="0.85em" color="#000" spacing="0.2em" weight="400" textAlign="center">EPNS Android App</Span>
+                  </Item>
+
+                </Anchor>
+              </Supported>
+
+              <Supported margin="20px" minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://app.epns.io"
+                  target="_blank"
+                  title="Get Notified from EPNS Dapp (Coming Soon)"
+                  direction="column"
+                  bg="#fff"
+                  hover="#fafafa"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item margin="0px 0px 5px 0px" self="center">
+                    <Image
+                      src="./supported/epnsdapp.png"
+                      srcSet="./supported/epnsdapp@2x.png 2x, ./supported/epnsdapp@3x.png 3x"
+                      alt="Ethereum Push Notification Service (EPNS) dApp Logo"
+                    />
+                  </Item>
+                  <Item margin="5px 0px">
+                    <Span size="0.85em" color="#000" spacing="0.2em" weight="400" textAlign="center">EPNS dApp (Coming Soon)</Span>
+                  </Item>
+                </Anchor>
+              </Supported>
+
+              <Supported margin="20px" minWidth="280px" align="stretch">
+                <Anchor
+                  title="Download Ethereum Push Notification Service (EPNS) from Apple App Store (Coming Soon)"
+                  disabled={true}
+                  direction="column"
+                  bg="#fff"
+                  hoverBG="#f1f1f1"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item margin="0px 0px 5px 0px" self="center">
+                    <Image
+                      src="./supported/epnsios.png"
+                      srcSet="./supported/epnsios@2x.png 2x, ./supported/epnsios@3x.png 3x"
+                      alt="Ethereum Push Notification Service (EPNS) + Apple App Store Logo"
+                    />
+                  </Item>
+                  <Item margin="5px 0px">
+                    <Span size="0.85em" color="#000" spacing="0.2em" weight="400" textAlign="center">EPNS iOS App (Coming Soon)</Span>
+                  </Item>
+                </Anchor>
+              </Supported>
+
+              <ItemBreak margin="10px 0px"/>
+
+              <Supported margin="20px" minWidth="280px">
+                <Anchor
+                  href="#contact"
+                  title="Get Notified from EPNS Dapp (Coming Soon)"
+                  direction="column"
+                  bg="#fff"
+                  hover="#fafafa"
+                  radius="12px"
+                  align="stretch"
+                  border="2px dashed #ddd"
+                >
+                  <Item margin="5px 0px 10px 0px">
+                    <Span size="1em" color="#000" spacing="0.2em" weight="200" textAlign="center">Are you a Crypto Wallet?</Span>
+                  </Item>
+                  <ItemH margin="5px 0px 10px 0px">
+                    <Span size="1em" color="#fff" bg="#e20880" padding="2px 5px 4px 8px" margin="0px 5px" spacing="0.2em" weight="400" textAlign="center">Integrate</Span>
+                    <Span size="1em" color="#000" spacing="0.2em" weight="200" padding="2px 5px 4px 8px" textAlign="center">AND</Span>
+                    <Span size="1em" color="#fff" bg="#35c5f3" padding="2px 5px 4px 8px" margin="0px 5px" spacing="0.2em" weight="400" textAlign="center">Earn</Span>
+                  </ItemH>
+                </Anchor>
+              </Supported>
+
+            </ItemH>
 
 
           </Item>
@@ -783,7 +894,7 @@ function Home() {
 
 
       {/* PARTNERS AND COLLABORATORS */}
-      <Section theme="#f1f1f1" padding="20px 0px 80px 0px">
+      <Section id="partners" theme="#f1f1f1" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="0px 0px 40px 0px" textAlign="right" tabletTextAlign="left">
@@ -793,8 +904,8 @@ function Home() {
               <H3>Let's talk partnerships</H3>
             </Item>
 
-            <ItemH margin="20px 0px 40px 0px" rowGap="40px" columnGap="40px" align="stretch" justify="space-between">
-              <Partner minWidth="280px" align="stretch">
+            <ItemH margin="0px -20px 20px -20px" rowGap="40px" columnGap="40px" align="stretch" justify="space-around">
+              <Partner margin="20px" minWidth="280px" align="stretch">
                 <Anchor
                   href="https://medium.com/"
                   target="_blank"
@@ -807,8 +918,8 @@ function Home() {
                   <Item>
                     <Item margin="30px 60px" maxWidth="320px">
                       <Image
-                        src="./unstoppable.png"
-                        srcSet="unstoppable@2x.png 2x, unstoppable@3x.png 3x"
+                        src="./partners/unstoppable.png"
+                        srcSet="./partners/unstoppable@2x.png 2x, ./partnerspartners/unstoppable@3x.png 3x"
                         alt="UnstoppableDomains Logo"
                       />
                     </Item>
@@ -817,7 +928,7 @@ function Home() {
                 </Anchor>
               </Partner>
 
-              <Partner minWidth="280px" align="stretch">
+              <Partner margin="20px" minWidth="280px" align="stretch">
                 <Anchor
                   href="https://medium.com/ethereum-push-notification-service/epns-awarded-aave-grant-cc618dd48915"
                   target="_blank"
@@ -830,8 +941,8 @@ function Home() {
                   <Item>
                     <Item margin="30px 60px" maxWidth="320px">
                       <Image
-                        src="./aave.png"
-                        srcSet="aave@2x.png 2x, aave@3x.png 3x"
+                        src="./partners/aave.png"
+                        srcSet="./partners/aave@2x.png 2x, ./partners/aave@3x.png 3x"
                         alt="AAVE Logo"
                       />
                     </Item>
@@ -840,7 +951,7 @@ function Home() {
                 </Anchor>
               </Partner>
 
-              <Partner minWidth="280px">
+              <Partner margin="20px" minWidth="280px">
                 <Anchor
                   href="https://medium.com/ethereum-push-notification-service/epns-secures-partnership-with-matic-along-with-a-sweet-grant-b956a85c3151"
                   target="_blank"
@@ -853,8 +964,8 @@ function Home() {
                   <Item>
                     <Item margin="30px 60px" maxWidth="320px">
                       <Image
-                        src="./matic.png"
-                        srcSet="matic@2x.png 2x, matic@3x.png 3x"
+                        src="./partners/matic.png"
+                        srcSet="./partners/matic@2x.png 2x, ./partners/matic@3x.png 3x"
                         alt="Matic Logo"
                       />
                     </Item>
@@ -863,10 +974,10 @@ function Home() {
                 </Anchor>
               </Partner>
 
-              {/* Future ones
+              {/* Future Ones
               {partnersShowAll &&
                 <>
-                  <Partner align="stretch">
+                  <Partner margin="20px" align="stretch">
                     <Anchor
                       href="https://medium.com/"
                       target="_blank"
@@ -879,8 +990,8 @@ function Home() {
                       <Item>
                         <Item margin="30px 60px" maxWidth="320px" align="stretch">
                           <Image
-                            src="./uniswap.png"
-                            srcSet="uniswap@2x.png 2x, uniswap@3x.png 3x"
+                            src="./partners/uniswap.png"
+                            srcSet="./partners/uniswap@2x.png 2x, ./partners/uniswap@3x.png 3x"
                             alt="Uniswap Logo"
                           />
                         </Item>
@@ -889,7 +1000,7 @@ function Home() {
                     </Anchor>
                   </Partner>
 
-                  <Partner minWidth="280px" align="stretch">
+                  <Partner margin="20px" minWidth="280px" align="stretch">
                     <Anchor
                       href="https://medium.com/"
                       target="_blank"
@@ -902,8 +1013,8 @@ function Home() {
                       <Item>
                         <Item margin="30px 60px" maxWidth="320px">
                           <Image
-                            src="./gitcoin.png"
-                            srcSet="gitcoin@2x.png 2x, gitcoin@3x.png 3x"
+                            src="./partners/gitcoin.png"
+                            srcSet="./partners/gitcoin@2x.png 2x, ./partners/gitcoin@3x.png 3x"
                             alt="Gitcoin Logo"
                           />
                         </Item>
@@ -916,7 +1027,7 @@ function Home() {
 
               <ItemBreak />
 
-              <Partner minWidth="280px" align="stretch" margin="-30px 0px 0px 0px">
+              <Partner minWidth="280px" align="stretch" margin="20px 20px 20px 20px">
                 <Anchor
                   href="#"
                   onClick={(e) => {e.preventDefault(); setPartnersShowAll(!partnersShowAll)}}
@@ -960,10 +1071,10 @@ function Home() {
 
 
       {/* FOLLOW OUR STORY */}
-      <Section theme="#e20880" padding="20px 0px 80px 0px">
+      <Section id="story" theme="#e20880" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
-            <Item align="stretch" justify="flex-start" margin="0px 0px 40px 0px">
+            <Item align="stretch" justify="flex-start" margin="0px 0px 60px 0px">
               <H2 textTransform="uppercase" spacing="0.1em">
                 <Span weight="200" color="#fff">What's the </Span><Span bg="#000" color="#fff" weight="600" padding="0px 8px">Latest</Span>
               </H2>
@@ -972,15 +1083,15 @@ function Home() {
 
             <Medium numberOfPosts={3} />
 
-            <ItemH margin="20px 0px 20px 0px" justify="space-between" align="flex-start" columnGap="40px" rowGap="40px">
-              <TweetItem>
+            <ItemH margin="20px -20px 20px -20px" justify="space-between" align="flex-start" columnGap="40px" rowGap="40px">
+              <TweetItem margin="20px">
                 <Tweet
                   tweetId="1305795954742898691"
                   options={{ theme: "dark", align: "center" }}
                 />
               </TweetItem>
 
-              <TweetItem>
+              <TweetItem margin="20px">
                 <Tweet
                   tweetId="1273731681287933953"
                   options={{ theme: "dark", align: "center" }}
@@ -1024,7 +1135,7 @@ function Home() {
 
 
       {/* TEAM SECTION | 1=Founder, 2=Founder+Lead, 3=Founder+Team, 4=Lead, 5=Team, 6=Advisor */}
-      <Section theme="#fff" padding="20px 0px 80px 0px">
+      <Section id="team" theme="#fff" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" justify="flex-start" margin="0px 0px 20px 0px">
@@ -1034,9 +1145,9 @@ function Home() {
               <H3>{randomTeamQuotes[Math.floor(Math.random() * (randomTeamQuotes.length))]}</H3>
             </Item>
 
-            <ItemH self="stretch" align="stretch" margin="20px 0px" rowGap="20px" columnGap="40px" minWidth="auto">
+            <ItemH self="stretch" align="stretch" margin="20px -20px" rowGap="20px" columnGap="40px" minWidth="auto">
               <TeamMember
-                img="Harsh.jpg"
+                img="./team/Harsh.jpg"
                 type={2}
                 name="Harsh Rajat"
                 title="Founder / Project Lead"
@@ -1045,7 +1156,7 @@ function Home() {
                 email="mailto://harsh@epns.io"
               />
               <TeamMember
-                img="Richa.jpg"
+                img="./team/Richa.jpg"
                 type={2}
                 name="Richa Joshi"
                 title="Co-Founder / Marketing Lead"
@@ -1054,7 +1165,7 @@ function Home() {
                 email="mailto://richa@epns.io"
               />
               <TeamMember
-                img="Jaf.jpg"
+                img="./team/Jaf.jpg"
                 type={4}
                 name="Jafett Sandi"
                 title="Product / Dev Lead"
@@ -1063,7 +1174,7 @@ function Home() {
                 email="mailto://jaf@epns.io"
               />
               <TeamMember
-                img="Andrew.jpg"
+                img="./team/Andrew.jpg"
                 type={4}
                 name="Andrew Redden"
                 title="Protocol / Bizdev Lead"
@@ -1072,7 +1183,7 @@ function Home() {
                 email="mailto://andrew@epns.io"
               />
               <TeamMember
-                img="Awosika.jpg"
+                img="./team/Awosika.jpg"
                 type={4}
                 name="Awosika Ayodeji"
                 title="Community Lead"
@@ -1081,21 +1192,21 @@ function Home() {
                 email="mailto://ayodeji@epns.io"
               />
               <TeamMember
-                img="Jude.jpg"
+                img="./team/Jude.jpg"
                 type={5}
                 name="Jude Dike"
                 title="Developer"
                 linkedin="https://www.linkedin.com/in/dikejudein/"
               />
               <TeamMember
-                img="Victor.jpg"
+                img="./team/Victor.jpg"
                 type={5}
                 name="Victor Nwagbogwu"
                 title="Developer (Intern)"
                 linkedin="https://www.linkedin.com/in/victor-nwagbogwu/"
               />
               <TeamMember
-                img="Robin.jpg"
+                img="./team/Robin.jpg"
                 type={5}
                 name="Robin Roy Thomas"
                 title="Content Writer (Intern)"
@@ -1105,7 +1216,7 @@ function Home() {
             </ItemH>
             <ItemH self="stretch" align="stretch" margin="20px 0px" rowGap="20px" columnGap="40px" minWidth="auto">
               <TeamMember
-                img="Nischal.jpg"
+                img="./team/Nischal.jpg"
                 type={6}
                 name="Nischal Shetty"
                 title="Founder / CEO, WazirX"
@@ -1113,14 +1224,14 @@ function Home() {
                 linkedIn="https://www.linkedin.com/in/nischalshetty/"
               />
               <TeamMember
-                img="DefiDad.jpg"
+                img="./team/DefiDad.jpg"
                 type={6}
                 name="DeFi Dad"
                 title="COO, Zapper.Fi"
                 twitter="https://twitter.com/DeFi_Dad"
               />
               <TeamMember
-                img="Vivek.jpg"
+                img="./team/Vivek.jpg"
                 type={6}
                 name="Vivek Singh"
                 title="Co-Founder, Gitcoin"
@@ -1150,7 +1261,7 @@ function Home() {
 
 
       {/* CONTACT US SECTION */}
-      <Section theme="#35c5f3" padding="20px 0px 80px 0px">
+      <Section id="contact" theme="#35c5f3" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="0px 0px 20px 0px" textAlign="right" tabletTextAlign="left">
@@ -1160,14 +1271,13 @@ function Home() {
               <H3 color="#fff">Get in Touch</H3>
             </Item>
 
-            <Item margin="20px 0px" justify="stretch">
+            <Item margin="10px -10px" self="stretch">
               <FormSubmision
                 flex="1"
                 direction="row"
                 margin="20px 0px"
                 justify="stretch"
-                rowGap="20px"
-                columnGap="20px"
+                margin="10px"
                 size="1.1rem"
                 onSubmit={handleContactFormSubmit}
               >
@@ -1366,7 +1476,7 @@ function Home() {
 
 
       {/* INVESTORS SECTION */}
-      <Section theme="#fff" padding="20px 0px 120px 0px">
+      <Section id="investors" theme="#fff" padding="20px 0px 120px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" align="flex-start" margin="0px 0px 20px 0px">
@@ -1445,6 +1555,28 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
+                  href="https://br.capital/"
+                  target="_blank"
+                  title="Learn about our Investor - BR Capital"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/brcapital.png"
+                        srcSet="./investors/brcapital@2x.png 2x, ./investors/brcapital@3x.png 3x"
+                        alt="Logo of BR Capital, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
                   href="https://proofsystems.io/"
                   target="_blank"
                   title="Learn about our Investor - ProofSystems"
@@ -1487,6 +1619,7 @@ function Home() {
                 </Anchor>
               </Investor>
 
+              {/*}
               <Investor minWidth="280px" align="stretch">
                 <Anchor
                   href="https://fourthrevolution.capital"
@@ -1508,16 +1641,17 @@ function Home() {
                   </Item>
                 </Anchor>
               </Investor>
+              */}
 
             </VCs>
 
-            <Angels margin="20px 0px 20px 0px"s align="stretch" justify="center">
+            <Angels margin="20px 0px 20px 0px" align="stretch" justify="center">
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
                   href="https://balajis.com/"
                   target="_blank"
-                  title="Learn about our Investor - Balaji S Srinivasan, Serial Entreprenuer"
+                  title="Learn about our Investor - Balaji Srinivasan, Serial Entreprenuer"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1528,9 +1662,9 @@ function Home() {
                       <Image
                         src="./investors/balaji.png"
                         srcSet="./investors/balaji@2x.png 2x, ./investors/balaji@3x.png 3x"
-                        alt="Sketch of Investor - Balaji S Srinivasan, Serial Entrepreneur"
+                        alt="Sketch of Investor - Balaji Srinivasan, Serial Entrepreneur"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Balaji S. Srinivasan</Span>
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Balaji Srinivasan</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Serial Entrepreneur</AngelJob>
                     </Item>
                   </Item>
@@ -1924,8 +2058,23 @@ const BlurBG = styled.div`
   opacity: 0.75;
 `
 
+const Supported = styled(Item)`
+  flex: 1;
+  min-width: auto;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  ${Span} {
+    align-self: stretch;
+    text-align: center;
+  }
+`
+
 const Partner = styled(Item)`
-  flex: 0 1 30%;
+  flex: 0 1 calc(33% - 40px);
   min-width: auto;
 
   @media (max-width: 768px) {

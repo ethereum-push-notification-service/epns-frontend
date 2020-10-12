@@ -9,7 +9,7 @@ import Tilt from 'react-tilt'
 function MediumCard({ title, thumbnail, link }) {
   // RENDER
   return (
-    <Item justify="stretch" align="stretch" minWidth="280px">
+    <Item justify="stretch" align="stretch" minWidth="280px" margin="20px">
       <TiltModded className="Tilt" options={{ max : 40 }}>
         <MediumCardLink
           href={`${link}`}
@@ -44,7 +44,7 @@ const MediumCardLink = styled(Anchor)`
   }
 
   ${Span} {
-    
+
   }
 
   &:hover ${Span} {
