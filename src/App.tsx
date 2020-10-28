@@ -72,16 +72,16 @@ function App() {
 
       <ParentContainer>
         {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
+          renders the first one that matches the current URL. Home needs to be last always*/}
         <Switch>
           <Route path="/privacy">
             <Privacy />
           </Route>
+          <Route path="/terms">
+            <Terms />
+          </Route>
           <Route path="/">
             <Home />
-          </Route>
-          <Route path="/tos">
-            <Terms />
           </Route>
         </Switch>
       </ParentContainer>

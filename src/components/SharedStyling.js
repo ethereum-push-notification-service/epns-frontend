@@ -44,7 +44,7 @@ export const ItemBreak = styled.div`
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: ${props => props.wrap || 'wrap'};
   position: relative;
   justify-content: center;
   background: ${props => props.bg || 'transparent'};
@@ -171,11 +171,25 @@ export const Image = styled.img`
 `
 
 export const P = styled.p`
-  color: ${props => props.color || '#000'};
+  flex: ${props => props.flex || 'initial'};
+  align-self: ${props => props.self || 'auto'};
 
+  color: ${props => props.color || '#000'};
+  background: ${props => props.bg || 'transparent'};
   font-weight: ${props => props.weight || 300};
   font-size: ${props => props.size || "inherit"};
-  letter-spacing: ${props => props.spacing || "normal"};
+  text-transform: ${props => props.textTransform || "inherit"};
+  margin: ${props => props.margin || "20px 0px"};
+  padding: ${props => props.padding || "0px"};
+  letter-spacing: ${props => props.spacing || "inherit"};
+  text-align: ${props => props.textAlign || "inital"};
+`
+
+export const Para = styled(P)`
+  font-weight: ${props => props.weight || 300};
+  letter-spacing: ${props => props.spacing || "0.02em"};
+  font-size: ${props => props.size || "1.1em"};
+  color: ${props => props.color || "#000000ee"};
 `
 
 export const Span = styled.span`
@@ -199,6 +213,19 @@ export const Span = styled.span`
   top: ${props => props.top || 'auto'};
 
   z-index: ${props => props.z || 'auto'};
+`
+
+export const B = styled.span`
+  color: ${props => props.color || '#000'};
+  font-weight: ${props => props.weight || 'bold'};
+`
+
+export const UL = styled.ul`
+
+`
+
+export const LI = styled.li`
+  margin: 10px 0px;
 `
 
 export const Anchor = styled.a`
@@ -226,6 +253,7 @@ export const Anchor = styled.a`
   filter: ${props => props.filter || "none"};
 
   cursor: pointer;
+  pointer: hand;
 
   &:hover & {
     filter: ${props => (props.filterHover ? props.filterHover : (props.hover ? props.hover : "none")) || "none"};
@@ -261,14 +289,19 @@ export const Anchor = styled.a`
 
   &:hover:after {
     opacity: 0.08;
-    cursor: pointer;
-    pointer: hand;
   }
   &:active:after {
     opacity: 0.15;
-    cursor: pointer;
-    pointer: hand;
   }
+`
+
+export const A = styled(Anchor)`
+  display: inline;
+  color: #e1087f;
+  background: transparent;
+  padding: 0px;
+  letter-spacing: inherit;
+  text-transform: initial;
 `
 
 export const Button = styled.button`
@@ -292,6 +325,7 @@ export const Button = styled.button`
   z-index: 3;
 
   cursor: pointer;
+  pointer: hand;
 
   &:before {
     content: '';
@@ -323,13 +357,9 @@ export const Button = styled.button`
 
   &:hover:after {
     opacity: 0.08;
-    cursor: pointer;
-    pointer: hand;
   }
   &:active:after {
     opacity: 0.15;
-    cursor: pointer;
-    pointer: hand;
   }
 
   & > div {
@@ -401,6 +431,7 @@ export const Input = styled.input`
   position: relative;
 
   cursor: ${props => props.cursor || "initial"};
+  pointer: ${props => props.hand || "initial"};
 
   &:focus + span {
     opacity: 0;
@@ -433,8 +464,6 @@ export const TextField = styled.textarea`
   position: relative;
   resize: vertical;
 
-  cursor: ${props => props.cursor || "initial"};
-
   &:focus + span {
     opacity: 0;
 
@@ -443,14 +472,4 @@ export const TextField = styled.textarea`
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
   }
-`
-
-export const HideAt = styled.div`
-  ${ props => props.hideAt && css`
-
-    @media (max-width: ${props.hideAt}) {
-      display: none;
-    }
-
-  `};
 `

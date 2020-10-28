@@ -4,6 +4,8 @@ import ReactGA from 'react-ga';
 import styled, { css } from 'styled-components';
 import {Section, SectionFS, SectionFSHero, Content, Item, ItemH, ItemBreak, WaveOuter, WaveInner, Arc, H1, H2, H3, Image, P, Span, Anchor, Button, Showoff, FormSubmision, Input, TextField, HideAt} from 'components/SharedStyling';
 
+import ScrollTrigger from 'react-scroll-trigger';
+
 import YouTube from 'react-youtube';
 import { Tweet } from 'react-twitter-widgets'
 
@@ -211,52 +213,54 @@ function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <SectionFSHero id="hero" padding="15px 0px 0px 0px">
-        <Content className="contentBox">
-          <ItemH columnGap="40px" margin="0px 20px">
-            <Item align="flex-start">
-              <H1>Ethereum Push Notification Service</H1>
-              <Span margin="-25px 0 0 0"><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Subscribe. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Notify. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Earn.</Span></Span>
+      <ScrollTrigger onEnter={() => {setAnimateHero(true)}} onExit={() => {setAnimateHero(false)}} triggerOnLoad={false}>
+        <SectionFSHero id="hero" padding="15px 0px 0px 0px">
+          <Content className="contentBox">
+            <ItemH columnGap="40px" margin="0px 20px">
+              <Item align="flex-start">
+                <H1>Ethereum Push Notification Service</H1>
+                <Span margin="-25px 0 0 0"><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Subscribe. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Notify. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Earn.</Span></Span>
 
-                <Span margin="20px 0px" color="rgba(255, 255, 255, 0.5)" size="1.5rem" weight="200">Protocol for <Span color="#fff" weight="400">Platform Agnostic, </Span><Span color="#fff" weight="400">Incentivized Notifications</Span> from <Span color="rgba(255, 255, 255, 0.5)" weight="600">Blockchain!</Span></Span>
+                  <Span margin="20px 0px" color="rgba(255, 255, 255, 0.5)" size="1.5rem" weight="200">Protocol for <Span color="#fff" weight="400">Platform Agnostic, </Span><Span color="#fff" weight="400">Incentivized Notifications</Span> from <Span color="rgba(255, 255, 255, 0.5)" weight="600">Blockchain!</Span></Span>
 
-              <ItemH align="flex-start" justify="flex-start" margin="10px -10px 10px -10px" size="0.8rem">
-                <Anchor href="https://whitepaper.epns.io" title="Read Whitepaper of Ethereum Push Notification Service (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Read Whitepaper</Anchor>
-                <Anchor href="https://whitepaper.epns.io" title="Integrate Ethereum Push Notification Service Protocol (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Integrate</Anchor>
-              </ItemH>
+                <ItemH align="flex-start" justify="flex-start" margin="10px -10px 10px -10px" size="0.8rem">
+                  <Anchor href="https://whitepaper.epns.io" title="Read Whitepaper of Ethereum Push Notification Service (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Read Whitepaper</Anchor>
+                  <Anchor href="https://whitepaper.epns.io" title="Integrate Ethereum Push Notification Service Protocol (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Integrate</Anchor>
+                </ItemH>
 
-            </Item>
+              </Item>
 
-            <HeroBanner margin="0px">
-              <Image src="./hero/heroaltv5.png" srcSet="./hero/heroaltv5@2x.png 2x, ./hero/heroaltv5@3x.png 3x" alt="Hero Banner for Ethereum Push Notification Service" />
-            </HeroBanner>
-          </ItemH>
-        </Content>
-        <WaveOuter>
-          <WaveInner>
-            <Wave fill='#35c5f3'
-              paused={false}
-              options={{
-                height: 40,
-                amplitude: 30,
-                speed: 0.35,
-                points: 3
-              }}
-            />
-          </WaveInner>
-          <WaveInner>
-            <Wave fill='#e20880'
-              paused={false}
-              options={{
-                height: 20,
-                amplitude: 35,
-                speed: 0.25,
-                points: 3
-              }}
-            />
-          </WaveInner>
-        </WaveOuter>
-      </SectionFSHero>
+              <HeroBanner margin="0px">
+                <Image src="./hero/heroaltv5.png" srcSet="./hero/heroaltv5@2x.png 2x, ./hero/heroaltv5@3x.png 3x" alt="Hero Banner for Ethereum Push Notification Service" />
+              </HeroBanner>
+            </ItemH>
+          </Content>
+          <WaveOuter>
+            <WaveInner>
+              <Wave fill='#35c5f3'
+                paused={!animateHero}
+                options={{
+                  height: 40,
+                  amplitude: 30,
+                  speed: 0.35,
+                  points: 3
+                }}
+              />
+            </WaveInner>
+            <WaveInner>
+              <Wave fill='#e20880'
+                paused={!animateHero}
+                options={{
+                  height: 20,
+                  amplitude: 35,
+                  speed: 0.25,
+                  points: 3
+                }}
+              />
+            </WaveInner>
+          </WaveOuter>
+        </SectionFSHero>
+      </ScrollTrigger>
 
 
       {/* FEATURED SECTION */}
@@ -506,11 +510,11 @@ function Home() {
                 <H2 textTransform="uppercase" spacing="0.1em">
                   <Span weight="200">The </Span><Span bg="#674c9f" color="#fff" weight="600" padding="0px 8px">Solution</Span>
                 </H2>
-                <H3>Creating a decentralized middleware for all dapps / smart contracts / web3 services</H3>
+                <H3 maxWidth="400px">Creating a decentralized middleware for all dapps / smart contracts / web3 services</H3>
               </Item>
 
-              <ItemH margin="20px -30px" columnGap="60px" rowGap="30px">
-                <Item margin="30px 30px" minWidth="auto" align="center" minWidth="280px">
+              <Solution margin="20px 0px">
+                <Item margin="30px 0px" padding="0px 30px 0px 0px" minWidth="auto" align="center" minWidth="280px" maxWidth="550px">
                   <Anchor
                     href="#"
                     bg="transparent"
@@ -521,7 +525,7 @@ function Home() {
                   </Anchor>
                 </Item>
 
-                <Item margin="10px 30px" align="flex-start" size="1.2rem" rowGap="60px" minWidth="280px">
+                <Item margin="10px 0px" padding="0px 0px 0px 30px" align="flex-start" size="1.2rem" rowGap="60px" minWidth="280px">
                   <ShadowBox align="flex-start" bg="#e20880" margin="30px 0px">
                     <Showoff
                       right="-20px"
@@ -563,7 +567,7 @@ function Home() {
                   </ShadowBox>
                 </Item>
 
-              </ItemH>
+              </Solution>
             </Item>
           </Item>
         </Content>
@@ -605,8 +609,6 @@ function Home() {
                   direction="row"
                   margin="20px 0px"
                   justify="center"
-                  rowGap="20px"
-                  columnGap="20px"
                   size="1.1rem"
                   onSubmit={handleMailingListSubmit}
                 >
@@ -652,7 +654,7 @@ function Home() {
                               bg="#fff"
                               value={mailListEmail}
                               onChange={(e) => {setMailListEmail(e.target.value)}}
-                              autocomplete="email"
+                              autocomplete="on"
                             />
                               {mailListEmail.trim().length == 0 &&
                                 <Span
@@ -899,12 +901,13 @@ function Home() {
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="0px 0px 40px 0px" textAlign="right" tabletTextAlign="left">
               <H2 textTransform="uppercase" spacing="0.1em">
-                <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Partners</Span><Span weight="200"> AND <Span bg="#674c9f" color="#fff" weight="600" padding="0px 8px">Collaborators</Span></Span>
+                <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Partners</Span><Span weight="200"> AND <Span bg="#674c9f" size="0.8em" color="#fff" weight="600" padding="0px 8px">Collaborators</Span></Span>
               </H2>
               <H3>Let's talk partnerships</H3>
             </Item>
 
             <ItemH margin="0px -20px 20px -20px" rowGap="40px" columnGap="40px" align="stretch" justify="space-around">
+              {/*
               <Partner margin="20px" minWidth="280px" align="stretch">
                 <Anchor
                   href="https://medium.com/"
@@ -927,6 +930,7 @@ function Home() {
                   </Item>
                 </Anchor>
               </Partner>
+              */}
 
               <Partner margin="20px" minWidth="280px" align="stretch">
                 <Anchor
@@ -1282,12 +1286,12 @@ function Home() {
                 onSubmit={handleContactFormSubmit}
               >
 
-                <Item align="stretch" justify="stretch" rowGap="20px" columnGap="20px">
+                <Item align="stretch" justify="stretch" margin="10px -15px">
                   {contactFormProcessing == 0 &&
                     <>
-                      <ItemH rowGap="20px" columnGap="20px" align="stretch">
+                      <ItemH align="stretch">
 
-                        <Item flex="1" justify="flex-start" align="stretch" minWidth="280px">
+                        <Item flex="1" margin="15px" justify="flex-start" align="stretch" minWidth="280px">
                           <Input
                             radius="4px"
                             padding="12px"
@@ -1314,7 +1318,7 @@ function Home() {
                             }
                         </Item>
 
-                        <Item flex="5" justify="flex-start" align="stretch" minWidth="280px">
+                        <Item flex="5" margin="15px" justify="flex-start" align="stretch" minWidth="280px">
                           <Input
                             required
                             placeholder="john@wick.com"
@@ -1342,11 +1346,11 @@ function Home() {
                         </Item>
                       </ItemH>
 
-                      <Item flex="5" justify="flex-start" align="stretch" minWidth="280px">
+                      <Item flex="5" justify="flex-start" align="stretch" minWidth="280px" margin="15px">
                         <DropdownStyled options={contactFormTopics} onChange={(option) => setContactFormTopic(option.value)} value={contactFormTopic} placeholder="Select an option" />
                       </Item>
 
-                      <Item justify="center" align="stretch" minWidth="280px">
+                      <Item justify="center" align="stretch" minWidth="280px" margin="15px">
                         <Input
                           required
                           placeholder="I want to tell you guys a secret!"
@@ -1355,7 +1359,7 @@ function Home() {
                           bg="#fff"
                           value={contactFormSub}
                           onChange={(e) => {setContactFormSub(e.target.value)}}
-                          autocomplete="subject"
+                          autocomplete="on"
                         />
                           {contactFormSub.trim().length == 0 &&
                             <Span
@@ -1373,7 +1377,7 @@ function Home() {
                           }
                       </Item>
 
-                      <Item justify="center" align="stretch" minWidth="280px">
+                      <Item justify="center" align="stretch" minWidth="280px" margin="15px">
                         <TextField
                           required
                           placeholder="This is where you will tell us that secret, or a bug or whatever is on your mind."
@@ -1383,14 +1387,14 @@ function Home() {
                           bg="#fff"
                           value={contactFormMsg}
                           onChange={(e) => {setContactFormMsg(e.target.value)}}
-                          autocomplete="message"
+                          autocomplete="off"
                         />
                       </Item>
                     </>
                   }
 
-                  <Item align="center">
-                    {contactFormProcessing == 2 &&
+                  {contactFormProcessing == 2 &&
+                    <Item align="center" margin="0px 10px">
                       <ItemH
                         color="#e20880"
                         bg="#000"
@@ -1408,15 +1412,16 @@ function Home() {
                           Message Sent! We will be in Touch :)
                         </Span>
                       </ItemH>
-                    }
+                    </Item>
+                  }
 
-                    {contactFormError && contactFormProcessing == 0 &&
+                  {contactFormError && contactFormProcessing == 0 &&
+                    <Item align="center" margin="0px 10px">
                       <Item
                         color="#e20880"
                         bg="#000"
                         padding="10px 15px"
-                        columnGap="0px"
-                        rowGap="0px"
+                        margin="15px"
                       >
                         <Span
                           color="#fff"
@@ -1426,8 +1431,8 @@ function Home() {
                           {contactFormError}
                         </Span>
                       </Item>
-                    }
-                  </Item>
+                    </Item>
+                  }
 
                   <Item justify="stretch" self="stretch" align="stretch" minWidth="280px">
                     {contactFormProcessing != 2 &&
@@ -1437,6 +1442,8 @@ function Home() {
                         flex="1"
                         radius="4px"
                         disabled={contactFormProcessing}
+                        margin="15px"
+                        padding="12px 15px"
                       >
                         {contactFormProcessing == 1 &&
                           <Loader
@@ -1485,7 +1492,7 @@ function Home() {
               </H2>
             </Item>
 
-            <VCs margin="0px 0px 20px 0px"s align="stretch" justify="center">
+            <VCs margin="0px -10px 20px -10px"s align="stretch" justify="center">
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
@@ -1496,6 +1503,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
                 >
                   <Item>
                     <Item>
@@ -1518,6 +1526,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
                 >
                   <Item>
                     <Item>
@@ -1540,6 +1549,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
                 >
                   <Item>
                     <Item>
@@ -1562,6 +1572,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
                 >
                   <Item>
                     <Item>
@@ -1584,6 +1595,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
                 >
                   <Item>
                     <Item>
@@ -1606,6 +1618,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="20px"
                 >
                   <Item>
                     <Item>
@@ -1629,6 +1642,7 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
                 >
                   <Item>
                     <Item>
@@ -1645,26 +1659,28 @@ function Home() {
 
             </VCs>
 
-            <Angels margin="20px 0px 20px 0px" align="stretch" justify="center">
+            <Angels margin="0px -10px 20px -10px" align="stretch" justify="center">
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
                   href="https://balajis.com/"
                   target="_blank"
-                  title="Learn about our Investor - Balaji Srinivasan, Serial Entreprenuer"
+                  title="Learn about our Investor - Balaji S. Srinivasan, Serial Entreprenuer"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
                       <Image
                         src="./investors/balaji.png"
                         srcSet="./investors/balaji@2x.png 2x, ./investors/balaji@3x.png 3x"
-                        alt="Sketch of Investor - Balaji Srinivasan, Serial Entrepreneur"
+                        alt="Sketch of Investor - Balaji S. Srinivasan, Serial Entrepreneur"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Balaji Srinivasan</Span>
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Balaji S. Srinivasan</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Serial Entrepreneur</AngelJob>
                     </Item>
                   </Item>
@@ -1680,6 +1696,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1704,6 +1722,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1728,6 +1748,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1752,6 +1774,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1776,6 +1800,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1800,6 +1826,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1824,6 +1852,8 @@ function Home() {
                   hoverBG="transparent"
                   radius="12px"
                   align="stretch"
+                  margin="10px"
+                  padding="10px"
                 >
                   <Item>
                     <Item>
@@ -1838,110 +1868,115 @@ function Home() {
                   </Item>
                 </Anchor>
               </Investor>
-
             </Angels>
 
-            <HideAt hideAt="768px">
-              <Angels>
-                <Investor minWidth="280px" align="stretch">
-                  <Anchor
-                    href="https://twitter.com/benlakoff"
-                    target="_blank"
-                    title="Learn about our Investor - Ben Lakoff, Entrepreneur"
-                    bg="#fff"
-                    hoverBG="transparent"
-                    radius="12px"
-                    align="stretch"
-                  >
+            <AngelsOptional margin="-10px">
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/benlakoff"
+                  target="_blank"
+                  title="Learn about our Investor - Ben Lakoff, Entrepreneur"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
                     <Item>
-                      <Item>
-                        <Image
-                          src="./investors/ben.png"
-                          srcSet="./investors/ben@2x.png 2x, ./investors/ben@3x.png 3x"
-                          alt="Sketch of Investor - Ben Lakoff, Entrepreneur"
-                        />
-                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ben Lakoff</Span>
-                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entreprenuer</AngelJob>
-                      </Item>
+                      <Image
+                        src="./investors/ben.png"
+                        srcSet="./investors/ben@2x.png 2x, ./investors/ben@3x.png 3x"
+                        alt="Sketch of Investor - Ben Lakoff, Entrepreneur"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ben Lakoff</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entreprenuer</AngelJob>
                     </Item>
-                  </Anchor>
-                </Investor>
+                  </Item>
+                </Anchor>
+              </Investor>
 
-                <Investor minWidth="280px" align="stretch">
-                  <Anchor
-                    href="https://www.linkedin.com/in/dannychrist/"
-                    target="_blank"
-                    title="Learn about our Investor - Danny J.C., Angel Investor"
-                    bg="#fff"
-                    hoverBG="transparent"
-                    radius="12px"
-                    align="stretch"
-                  >
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://www.linkedin.com/in/dannychrist/"
+                  target="_blank"
+                  title="Learn about our Investor - Danny J.C., Angel Investor"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
                     <Item>
-                      <Item>
-                        <Image
-                          src="./investors/danny.png"
-                          srcSet="./investors/danny@2x.png 2x, ./investors/danny@3x.png 3x"
-                          alt="Sketch of Investor - Danny J.C., Angel Investor"
-                        />
-                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Danny J. C.</Span>
-                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
-                      </Item>
+                      <Image
+                        src="./investors/danny.png"
+                        srcSet="./investors/danny@2x.png 2x, ./investors/danny@3x.png 3x"
+                        alt="Sketch of Investor - Danny J.C., Angel Investor"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Danny J. C.</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
-                  </Anchor>
-                </Investor>
+                  </Item>
+                </Anchor>
+              </Investor>
 
-                <Investor minWidth="280px" align="stretch">
-                  <Anchor
-                    href="https://br.capital/#team"
-                    target="_blank"
-                    title="Learn about our Investor - Evgeny Zandman, Anger Investor"
-                    bg="#fff"
-                    hoverBG="transparent"
-                    radius="12px"
-                    align="stretch"
-                  >
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://br.capital/#team"
+                  target="_blank"
+                  title="Learn about our Investor - Evgeny Zandman, Angel Investor"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
                     <Item>
-                      <Item>
-                        <Image
-                          src="./investors/evgeny.png"
-                          srcSet="./investors/evgeny@2x.png 2x, ./investors/evgeny@3x.png 3x"
-                          alt="Sketch of Investor - Evgeny Zandman, Anger Investor"
-                        />
-                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Evgeny Zandman</Span>
-                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Anger Investor</AngelJob>
-                      </Item>
+                      <Image
+                        src="./investors/evgeny.png"
+                        srcSet="./investors/evgeny@2x.png 2x, ./investors/evgeny@3x.png 3x"
+                        alt="Sketch of Investor - Evgeny Zandman, Angel Investor"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Evgeny Zandman</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
-                  </Anchor>
-                </Investor>
+                  </Item>
+                </Anchor>
+              </Investor>
 
-                <Investor minWidth="280px" align="stretch">
-                  <Anchor
-                    href="#"
-                    disabled={true}
-                    target="_blank"
-                    title="Learn about our Investor -  Thomsa Kaseng AO, Angel Investor"
-                    bg="#fff"
-                    hoverBG="transparent"
-                    radius="12px"
-                    align="stretch"
-                  >
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="#"
+                  disabled={true}
+                  target="_blank"
+                  title="Learn about our Investor -  Thomsa Kaseng AO, Angel Investor"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
                     <Item>
-                      <Item>
-                        <Image
-                          src="./investors/thomas.png"
-                          srcSet="./investors/thomas@2x.png 2x, ./investors/thomas@3x.png 3x"
-                          alt="Sketch of Investor - Thomsa Kaseng AO, Angel Investor"
-                        />
-                        <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
-                        <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
-                      </Item>
+                      <Image
+                        src="./investors/thomas.png"
+                        srcSet="./investors/thomas@2x.png 2x, ./investors/thomas@3x.png 3x"
+                        alt="Sketch of Investor - Thomsa Kaseng AO, Angel Investor"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
-                  </Anchor>
-                </Investor>
+                  </Item>
+                </Anchor>
+              </Investor>
 
-              </Angels>
-            </HideAt>
+            </AngelsOptional>
 
           </Item>
         </Content>
@@ -2038,6 +2073,22 @@ const Preview = styled.div`
 const PreviewClose = styled(Anchor)`
   align-self: flex-end;
   margin-bottom: -40px;
+`
+
+const Solution = styled(ItemH)`
+  @media (max-width: 940px) {
+    flex-direction: column;
+
+    ${Item} {
+      padding:0px 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    ${Item} {
+      padding: 0px;
+    }
+  }
 `
 
 const ShadowBox = styled(Item)`
@@ -2185,9 +2236,6 @@ const AngelJob = styled(Span)`
 `
 
 const VCs = styled(ItemH)`
-  column-gap: 20px;
-  row-gap: 20px;
-
   justify-content: space-between;
 
   @media (max-width: 768px) {
@@ -2198,17 +2246,17 @@ const VCs = styled(ItemH)`
   }
 
   ${Investor} {
-    flex: 0 1 14%;
+    flex: 0 1 calc(16% - 10px);
     min-width: auto;
 
     @media (max-width: 768px) {
-      flex: 0 1 25%;
+      flex: 0 1 calc(33% - 20px);
       min-width: 130px;
     }
 
     @media (max-width: 480px) {
       flex: 1;
-      max-width: 100px;
+      max-width: 200px;
     }
   }
 
@@ -2220,9 +2268,6 @@ const VCs = styled(ItemH)`
 `
 
 const Angels = styled(VCs)`
-  column-gap: 20px;
-  row-gap: 20px;
-
   justify-content: space-between;
 
   @media (max-width: 768px) {
@@ -2233,7 +2278,7 @@ const Angels = styled(VCs)`
   }
 
   ${Investor} {
-    flex: 0 1 20%;
+    flex: 0 1 calc(25% - 20px);
     min-width: auto;
 
     @media (max-width: 768px) {
@@ -2242,8 +2287,8 @@ const Angels = styled(VCs)`
     }
 
     @media (max-width: 480px) {
-      flex: 0 1 50%;
-      min-width: 130px;
+      flex: 0 1 calc(50% - 20px);
+      min-width: 140px;
     }
   }
 
@@ -2255,6 +2300,12 @@ const Angels = styled(VCs)`
 
   ${Anchor} {
     padding: 20px 20px 20px 20px;
+  }
+`
+
+const AngelsOptional = styled(Angels)`
+  @media (max-width: 768px) {
+    display: none;
   }
 `
 

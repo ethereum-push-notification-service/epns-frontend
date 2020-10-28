@@ -108,12 +108,12 @@ function Foot() {
       {/* FOOTER SECTION */}
       <Section theme="#e20880" gradient="linear-gradient(0deg, #674c9f 0%, rgba(226,8,128,1) 100%)">
         <Content className="contentBox" padding="0px 0px 20px 0px">
-          <Item margin="0px 0px">
+          <Item margin="0px 0px" flex="auto">
             {/* DIVIDE SECTION */}
-            <ItemH self="stretch" margin="0px 20px 40px 20px">
+            <ItemH self="stretch" margin="0px 20px 20px 20px">
               {/* LOGO AND ABOUT US */}
               <Item flex="1" minWidth="200px" maxWidth="400px">
-                <ItemH margin="0px -10px 10px -10px" columnGap="20px" rowGap="20px">
+                <ItemH margin="0px -10px 0px -10px" columnGap="20px" rowGap="20px">
                   <Item margin="20px 10px" height="80px" width="80px" bg="#fff" radius="80px" flex="initial">
                     <Bell belltheme="color" width={48} height={48} badgeCount={badgeCounter} bellPressedCB={() => setBadgeCounter(badgeCounter + 1)} hideBadge={true}/>
                   </Item>
@@ -126,27 +126,25 @@ function Foot() {
               </Item>
             </ItemH>
 
-            {/* FOOTER LINKS */}
-            <Item self="center" margin="0px 20px" maxWidth="800px">
+            {/* MAILING */}
+            <FooterItem self="center" margin="20px 20px 10px 20px" minWidth="800px">
               {/* MAILING LIST */}
-              <ItemH margin="20px 0px 40px 0px" self="stretch">
+              <ItemH margin="20px 0px 0px 0px" self="stretch">
                 <FormSubmision
                   flex="1"
                   direction="row"
-                  margin="20px 0px"
+                  margin="20px 0px 10px"
                   justify="center"
-                  rowGap="20px"
-                  columnGap="20px"
                   size="1.1rem"
                   onSubmit={handleMailingListFooterSubmit}
                 >
 
                   <Item align="stretch">
                     <Span weight="400" textAlign="center" size="0.9em" textTransform="uppercase" color="#ffffff99" margin="0px 0px 20px 0px" spacing="0.1em">Keep up to date with all things EPNS!</Span>
-                    <ItemH margin="20px 0px" rowGap="20px" columnGap="20px">
+                    <ItemH margin="10px -10px">
                       {mailListFooterProcessing == 0 &&
                         <>
-                          <Item flex="1" justify="flex-start" align="stretch" minWidth="280px">
+                          <Item flex="1" justify="flex-start" align="stretch" minWidth="280px" margin="10px">
                             <FooterInputText
                               required
                               placeholder="john@wick.com"
@@ -175,7 +173,7 @@ function Foot() {
                         </>
                       }
 
-                      <Item flex="0" justify="stretch" self="stretch" align="stretch">
+                      <Item flex="0" justify="stretch" self="stretch" align="stretch" margin="10px">
                         {mailListFooterProcessing != 2 &&
                           <Button
                             bg='#00000033'
@@ -203,14 +201,12 @@ function Foot() {
 
                   <ItemBreak />
 
-                  <Item align="center">
+                  <Item align="center" margin="10px">
                     {mailListFooterProcessing == 2 &&
                       <ItemH
                         color="#fff"
                         bg='#00000033'
                         padding="10px 15px"
-                        columnGap="0px"
-                        rowGap="0px"
                       >
                         <FaCheckCircle size={24} color="#ffffff33"/>
                         <Span
@@ -229,8 +225,6 @@ function Foot() {
                         color="#fff"
                         bg='#00000033'
                         padding="10px 15px"
-                        columnGap="0px"
-                        rowGap="0px"
                       >
                         <Span
                           color="#fff"
@@ -245,22 +239,26 @@ function Foot() {
                 </FormSubmision>
 
               </ItemH>
+            </FooterItem>
 
-              <ItemH self="stretch" align="stretch" justify="space-between" columnGap="40px" rowGap="40px">
-                <Item bg="#fff" radius="12px" overflow="hidden" flex="1" minWidth="280px">
-                  <ItemH bg="#000" self="stretch" columnGap="5px">
+            {/* SOCIAL LINKS */}
+            <FooterItem self="center" margin="0px 20px 10px 20px" minWidth="800px">
+              <ItemH self="stretch" margin="0px -20px" align="stretch" justify="space-between">
+                <Item bg="#fff" radius="12px" overflow="hidden" flex="1" minWidth="280px" margin="20px">
+                  <ItemH bg="#000" self="stretch" margin="0px 0px 5px">
                     <Span color="#fff" textAlign="center" padding="6px 4px 6px 4px">
                       Follow our story!
                     </Span>
                     <IoMdHeart size={18} color="#C51104"/>
                   </ItemH>
 
-                  <ItemH padding="20px">
+                  <ItemH padding="10px">
                     <Anchor
                       href="https://twitter.com/epnsproject"
                       target="_blank"
                       bg="#000"
                       radius="4px"
+                      margin="10px"
                     >
                       <FaTwitter size={20} color="#e20880"/>
                     </Anchor>
@@ -269,6 +267,7 @@ function Foot() {
                       target="_blank"
                       bg="#000"
                       radius="4px"
+                      margin="10px"
                     >
                       <FaTelegramPlane size={20} color="#674c9f"/>
                     </Anchor>
@@ -277,25 +276,27 @@ function Foot() {
                       target="_blank"
                       bg="#000"
                       radius="4px"
+                      margin="10px"
                     >
                       <FaMedium size={20} color="#35c5f3"/>
                     </Anchor>
                   </ItemH>
                 </Item>
 
-                <Item bg="#fff" radius="12px" overflow="hidden" flex="1" minWidth="280px">
-                  <ItemH bg="#000" self="stretch" columnGap="5px">
+                <Item bg="#fff" align="stretch" radius="12px" overflow="hidden" flex="1" minWidth="280px" margin="20px">
+                  <ItemH bg="#000" margin="0px 0px 5px">
                     <Span color="#fff" textAlign="center" padding="6px 4px 6px 4px">
                       Repo / Alpha Access
                     </Span>
                   </ItemH>
 
-                  <ItemH padding="20px">
+                  <ItemH padding="10px">
                     <Anchor
                       href="https://github.com/ethereum-push-notification-service"
                       target="_blank"
                       bg="#000000"
                       radius="4px"
+                      margin="10px"
                     >
                       <FaGithub size={20} color="#e20880"/>
                     </Anchor>
@@ -304,6 +305,7 @@ function Foot() {
                       target="_blank"
                       bg="#000000"
                       radius="4px"
+                      margin="10px"
                     >
                       <FaGooglePlay size={20} color="#674c9f"/>
                     </Anchor>
@@ -312,21 +314,24 @@ function Foot() {
                       target="_blank"
                       bg="#000000"
                       radius="4px"
+                      margin="10px"
                     >
                       <IoMdNotifications size={20} color="#35c5f3"/>
                     </Anchor>
                   </ItemH>
                 </Item>
               </ItemH>
-            </Item>
+            </FooterItem>
 
-            <ItemH self="stretch" justify="center" minWidth="auto" size="0.8em" margin="40px 20px 0px 20px">
+            {/* FOOTER LINKS */}
+            <ItemH self="stretch" justify="center" minWidth="auto" size="0.8em" margin="0px 20px 0px 20px">
               <Item align="center" margin="0px" minWidth="auto" flex="initial">
                 <Anchor
                   href="https://epns.io/privacy"
                   target="_blank"
                   bg="transparent"
                   padding="4px 15px"
+                  margin="10px"
                 >
                   Privacy Policy
                 </Anchor>
@@ -338,6 +343,7 @@ function Foot() {
                   target="_blank"
                   bg="transparent"
                   padding="4px 15px"
+                  margin="10px"
                 >
                   Terms of Service
                 </Anchor>
@@ -370,6 +376,14 @@ const FooterInputText = styled(Input)`
 
   ::placeholder {
     color: #ffffff00;
+  }
+`
+
+const FooterItem = styled(Item)`
+  @media (max-width: 800px) {
+    min-width: 280px;
+    flex: auto;
+    align-self: stretch;
   }
 `
 
