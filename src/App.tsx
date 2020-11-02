@@ -30,7 +30,7 @@ export default function() {
   )
 }
 
-const launchEpoch = 1603117800; // Monday, October 19, 2020 2:30:00 PM GMT
+const launchEpoch = 1605621600; // Tuesday, November 17, 2020 2:00:00 PM GMT
 
 function App() {
   const [loading, setLoading] = React.useState(true);
