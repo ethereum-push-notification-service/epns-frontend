@@ -15,6 +15,7 @@ import Head from 'segments/Header';
 import Foot from 'segments/Footer';
 
 import Home from 'pages/Home';
+import HomeOld from 'pages/HomeOld';
 import Privacy from 'pages/Privacy';
 import Terms from 'pages/Terms';
 
@@ -68,25 +69,26 @@ function App() {
 
   return (
     <Router>
-      <Head />
-
       <ParentContainer>
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. Home needs to be last always*/}
         <Switch>
           <Route path="/privacy">
+            <Head />
             <Privacy />
+            <Foot />
           </Route>
           <Route path="/terms">
+            <Head />
             <Terms />
+            <Foot />
           </Route>
           <Route path="/">
-            <Home />
+            <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
           </Route>
         </Switch>
       </ParentContainer>
 
-      <Foot />
     </Router>
   );
 }
@@ -109,7 +111,27 @@ function App() {
 //   }
 //
 //   {!loading && comingSoon &&
-//     <ComingSoon timeRemaining={timeRemaining} />
+//     <Router>
+//       <ParentContainer>
+//         {/* A <Switch> looks through its children <Route>s and
+//           renders the first one that matches the current URL. */}
+//         <Switch>
+//           <Route path="/privacy">
+//             <Head />
+//             <Privacy />
+//             <Foot />
+//           </Route>
+//           <Route path="/tos">
+//             <Head />
+//             <Terms />
+//             <Foot />
+//           </Route>
+//           <Route path="/">
+//             <ComingSoon timeRemaining={timeRemaining} />
+//           </Route>
+//         </Switch>
+//       </ParentContainer>
+//     </Router>
 //   }
 //
 //   {!loading && !comingSoon &&
@@ -123,11 +145,11 @@ function App() {
 //           <Route path="/privacy">
 //             <Privacy />
 //           </Route>
-//           <Route path="/">
-//             <Home />
-//           </Route>
 //           <Route path="/tos">
 //             <Terms />
+//           </Route>
+//           <Route path="/">
+//             <Home />
 //           </Route>
 //         </Switch>
 //       </ParentContainer>

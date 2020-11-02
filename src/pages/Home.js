@@ -2,7 +2,7 @@ import React from "react";
 import ReactGA from 'react-ga';
 
 import styled, { css } from 'styled-components';
-import {Section, SectionFS, SectionFSHero, Content, Item, ItemH, ItemBreak, WaveOuter, WaveInner, Arc, H1, H2, H3, Image, P, Span, Anchor, Button, Showoff, FormSubmision, Input, TextField, HideAt} from 'components/SharedStyling';
+import {Section, SectionFS, SectionFSHero, Content, Item, ItemH, ItemBreak, WaveOuter, WaveInner, Arc, H1, H2, H3, Image, P, Span, Anchor, Button, Showoff, FormSubmision, Input, TextField} from 'components/SharedStyling';
 
 import ScrollTrigger from 'react-scroll-trigger';
 

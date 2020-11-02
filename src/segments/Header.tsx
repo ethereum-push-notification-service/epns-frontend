@@ -16,7 +16,7 @@ function Head() {
 
   return (
     <Header forceDisplay={showMenu}>
-      <Section className="contentBox" flexDirection="row">
+      <Section className="contentBox" direction="row">
         <Nav direction="row" align="stretch" justify="flex-start" minWidth="auto" margin="0px 20px" size="0.8rem">
           <Item align="center" margin="0px" minWidth="auto" flex="0">
             <HeadAnchor

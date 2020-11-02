@@ -18,7 +18,7 @@ import { Controls, PlayState, Tween } from 'react-gsap';
 gsap.registerPlugin(TextPlugin);
 
 // Create Header
-function Home({ setBadgeCount, bellPressed }) {
+function HomeOld({ setBadgeCount, bellPressed }) {
   ReactGA.pageview('/home');
 
   const [particleConfig, setParticleConfig] = React.useState(null);
@@ -217,11 +217,6 @@ function Home({ setBadgeCount, bellPressed }) {
               </FooterSub>
             </FooterInner>
           </Footer>
-          <Controls playState={PlayState.stop}>
-            <Tween to={{ text: 'This is the new text.' }} duration={2}>
-              <span>This is a text.</span>
-            </Tween>
-          </Controls>
         </Content>
       </Section>
 
@@ -230,18 +225,51 @@ function Home({ setBadgeCount, bellPressed }) {
         <Content>
           <ContentHeader theme="#fff" titleTheme="#674c9f">Featured</ContentHeader>
           <Featured>
-            <Feature href="https://defipulse.com"
+            <Feature
+              href="https://blog.ethereum.org/2020/08/19/esp-beyond-grants/"
               target="_blank"
               rel="nofollow"
             >
-              <Logo src="./defipulse.png" />
+              <Logo src="./featured/esp.png" />
             </Feature>
+
+            <Feature
+              href="https://cointelegraph.com/news/dapps-can-now-send-push-notifications-to-ethereum-wallet-users/"
+              target="_blank"
+              rel="nofollow"
+            >
+              <Logo src="./featured/cointelegraph.png" />
+            </Feature>
+
+            <Feature
+              href="https://twitter.com/epnsproject/status/1299018919143849984?s=20"
+              target="_blank"
+              rel="nofollow"
+            >
+              <Logo src="./featured/kernel.png" />
+            </Feature>
+
             <Feature
               href="https://podcast.ethhub.io/ethhub-weekly-119-yield-farming-defi-valuations-on-the-rise-eths-value-prop-epns-introduced-consensys-staking-as-a-service-reddits-scaling-ethereum-challenge-and-matter-labs-zk-sync"
               target="_blank"
               rel="nofollow"
             >
-              <Logo src="./ethhub.png" />
+              <Logo src="./featured/ethhub.png" />
+            </Feature>
+
+            <Feature
+              href="https://www.edcon.io/#maodian"
+              target="_blank"
+              rel="nofollow"
+            >
+              <Logo src="./featured/edcon.png" />
+            </Feature>
+
+            <Feature href="https://defipulse.com"
+              target="_blank"
+              rel="nofollow"
+            >
+              <Logo src="./featured/defipulse.png" />
             </Feature>
           </Featured>
         </Content>
@@ -566,6 +594,7 @@ const Featured = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  filter: brightness(0) invert(1);
 `
 
 const Feature = styled.a`
@@ -582,4 +611,4 @@ const Logo = styled.img`
 `
 
 // Export Default
-export default Home;
+export default HomeOld;

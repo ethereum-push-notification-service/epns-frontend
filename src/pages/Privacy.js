@@ -48,7 +48,7 @@ function Privacy() {
               <H2 textTransform="uppercase" spacing="0.1em">
                 <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Privacy</Span><Span weight="200"> Policy</Span>
               </H2>
-              <H3 maxWidth="400px">Last Updated: 15th October 2020</H3>
+              <H3 maxWidth="400px">Last Updated: 2nd November 2020</H3>
             </Item>
 
             {/* SUMMARY */}
@@ -57,427 +57,408 @@ function Privacy() {
                 SUMMARY
               </Para>
               <Para margin="-10px 0px 0px">
-                At EPNS, we know you care about your privacy and how your personal information is used and shared. This Privacy Policy is designed to help you better understand how we treat your personal information.
+                We recognise our responsibilities in relation to the collection, holding, processing, use and/or transfer of personal data. Your privacy is of utmost importance to us.
               </Para>
 
               <Para margin="20px 0px 0px 0px">
-                <B>You should understand that by using or accessing our Services in any manner, you are acknowledging that you understand and accept the practices and policies outlined in this Privacy Policy, and you are agreeing to how we may collect, use, and share your information as described in this Privacy Policy.</B>
+                This policy (the <B>Policy</B>) outlines how we collect, use, store and disclose your personal data. Please take a moment to read about how we collect, use and/or disclose your personal data so that you know and understand the purposes for which we may collect, use and/or disclose your personal data. By accessing the website at <A href="https://epns.io" targer="_blank">epns.io</A>, <A href="https://app.epns.io" targer="_blank">app.epns.io</A> or <A href="https://staging-app.epns.io" targer="_blank">staging-app.epns.io</A> or any other subdomains of <B>epns.io</B> (the <B>Website(s)</B>), you agree and consent to Ethereum Push Notification Service Foundation (the <B>Company</B>), its related corporations, business units and affiliates, as well as their respective representatives and/or agents (collectively referred to herein as “EPNS”, “us”, “we” or “our”), collecting, using, disclosing and sharing amongst themselves the personal data, and to disclosing such personal data to relevant third party providers. This Policy supplements but does not supersede nor replace any other consent which you may have previously provided to us nor does it affect any rights that we may have at law in connection with the collection, use and/or disclosure of your personal data. We may from time to time update this Policy to ensure that this Policy is consistent with our future developments, industry trends and/or any changes in legal or regulatory requirements. Subject to your rights at law, the prevailing terms of this Policy shall apply. For the avoidance of doubt, this Policy forms part of the Terms of Service governing your relationship with us and should be read in conjunction with such <A href="./terms" target="_blank">Terms of Service</A>. All capitalised terms used but not defined herein shall have the meaning ascribed to them in the Terms of Service.
+              </Para>
+
+              <Para margin="20px 0px 0px 0px">
+                The security of your personal data is important to us. At each stage of data collection, use and disclosure, EPNS has in place physical, electronic, administrative and procedural safeguards to protect the personal data stored with us. However, do note that no transmission of personal data over the internet can be guaranteed to be 100% secure – accordingly and despite our efforts, EPNS cannot guarantee or warrant the security of any information you transmit to us, or to or from our online services. EPNS shall not have any responsibility or liability for the security of information transmitted via the internet.
               </Para>
 
               <Para>
-                You should also remember that your use of our Services is at all times subject to our <A href="./terms" t>Terms of Service</A>, which incorporates this Privacy Policy. Any capitalized terms we use in this Privacy Policy without defining them have the definitions given to them in our Terms of Service.
+                This Policy describes how EPNS may collect, use, disclose, process and manage your personal data, and applies to any individual’s personal data which is in our possession or under our control.
               </Para>
 
 
-              {/* What this Privacy Policy covers */}
+              {/* What personal data is collected by EPNS */}
               <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                What this Privacy Policy covers
+                1.1 What personal data is collected by EPNS
               </Para>
               <Para margin="-10px 0px 0px 0px">
-                This Privacy Policy covers our treatment of personally identifiable information (“Personal Information”) that we gather when you are accessing or using our Services, but not to the practices of companies we don’t own or control, or people that we don’t manage.
+                "Personal data" means data, whether true or not, about an individual who can be identified (i) from that data, or (ii) from that data and other information to which the organisation has or is likely to have access. Some examples of personal data that EPNS may collect are:
               </Para>
 
-              <Para margin="20px 0px 0px 0px">
-                We understand that users of our Services value their privacy, and one of our core values is to minimize our collection of Personal Information. There are instances where we do collect Personal Information, however, and this Privacy Policy explains those instances.
-              </Para>
+                <Para margin="20px 0px 0px 20px">
+                  <B>(a)</B> personal particulars (e.g. name, contact details, residential address, date of birth, identity card/passport details, social media handles and other social media profile information, and/or education details);
+                </Para>
 
-              <Para margin="20px 0px 0px 0px">
-                As we’ll describe further, we may gather different kinds of Personal Information from our users, and we use this Personal Information internally in connection with our Services, including to personalize, provide, and improve our services, to fulfill your requests for certain products and services, and to analyze how you use the Services. This Privacy Policy will also cover how we may share some Personal Information with third parties in specific circumstances.
-              </Para>
+                <Para margin="20px 0px 0px 20px">
+                  <B>(b)</B> financial details (e.g. income, expenses, credit history and/or credit card and bank information);
+                </Para>
 
-              <Para margin="20px 0px 0px 0px">
-                If you are under the age of majority where you reside, you may use our Services only with the consent of or under the supervision of your parent or legal guardian. Consistent with the requirements of the Childrens Online Privacy Protection Act (COPPA), if we learn that we have received any Personal Information directly from a child under age 13 without first receiving their parents verified consent, we will use that Personal Information only to respond directly to that child (or their parent or legal guardian) to inform them that they cannot use our Services and we will delete that Personal Information.
-              </Para>
+                <Para margin="20px 0px 0px 20px">
+                  <B>(c)</B> images and voice recordings of our conversations with you, whether from our events or office surveillances or otherwise;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(d)</B> work experience and employment details (e.g. occupation, directorships and other positions held, employment history, salary, and/or benefits);
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(e)</B> tax and insurance information;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(f)</B> information about your risk profile, investments, investment objectives, knowledge and experience and/or business interests and assets;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(g)</B> information about your use of our services and Website;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(h)</B> usernames and password, third party account credentials (such as your Facebook login credentials, Google login credentials) and IP address;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(i)</B> banking information (e.g. account numbers and banking transactions);
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(j)</B> private or public cryptographic key relating to addresses on distributed ledger networks and/or similar information; and/or
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(k)</B> personal opinions made known to us (e.g. feedback or responses to surveys).
+                </Para>
 
               <Para margin="20px 0px 20px 0px">
-                We understand that users of our Services value their privacy, and one of our core values is to minimize our collection of Personal Information. There are instances where we do collect Personal Information, however, and this Privacy Policy explains those instances.
+                Personal data may be collected when you interact with our services or use the Website, or may be received by EPNS from third-party databases or service providers that provide business information.
               </Para>
 
 
               {/* Changes to this Privacy Policy */}
               <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                Changes to this Privacy Policy
+                1.2 Purposes for collection, use and disclosure of your personal data
+              </Para>
+              <Para margin="-10px 0px 0px 0px">
+                EPNS may collect, use and/or disclose your personal data for its business purposes, including operations for these purposes. These may include, without limitation, the following:
+              </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(a)</B> developing and providing facilities, products or services (whether made available by us or through us), including but not limited to:
+                </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(i)</B> sale of digital tokens or virtual currencies;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(ii)</B> acting as intermediaries through any blockchain, network or platform developed or managed by us;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(iii)</B> recording and/or encryption on any blockchain, network or platform developed or managed by us;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(iv)</B> promoting advertisements or marketing material, whether from us or third parties;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(v)</B> various products and/or services (whether digital or not, and whether provided through an external service provider or otherwise), including without limitation the Services as set out in the Terms of Service;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(vi)</B> providing, managing or accessing digital wallets for holding digital assets;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(vii)</B> access to smart contracts on and/or interacting with the EPNS protocol, the Website or the App;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(viii)</B> sending and receiving notifications and Content from various channels on the EPNS protocol;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(ix)</B> making payments to you for participation in any blockchain, network or platform developed or managed by us (as applicable);
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(x)</B> various products and/or services related to digital assets;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(xi)</B> any escrow, courier, anti-counterfeiting or dispute resolution services;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(xii)</B> transactions and clearing or reporting on these transactions;
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(xiii)</B> carrying out research, planning and statistical analysis; and/or
+                  </Para>
+
+                  <Para margin="20px 0px 0px 40px">
+                    <B>(xiv)</B> analytics for the purposes of developing or improving our products, services, security, service quality, staff training, and advertising strategies;
+                  </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(b)</B> assessing and processing applications, instructions, transactions, or requests from you or our customers;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(c)</B> communicating with you, including providing you with updates on changes to products, services and banking facilities (whether made available by us or through us) including any additions, expansions, suspensions and replacements of or to such products, services and banking facilities and their terms and conditions;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(d)</B> managing our infrastructure and business operations and complying with internal policies and procedures;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(e)</B> responding to queries or feedback;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(f)</B> addressing or investigating any complaints, claims or disputes;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(g)</B> verifying your identity for the purposes of providing facilities, products or services, which would require comparison of your personal information against third party databases and/or provision of such information to third party service providers;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(h)</B> conducting credit checks, screenings or due diligence checks as may be required under applicable law, regulation or directive;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(i)</B> complying with all applicable laws, regulations, rules, directives, orders, instructions and requests from any local or foreign authorities, including regulatory, governmental, tax and law enforcement authorities or other authorities;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(j)</B> enforcing obligations owed to us;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(k)</B> monitoring products and services provided by or made available through us;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(l)</B> complying with obligations and requirements imposed by us from time to time by any credit bureau or credit information sharing services of which we are a member or subscriber;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(m)</B> creating and maintaining credit and risk related models;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(n)</B> financial reporting, regulatory reporting, management reporting, risk management (including monitoring credit exposures, preventing, detecting and investigating crime, including fraud and any form of financial crime), audit and record keeping purposes;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(o)</B> enabling any actual or proposed assignee or transferee, participant or sub-participant of EPNS's rights or obligations to evaluate any proposed transaction;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(p)</B> enforcing obligations owed to us; and/or
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(q)</B> seeking professional advice, including legal or tax advice.
+                </Para>
+
+              <Para margin="20px 0px 20px 0px">
+                We may also use personal data for purposes set out in the Terms of Service that govern our relationship with you or our customer.
+              </Para>
+
+
+              {/* Use of personal data for marketing purposes */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.3 Use of personal data for marketing purposes
               </Para>
               <Para margin="-10px 0px 0px">
-                We are constantly trying to improve our Services and always want to adopt best practices with our privacy practices, so we may make changes to our Privacy Policy from time to time. When these are significant, we will alert you to changes and you will be required to agree to our new Privacy Policy in order to keep using your Services.
+                We may use your personal data to offer you products or services, including special offers, promotions, contests or entitlements that may be of interest to you or for which you may be eligible. Such marketing messages may be sent to you in various modes including but not limited to electronic mail, direct mailers, short message service, telephone calls, facsimile and other mobile messaging services. In doing so, we will comply with all applicable data protection and privacy laws.
+              </Para>
+
+              <Para margin="20px 0px 0px 0px">
+                In respect of sending telemarketing messages to your telephone number via short message service, telephone calls, facsimile and other mobile messaging services, please be assured that we shall only do so if we have your clear and unambiguous consent in writing or other recorded form to do so or if you have not otherwise made the appropriate registration of that number with the Do Not Call Registry. If we have an ongoing relationship with you and you have not indicated to us that you do not wish to receive telemarketing messages sent to your telephone number, we may send you telemarketing messages to that number related to the subject of our ongoing relationship via short message service, facsimile and other mobile messaging services (other than a voice or video call).
+              </Para>
+
+              <Para margin="20px 0px 0px 0px">
+                You may at any time request that we stop contacting you for marketing purposes via selected or all modes.
+              </Para>
+
+              <Para margin="20px 0px 0px 0px">
+                To find out more on how you can change the way we use your personal data for marketing purposes, please contact us at <A href="mailto://support@epns.io">support@epns.io</A>.
               </Para>
 
               <Para margin="20px 0px 20px 0px">
-                If you continue to use our Services after changes to the Privacy Policy have been posted, you understand that you are agreeing to all of those changes. Use of Personal Information we collect is subject to the Privacy Policy in effect at the time such Personal Information is used.
+                Nothing in this section shall vary or supersede the Terms of Service that govern our relationship with you.
               </Para>
 
 
-              {/* Information EPNS Collects */}
+              {/* Disclosure and sharing of personal data */}
               <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                Information EPNS Collects
+                1.4 Disclosure and sharing of personal data
               </Para>
               <Para margin="-10px 0px 0px">
-                We collect different kinds of Personal Information and describe each category below.
+                We may from time to time and in compliance with all applicable laws on data privacy, disclose your personal data to any personnel of EPNS or to third parties (including without limitation banks, financial institutions, credit card companies, credit bureaus and their respective service providers, companies providing services relating to insurance and/or reinsurance to us, and associations of insurance companies, agents, contractors or third party service providers who provide services to us such as telecommunications, information technology, payment, data processing, storage and archival, and our professional advisers such as our auditors and lawyers, and regulators and authorities), whether located in Singapore or elsewhere, in order to carry out the purposes set out above. Please be assured that when we disclose your personal data to such parties, we require them to ensure that any personal data disclosed to them are kept confidential and secure.
               </Para>
 
               <Para margin="20px 0px 0px 0px">
-                <B>Information You Provide to Us:</B> We receive and store Personal Information you knowingly provide to us. For example, this includes information you provide when you import your Wallet and use it with our Services, such as information regarding your transactional history on the Ethereum network, or information you provide each time you make a transfer of Virtual Currency. It also includes (i) contact information you elect to provide to us such as your email address, (ii) feedback and correspondence, such as information you provide when you report a problem with our Services or otherwise correspond with us, and (iii) marketing information, such as your preferences for receiving marketing communications like our newsletter and details about how you engage with them.
+                For more information about the third parties with whom we share your personal data, you may, where appropriate, wish to refer to the agreement(s) and/or Terms of Service that govern our relationship with you or our customer. You may also contact us for more information (please see section 1.9 below).
               </Para>
 
               <Para margin="20px 0px 0px 0px">
-                However, other than the information required to associate your Wallet with our Services, you are not required to provide any other Personal Information to use the core features of our Services. But understand that you may be required to provide additional Personal Information to access certain features or offerings.
+                We wish to emphasise that EPNS does not sell personal data to any third parties and we shall remain fully compliant of any duty or obligation of confidentiality imposed on us under the applicable agreement(s) and/or Terms of Service that govern our relationship with you or our customer or any applicable law.
               </Para>
 
               <Para margin="20px 0px 0px 0px">
-                <B>You should also understand that, unless you use certain privacy preserving tools, your entire transactional history conducted from your Wallet is publicly available on the Ethereum network by default to us and any other network participants.</B>
-              </Para>
-
-              <Para margin="20px 0px 0px 0px">
-                <B>Information Collected from Other Sources:</B> We may obtain information from other sources, such as third- party applications you use our Services with. We may combine this with information previously collected when using our Services. In these cases, our Privacy Policy governs the handling of any combined Personal Information.
-              </Para>
-
-              <Para margin="20px 0px 0px 0px">
-                <B>Information Collected Automatically:</B> Whenever you interact with certain parts of our Services such as our landing page or blog, we automatically receive and record information on our server logs from your browser or device, which may include your IP address, geolocation data, device identification, “cookie” information, the type of browser and/or device you’re using to access our Services, and the page or feature you requested.
-              </Para>
-
-              <Para margin="20px 0px 0px 0px">
-                We typically collect this information through a variety of tracking technologies, including cookies, embedded scripts, web beacons, file information and similar technology (collectively, “tracking technologies”). “Cookies” are identifiers we transfer to your browser or device that allow us to recognize your browser or device and tell us how and when pages and features in our Site are visited and by how many people. You may be able to change the preferences on your browser or device to prevent or limit your device’s acceptance of cookies, but this may prevent you from taking advantage of some of our features.
-              </Para>
-
-              <Para margin="20px 0px 0px 0px">
-                We may use this data to customize content for you that we think you might like, based on your usage patterns. We may also use it to improve the Services - for example, this data can tell us what topics or features are most interesting to potential users of our Services, and we can use that knowledge to make the Services interesting to as many users as possible. For more about how we use Cookies and other tracking technologies, see our Cookies Policy.
-              </Para>
-
-              <Para margin="20px 0px 0px 0px">
-                <B>We do not automatically collect Personal Information when you conduct transactions on the Ethereum network using our Services, and we do not use any automatic tracking technologies in these parts of our Services unless you explicitly agree.</B>
+                You are responsible for ensuring that the personal data you provide to us is accurate, complete, and not misleading and that such personal data is kept up to date. You acknowledge that failure on your part to do so may result in our inability to provide you with the products and services you have requested. To update your personal data, please contact us (please see section 1.9 below for contact details). Where you provide us with personal data concerning individuals other than yourself, you are responsible for obtaining all legally required consents from the concerned individuals and you shall retain proof of such consent(s), such proof to be provided to us upon our request.
               </Para>
 
               <Para margin="20px 0px 20px 0px">
-                We understand that users of our Services value their privacy, and one of our core values is to minimize our collection of Personal Information. There are instances where we do collect Personal Information, however, and this Privacy Policy explains those instances.
+                We may transfer, store, process and/or deal with your personal data outside Singapore. In doing so, we will comply with all applicable data protection and privacy laws.
               </Para>
 
 
-              {/* 5. Disclaimers and Associated Risks */}
+              {/* Cookies and related technologies */}
               <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                5. Disclaimers and Associated Risks
+                1.5 Cookies and related technologies
               </Para>
-
-                {/* 5.1 Risk of Cryptographic Systems */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="0px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.1 Risk of Cryptographic Systems
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  By utilizing the Services or interacting with the Content or platform in any way, you represent that you understand the inherent risks associated with cryptographic systems; and warrant that you have an understanding of the usage and intricacies of native cryptographic tokens such as Ether (ETH) and Bitcoin (BTC), smart contract based tokens such as those that follow an Ethereum token standard (e.g. <A href="https://github.com/ethereum/EIPs/issues/20" tarrget="_blank">github.com/ethereum/EIPs/issues/20</A>), and blockchain-based software systems.
-                </Para>
-
-                {/* 5.2 Risk of Regulatory Actions */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.2 Risk of Regulatory Actions
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  EPNS and any supported cryptographic token and blockchain could be impacted by one or more regulatory inquiries or regulatory action, which could impede or limit the ability of EPNS to continue to develop, or which could impede or limit your ability to access or use the Services or the underlying blockchain network.
-                </Para>
-
-                {/* 5.3 Warranty Disclaimer */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.3 Warranty Disclaimer
-                </Para>
-
-                <Para margin="-10px 0px 0px 20px">
-                  You expressly understand and agree that your use of the Services is at your sole risk. The Services (including the Site, the App and the Content) are provided on an “as is” and “as available” basis, without warranties of any kind, either express or implied, including, without limitation, implied warranties of merchantability, fitness for a particular purpose or non-infringement. You acknowledge that EPNS has no control over, and no duty to take any action regarding: which users gain access to or use the Services; what effects the Content may have on you; how you may interpret or use the Content; or what actions you may take as a result of having been exposed to the Content. You release EPNS from all liability for you having acquired or not acquired Content through the Services. EPNS makes no representations concerning any Content contained in or accessed through the Services, and EPNS will not be responsible or liable for the accuracy, copyright compliance, legality or decency of material contained in or accessed through the Services.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  We do not represent or warrant that access to the Services will be continuous, uninterrupted, timely or secure. You acknowledge and accept that the Services (a) may contain bugs, errors and defects, (b) may behave improperly or be subject to periods of downtime and unavailability, (c) may result in total or partial loss or corruption of data and (d) may be modified at any time, including through the release of subsequent versions, all with or without notice to you.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  You acknowledge that EPNS is not responsible for transferring, safeguarding, or maintaining your private keys or any digital currency associated therewith. If you lose, mishandle or have stolen associated digital currency private keys, you acknowledge that you may not be able to recover associated digital currency, and that EPNS is not responsible for such loss. You acknowledge that EPNS is not responsible for any loss, damage or liability arising from your failure to comply with the terms hereunder.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  <B>THE SERVICES AND CONTENT ARE PROVIDED BY EPNS (AND ITS LICENSORS AND SUPPLIERS) ON AN “AS-IS” BASIS, WITHOUT WARRANTIES OR ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON- INFRINGEMENT, THAT USE OF THE SERVICES WILL BE UNINTERRUPTED OR ERROR- FREE, OR THE SECURITY ASSOCIATED USE OF, OR TRANSMISSION OF INFORMATION THROUGH, THE SERVICES. SOME JURISDICTIONS DO NOT ALLOW LIMITATIONS ON HOW LONG AN IMPLIED WARRANTY LASTS, SO THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.</B>
-                </Para>
-
-                {/* 5.4 Risk of Exploits and Weaknesses in Cryptography Field */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.4 Risk of Exploits and Weaknesses in Cryptography Field
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  You acknowledge and understand that Cryptography is a progressing field. Advances in code cracking or technical advances such as the development of quantum computers may present risks to cryptocurrencies and Services of Content, which could result in the theft or loss of your cryptographic tokens or property. To the extent possible, EPNS intends to update the protocol underlying Services to account for any advances in cryptography and to incorporate additional security measures, but does not guarantee or otherwise represent full security of the system. By using the Services or accessing Content, you acknowledge these inherent risks.
-                </Para>
-
-                {/* 5.5 Cryptocurrency and Volatility */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.5 Cryptocurrency and Volatility
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  You understand that Ethereum and other blockchain technologies and associated cryptographic tokens are highly volatile due to many factors including but not limited to adoption, speculation, technology and security risks. You also acknowledge that the cost of transacting on such technologies is variable and may increase at any time causing impact to any activities taking place on the blockchain network. You acknowledge these risks and agree that EPNS cannot be held liable for such fluctuations or increased costs.
-                </Para>
-
-                {/* 5.6 Application Security */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.6 Application Security
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  You further acknowledge that blockchain applications are code subject to flaws and acknowledge that you are solely responsible for evaluating any code provided by the Services or Content and the trustworthiness of any third-party websites, products, smart-contracts, or Content you access or use through the Services. You further expressly acknowledge and represent that blockchain applications can be written maliciously or negligently, that EPNS cannot be held liable for your interaction with such applications and that such applications may cause the loss of property or even identity. This warning and others later provided by EPNS in no way evidence or represent an on-going duty to alert you to all of the potential risks of utilizing the Services or Content.
-                </Para>
-
-                {/* 5.7 Affiliated Service / Third Party Service */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  5.7 Affiliated Service / Third Party Service
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  Software and services provided by our affiliates (“Affiliated Services”) and third party software and services (“Third Party Services” and, together with Affiliated Services, “Additional Services”) included in, integrated into, or made accessible through, the Services, including through the Snap System, are made available to you under the terms of use of such service providers (collectively, “Service Providers”) (for example, Infura, Google Analytics, etc). Please review the applicable terms of use on their websites prior to using or accessing their services.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  Service Providers may charge you a fee for use of, or access to, such Additional Services. You acknowledge that EPNS may earn fees from Service Providers in connection with your use of such Additional Services.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  You agree that EPNS and its affiliates are not in any way associated with the owner or operator of any Third Party Services or responsible or liable for the software and services offered by them or for anything in connection with such Third Party Services. EPNS does not endorse or approve and makes no warranties, representations or undertakings relating to the software, service or content of any Third Party Services.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  In addition, EPNS disclaims liability for any loss, damage and any other consequence resulting directly or indirectly from or relating to your use or access of Third Party Services or any information that you may provide or any transaction conducted with or through the Third Party Services or the failure of any information, software or services posted or offered by such Service Providers or any error, omission or misrepresentation by such Service Providers or any computer virus arising from or system failure associated with the Third Party Services.
-                </Para>
-
-                <Para margin="20px 0px 20px 20px">
-                  In the event of any inconsistency between the terms herein and the terms of the Additional Services, the terms herein will prevail.
-                </Para>
-
-
-              {/* 6. Intellectual Property */}
-              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                6. Intellectual Property
-              </Para>
-
-                {/* 6.1 Ownership and Intellectual Property */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="0px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  6.1 Ownership and Intellectual Property
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  All title, ownership and intellectual property rights in and to the Services are owned by EPNS or its licensors. You acknowledge and agree that the Services contains proprietary and confidential information that is protected by applicable intellectual property and other laws. Except as expressly authorized by EPNS, you agree not to copy, modify, rent, lease, loan, sell, distribute, perform, display or create derivative works based on the Site, the App or the Services, in whole or in part.
-                </Para>
-
-                {/* 6.2 Limited and Revocable License */}
-                <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 20px" textTransform="uppercase" size="1.1em">
-                  6.2 Limited and Revocable License
-                </Para>
-                <Para margin="-10px 0px 0px 20px">
-                  We grant you limited, non-exclusive, revocable permission to make use of the Site, the App and the Services (collectively, “Access”). This Access shall remain in effect until and unless terminated by you or us. You promise and agree that you will not redistribute or transfer the Services.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  The EPNS software application, including without limitation the Site, the App and the Services, are not sold or transferred to you, and EPNS and its licensors retain ownership of all copies of the software applications even after installation on your personal computers, mobile handsets, tablets, wearable devices, speakers and/or other devices (“Devices”).
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  All EPNS trademarks, service marks, trade names, logos, domain names, and any other features of the EPNS brand (“EPNS Brand Features”) are the sole property of EPNS or its licensors. The Terms do not grant you any rights to use any EPNS Brand Features whether for commercial or non-commercial use.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  You agree to abide by our user guidelines and not to use the Services or any part thereof in any manner not expressly permitted by the Terms. Except for the rights expressly granted to you in the Terms, EPNS grants no right, title, or interest to you in the Site, the App or the Services.
-                </Para>
-
-                <Para margin="20px 0px 0px 20px">
-                  Third party software (for example, open source software libraries) included in the Services are made available to you under the relevant third party software library’s license terms.
-                </Para>
-
-                <Para margin="20px 0px 20px 20px">
-                  Notwithstanding anything herein to the contrary, nothing in the Terms entitles you to copy, modify, fork, merge, combine with another program or create a derivative work of the Services, including without limitation the Site and the App.
-                </Para>
-
-              {/* 7. Links */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                7. Links
-              </Para>
-              <Para margin="-10px 0px 20px 0px">
-                The Services provide, or third parties may provide, links to other World Wide Web or accessible sites, applications or resources. Because EPNS has no control over such sites, applications and resources, you acknowledge and agree that EPNS is not responsible for the availability of such external sites, applications or resources, and does not endorse and is not responsible or liable for any content, advertising, products or other materials on or available from such sites or resources. You further acknowledge and agree that EPNS shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such site or resource.
-              </Para>
-
-
-              {/* 8. Indemnity */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                8. Indemnity
-              </Para>
-              <Para margin="-10px 0px 20px 0px">
-                You agree to release and to indemnify, defend and hold harmless EPNS and its parents, subsidiaries, affiliates and agencies, as well as the officers, directors, employees, shareholders and representatives of any of the foregoing entities, from and against any and all losses, liabilities, expenses, damages, costs (including attorneys’ fees and court costs) claims or actions of any kind whatsoever arising or resulting from your use of the Services, your violation of these Terms, and any of your acts or omissions that implicate publicity rights, defamation or invasion of privacy. EPNS reserves the right, at its own expense, to assume exclusive defense and control of any matter otherwise subject to indemnification by you and, in such case, you agree to cooperate with EPNS in the defense of such matter.
-              </Para>
-
-              {/* 9. Limitation on Liability */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                9. Limitation on Liability
-              </Para>
-              <Para margin="-10px 0px 0px 0px">
-                <B>YOU ACKNOWLEDGE AND AGREE THAT YOU ASSUME FULL RESPONSIBILITY FOR YOUR USE OF THE SITE, THE APP AND THE SERVICES. YOU ACKNOWLEDGE AND AGREE THAT ANY INFORMATION YOU SEND OR RECEIVE DURING YOUR USE OF THE SITE, THE APP AND THE SERVICES MAY NOT BE SECURE AND MAY BE INTERCEPTED OR LATER ACQUIRED BY UNAUTHORIZED PARTIES. YOU ACKNOWLEDGE AND AGREE THAT YOUR USE OF THE SITE, THE APP AND THE SERVICES IS AT YOUR OWN RISK. RECOGNIZING SUCH, YOU UNDERSTAND AND AGREE THAT, TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, NEITHER EPNS NOR ITS SUPPLIERS OR LICENSORS WILL BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY OR OTHER DAMAGES OF ANY KIND, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER TANGIBLE OR INTANGIBLE LOSSES OR ANY OTHER DAMAGES BASED ON CONTRACT, TORT, STRICT LIABILITY OR ANY OTHER THEORY (EVEN IF EPNS HAD BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), RESULTING FROM THE SITE, THE APP OR SERVICES; THE USE OR THE INABILITY TO USE THE SITE, THE APP OR THE SERVICES; UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR TRANSMISSIONS OR DATA; STATEMENTS OR CONDUCT OF ANY THIRD PARTY ON THE SITE, THE APP OR THE SERVICES; ANY ACTIONS WE TAKE OR FAIL TO TAKE AS A RESULT OF COMMUNICATIONS YOU SEND TO US; HUMAN ERRORS; TECHNICAL MALFUNCTIONS; FAILURES, INCLUDING PUBLIC UTILITY OR TELEPHONE OUTAGES; OMISSIONS, INTERRUPTIONS, LATENCY, DELETIONS OR DEFECTS OF ANY DEVICE OR NETWORK, PROVIDERS, OR SOFTWARE (INCLUDING, BUT NOT LIMITED TO, THOSE THAT DO NOT PERMIT PARTICIPATION IN THE SERVICES); ANY INJURY OR DAMAGE TO COMPUTER EQUIPMENT; INABILITY TO FULLY ACCESS THE SITE, THE APP OR THE SERVICES OR ANY OTHER WEBSITE; THEFT, TAMPERING, DESTRUCTION, OR UNAUTHORIZED ACCESS TO, IMAGES OR OTHER CONTENT OF ANY KIND; DATA THAT IS PROCESSED LATE OR INCORRECTLY OR IS INCOMPLETE OR LOST; TYPOGRAPHICAL, PRINTING OR OTHER ERRORS, OR ANY COMBINATION THEREOF; OR ANY OTHER MATTER RELATING TO THE SITE, THE APP OR ANY OTHER ASPECT OF THE SERVICES.</B>
+              <Para margin="-10px 0px 0px">
+                The Website uses cookies. A cookie is a small text file placed on your computer or mobile device when you visit a Website or use an app. Cookies collect information about users and their visit to the Website or use of the app, such as their Internet protocol (IP) address, how they arrived at the Website (for example, through a search engine or a link from another Website), how they navigate within the Website or app, browser information, computer or device type, operating system, internet service provider, website usage, referring/exit pages, platform type, date/time stamp, number of clicks, and ads viewed. We use cookies and other technologies to facilitate your internet sessions and use of our apps, offer you products and/or services according to your preferred settings, track use of our websites and apps and to compile statistics about activities carried out on our websites.
               </Para>
 
               <Para margin="20px 0px 20px 0px">
-                <B>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.</B>
+                You may set up your web browser to block cookies from monitoring your website visit. You may also remove cookies stored from your computer or mobile device. However, if you do block cookies you may not be able to use certain features and functions of our web sites.
               </Para>
 
 
-              {/* 10. No Other Beneficary (Third Party) */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                10. No Other Beneficary (Third Party)
-              </Para>
-              <Para margin="-10px 0px 20px 0px">
-                You agree that, except as otherwise expressly provided in these Terms, there shall be no third party beneficiaries to the Terms.
-              </Para>
-
-
-              {/* 11. Termination and Suspension */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                11. Termination and Suspension
-              </Para>
-              <Para margin="-10px 0px 0px 0px">
-                EPNS may terminate or suspend all or part of the Services and your EPNS access immediately, without prior notice or liability, if you breach any of the terms or conditions of the Terms. Upon termination of your access, your right to use the Services will immediately cease.
-              </Para>
-
-              <Para margin="20px 0px 20px 0px">
-                The following provisions of the Terms survive any termination of these Terms: WARRANTY DISCLAIMERS; OWNERSHIP AND INTELLECTUAL PROPERTY; LINKS; INDEMNITY; LIMITATION ON LIABILITY; NO OTHER BENEFICARY (THIRD PARTY); TERMINATION; GENERAL INFORMATION (Schedule A); BINDING ARBITRATION AND CLASS ACTION WAIVER (Schedule B);
-              </Para>
-
-
-              {/* 12. Termination and Suspension */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                12. Notice and Procedure For Making Claims
-              </Para>
-              <Para margin="-10px 0px 0px 0px">
-                If you believe that your copyright or the copyright of a person on whose behalf you are authorized to act has been infringed, please provide EPNS’s Copyright Agent a written Notice containing the following information:
-              </Para>
-
-              <Para margin="10px 0px 20px 0px">
-                <UL>
-                  <LI>
-                    <B>An electronic (or) physical signature of the person authorized to act on behalf of the owner (or) the owner themselves of the copyright or other intellectual property interest.</B>
-                  </LI>
-                  <LI>
-                    <B>A detailed description of the copyrighted work in question or the intellectual property that you claim has been infringed.</B>
-                  </LI>
-                  <LI>
-                    <B>A detailed description of where the material that you claim is infringing and where it is located on the Services.</B>
-                  </LI>
-                  <LI>
-                    <B>Your address, Phone Number, and Email.</B>
-                  </LI>
-                  <LI>
-                    <B>A statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law.</B>
-                  </LI>
-                  <LI>
-                    <B>A statement by you, made under penalty of perjury, that the above information in your Notice is accurate and that you are the copyright or intellectual property owner or authorized to act on the copyright or intellectual property owner’s behalf.</B>
-                  </LI>
-                </UL>
-              </Para>
-
-              <Para margin="0px 0px 20px 0px">
-                The following information should be sent to: <A href="mailto://support@epns.io">support@epns.io</A>
-              </Para>
-            </Item>
-
-
-            {/* Schedule A */}
-            <Item align="stretch" align="flex-start" margin="0px 0px 20px 0px">
-              <H2 textTransform="uppercase" spacing="0.1em">
-                <Span bg="#000" color="#fff" weight="600" padding="0px 8px">Schedule</Span><Span weight="600" color="#fff" bg="#e20880" padding="0px 8px">A</Span>
-              </H2>
-            </Item>
-
-            <Item align="stretch" align="flex-start" margin="-30px 0px 20px 0px">
-              {/* A. General Information */}
+              {/* Other web sites */}
               <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                GENERAL INFORMATION
+                1.6 Other web sites
+              </Para>
+              <Para margin="-10px 0px 20px">
+                Our websites may contain links to other websites which are not maintained by EPNS. This Policy only applies to the websites of EPNS. When visiting these third party websites, you should read their privacy policies which will apply to your use of such websites.
               </Para>
 
-              {/* 1. Entire Agreement */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="0px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                1. Entire Agreement
-              </Para>
-              <Para margin="-10px 0px 0px 20px">
-                These Terms (and any additional terms, rules and conditions of participation that EPNS may post on the Services) constitute the entire agreement between you and EPNS with respect to the Services and supersedes any prior agreements, oral or written, between you and EPNS. In the event of a conflict between these Terms and the additional terms, rules and conditions of participation, the latter will prevail over the Terms to the extent of the conflict.These Terms (and any additional terms, rules and conditions of participation that EPNS may post on the Services) constitute the entire agreement between you and EPNS with respect to the Services and supersedes any prior agreements, oral or written, between you and EPNS. In the event of a conflict between these Terms and the additional terms, rules and conditions of participation, the latter will prevail over the Terms to the extent of the conflict.
-              </Para>
 
-              {/* 2. Waiver and Severability */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                2. Waiver and Severability
-              </Para>
-              <Para margin="-10px 0px 0px 20px">
-                The failure of EPNS to exercise or enforce any right or provision of the Terms shall not constitute a waiver of such right or provision. If any provision of the Terms is found by an arbitrator or court of competent jurisdiction to be invalid, the parties nevertheless agree that the arbitrator or court should endeavor to give effect to the parties’ intentions as reflected in the provision, and the other provisions of the Terms remain in full force and effect.
-              </Para>
-
-              {/* 3. Statute of Limitations */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                3. Statute of Limitations
-              </Para>
-              <Para margin="-10px 0px 0px 20px">
-                You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to the use of the Services or the Terms must be filed within one (1) year after such claim or cause of action arose or be forever barred.
-              </Para>
-
-              {/* 4. Miscellaneous */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                4. Miscellaneous
-              </Para>
-              <Para margin="-10px 0px 0px 20px">
-                The section subject in the Terms are only for your convenience and have no legal or contractual effect.
-              </Para>
-            </Item>
-
-
-            {/* Schedule B */}
-            <Item align="stretch" align="flex-start" margin="20px 0px 20px 0px">
-              <H2 textTransform="uppercase" spacing="0.1em">
-                <Span bg="#000" color="#fff" weight="600" padding="0px 8px">Schedule</Span><Span weight="600" color="#fff" bg="#e20880" padding="0px 8px">B</Span>
-              </H2>
-            </Item>
-
-            <Item align="stretch" align="flex-start" margin="-30px 0px 20px 0px">
-              {/* A. General Information */}
+              {/* Retention of personal data */}
               <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
-                Binding Arbitration and Class Action Waiver
+                1.7 Retention of personal data
               </Para>
-
-              <Para color="#000" margin="-10px 0px 20px 0px" textTransform="uppercase">
-                <B>PLEASE READ THIS SECTION CAREFULLY – IT MAY SIGNIFICANTLY AFFECT YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT TO FILE A LAWSUIT IN COURT</B>
-              </Para>
-
-              {/* 1. Initial Dispute Resolution */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="0px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                1. Initial Dispute Resolution
-              </Para>
-              <Para margin="-10px 0px 0px 0px">
-                The parties shall use their best efforts to engage directly to settle any dispute, claim, question, or disagreement and engage in good faith negotiations which shall be a condition to either party initiating an arbitration or lawsuit.
-              </Para>
-
-              {/* 2. Binding Arbitration */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="20px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                2. Binding Arbitration
-              </Para>
-              <Para margin="-10px 0px 20px 0px">
-                If the parties do not reach an agreed upon solution within a period of 30 days from the time informal dispute resolution under the Initial Dispute Resolution provision begins, then either party may initiate binding arbitration as the sole means to resolve claims, subject to the terms set forth below. Specifically, all claims arising out of or relating to these Terms (including their formation, performance and breach), the parties’ relationship with each other and/or your use of the Services shall be finally settled by binding arbitration.
-              </Para>
-              <Para margin="0px 0px 20px 0px">
-                You may not assign, delegate or transfer these Terms or your rights or obligations hereunder, in any way (by operation of law or otherwise) without our prior written consent. We may transfer, assign, or delegate these Terms and our rights and obligations without consent. Choice of Law; Arbitration. These Terms are governed by and will be construed under the laws of the CONFIRM, without regard to the conflicts of laws provisions thereof. Any dispute arising from or relating to the subject matter of these Terms shall be finally settled in [San Francisco] County, California, in English, in accordance with the Streamlined Arbitration Rules and Procedures of Judicial Arbitration and Mediation Services, Inc. (“JAMS”) then in effect, by one commercial arbitrator with substantial experience in resolving intellectual property and commercial contract disputes, who shall be selected from the appropriate list of JAMS arbitrators in accordance with such Rules.
-              </Para>
-              <Para margin="0px 0px 20px 0px">
-                Judgment upon the award rendered by such arbitrator may be entered in any court of competent jurisdiction. Despite the foregoing obligation to arbitrate disputes, each party shall have the right to pursue injunctive or other equitable relief at any time, from any court of competent jurisdiction. For all purposes of this Agreement, the parties consent to exclusive jurisdiction and venue in the state or federal courts located in, respectively, [San Francisco] County, California, or the Northern District of California. <B>Any arbitration under these Terms will take place on an individual basis: class arbitrations and class actions are not permitted. YOU UNDERSTAND AND AGREE THAT BY ENTERING INTO THESE TERMS, YOU AND EPNS ARE EACH WAIVING THE RIGHT TO TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION.</B>
+              <Para margin="-10px 0px 20px">
+                Your personal data is retained as long as the purpose for which it was collected remains and until it is no longer necessary for any legal or business purposes.
               </Para>
 
 
-              {/* 3. Class Action Waiver */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="0px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                3. Class Action Waiver
+              {/* Queries, Access/Correction Requests and Withdrawal of Consent */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.8 Queries, Access/Correction Requests and Withdrawal of Consent
               </Para>
-              <Para margin="-10px 0px 20px 0px">
-                The parties further agree that any arbitration shall be conducted in their individual capacities only and not as a class action or other representative action, and the parties expressly waive their right to file a class action or seek relief on a class basis. YOU AND EPNS AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING. If any court or arbitrator determines that the class action waiver set forth in this paragraph is void or unenforceable for any reason or that an arbitration can proceed on a class basis, then the arbitration provision set forth above shall be deemed null and void in its entirety and the parties shall be deemed to have not agreed to arbitrate disputes.
+              <Para margin="-10px 0px 20px">
+                If you:
+              </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(a)</B> have queries about our data protection processes and practices;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(b)</B> wish to request access to and/or make corrections to your personal data in our possession or under our control; or
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(c)</B> wish to withdraw your consent to our collection, use or disclosure of your personal data,
+                </Para>
+
+              <Para margin="20px 0px 0px">
+                please submit a written request (with supporting documents, (if any) to our Compliance Officer at: <A href="mailto://support@epns.io">support@epns.io</A>. Our Compliance Officer shall endeavour to respond to you within 30 days of your submission. Please note that if you withdraw your consent to any or all use or disclosure of your personal data, depending on the nature of your request, we may not be in a position to continue to provide our services or products to you or administer any contractual relationship in place. Such withdrawal may also result in the termination of any agreement you may have with us. Our legal rights and remedies are expressly reserved in such event.
+              </Para>
+
+              <Para margin="20px 0px 20px">
+                We may charge you a fee for processing your request for access. Such a fee depends on the nature and complexity of your access request. Information on the processing fee will be made available to you.
               </Para>
 
 
-              {/* 4. Exception - Litigation of Intellectual Property and Small Claims Court Claims */}
-              <Para weight="400" spacing="0.2em" color="#000" margin="0px 0px 20px 0px" textTransform="uppercase" size="1.1em">
-                4. Exception - Litigation of Intellectual Property and Small Claims Court Claims
+              {/* Contact information */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.9 Contact information
               </Para>
-              <Para margin="-10px 0px 20px 0px">
-                Notwithstanding the parties’ decision to resolve all disputes through arbitration, either party may bring an action in state or federal court to protect its intellectual property rights (“intellectual property rights” means patents, copyrights, moral rights, trademarks, and trade secrets, but not privacy or publicity rights). Either party may also seek relief in a small claims court for disputes or claims within the scope of that court’s jurisdiction.
+              <Para margin="-10px 0px 20px">
+                To contact us on any aspect of this Policy or your personal data or to provide any feedback that you may have, please contact our Compliance Officer at <A href="mailto://support@epns.io">support@epns.io</A>.
               </Para>
+
+
+              {/* Governing Law and Jurisdiction */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.10 Governing Law and Jurisdiction
+              </Para>
+              <Para margin="-10px 0px 20px">
+                This Policy and your use of the Website shall be governed and construed in accordance with the laws of Singapore. You agree to submit to the exclusive jurisdiction of the Singapore courts.
+              </Para>
+
+
+              {/* Governing Law and Jurisdiction */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.11 Amendments and updates to EPNS Privacy Policy
+              </Para>
+              <Para margin="-10px 0px 20px">
+                We reserve the right to amend this Policy from time to time to ensure that this Policy is consistent with any developments to the way EPNS uses your personal data or any changes to the laws and regulations applicable to EPNS. We will make available the updated Policy on the Website. You are encouraged to visit the Website from time to time to ensure that you are well informed of our latest policies in relation to personal data protection. All communications, transactions and dealings with us shall be subject to the latest version of this Policy in force at the time.
+              </Para>
+
+
+              {/* For European Union or European Economic Area Residents */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.12 For European Union or European Economic Area Residents
+              </Para>
+              <Para margin="-10px 0px 20px">
+                This section applies if you are an individual located in the European Union or European Economic Area. Subject to applicable law, you have the following additional rights in relation to your personal data:
+              </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(a)</B> the right to access your personal data (if you ask us, we will confirm whether we are processing your personal data in a structured, commonly used and machine-readable format and, if so, provide you with a copy of that personal data (along with certain other details). If you require additional copies, we may need to charge a reasonable fee;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(b)</B> the right to ensure the accuracy of your personal data;
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(c)</B> the right to have us delete your personal data (we will do so in some circumstances, such as where we no longer need it, but do note that we may not delete your data when other interests outweigh your right to deletion);
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(d)</B> the right to restrict further processing of your personal data (unless we demonstrate compelling legitimate grounds for the processing);
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(e)</B> rights in relation to automated decision-making and profiling (you have the right to be free from decisions based solely on automated processing of your personal data, including profiling, that affect you, unless such processing is necessary for entering into, or the performance of, a contract between you and us or you provide your explicit consent to such processing);
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(f)</B> the right to withdraw consent (if we rely on your consent to process your personal data, you have the right to withdraw that consent at any time, but provided always that this shall not affect the lawfulness of processing based on your prior consent); and
+                </Para>
+
+                <Para margin="20px 0px 0px 20px">
+                  <B>(g)</B> the right to complain to a supervisory authority in your country of residence in the event that data is misused.
+                </Para>
+
+              <Para margin="20px 0px 20px">
+                If you believe that our processing of your personal information infringes data protection laws, you have a legal right to lodge a complaint with a supervisory authority responsible for data protection. You may do so in the EU member state of your residence, your place of work or the place of the alleged infringement. You may exercise any of your rights in relation to your personal data by contacting our Compliance Officer at: <A href="mailto://support@epns.io">support@epns.io</A>.
+              </Para>
+
+
+              {/* Your acceptance of these terms */}
+              <Para weight="400" spacing="0.2em" color="#000" textTransform="uppercase" size="1.2em">
+                1.13 Contact information
+              </Para>
+              <Para margin="-10px 0px 0px">
+                This Policy applies in conjunction with any other notices, contractual clauses and consent clauses that apply in relation to the collection, use and disclosure of your personal data by us. We may revise this Policy from time to time without any prior notice. You may determine if any such revision has taken place by referring to the date on which this Policy was last updated.
+              </Para>
+
+              <Para margin="20px 0px 20px">
+                By using the Website and/or any services provided by EPNS, you signify your acceptance of this Policy and terms of service. If you do not agree to this Policy or terms of service, please do not use the Website or any services provided by EPNS. Your continued use of the Website following the posting of changes to this Policy will be deemed your acceptance of those changes.
+              </Para>
+
+
             </Item>
-
           </Item>
         </Content>
       </Section>

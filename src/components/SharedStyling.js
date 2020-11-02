@@ -5,7 +5,7 @@ export const Section = styled.section`
   align-self: stretch;
   justify-content: center;
   align-items: ${props => props.align || 'initial'};
-  flex-direction: ${props => props.flexDirection || 'column'};
+  flex-direction: ${props => props.direction || 'column'};
   background: ${props => props.theme || 'transparent'};
   background: ${props => props.gradient || 'undefined'};
   margin: ${props => props.margin || '0px'};
@@ -411,7 +411,7 @@ export const FormSubmision = styled.form`
 `
 
 export const Input = styled.input`
-  display: flex;
+  display: ${props => props.display || 'flex'};
   flex: ${props => props.flex || 'initial'};
   align-self: ${props => props.self || 'auto'};
   align-items: ${props => props.align || 'center'};
