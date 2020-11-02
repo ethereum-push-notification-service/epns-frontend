@@ -327,7 +327,7 @@ function Foot() {
             <ItemH self="stretch" justify="center" minWidth="auto" size="0.8em" margin="0px 20px 0px 20px">
               <Item align="center" margin="0px" minWidth="auto" flex="initial">
                 <Anchor
-                  href="https://epns.io/privacy"
+                  href="./privacy"
                   target="_blank"
                   bg="transparent"
                   padding="4px 15px"
@@ -339,7 +339,7 @@ function Foot() {
 
               <Item align="center" margin="0px" minWidth="auto" flex="initial">
                 <Anchor
-                  href="https://epns.io/tos"
+                  href="./terms"
                   target="_blank"
                   bg="transparent"
                   padding="4px 15px"
