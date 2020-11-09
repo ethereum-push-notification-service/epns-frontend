@@ -16,13 +16,14 @@ import Foot from 'segments/Footer';
 
 import Home from 'pages/Home';
 import HomeOld from 'pages/HomeOld';
-import Privacy from 'pages/Privacy';
+import FAQ from 'pages/FAQ';
+
 import Terms from 'pages/Terms';
+import Privacy from 'pages/Privacy';
 
 import ComingSoon from 'pages/ComingSoon';
 
-import * as dotenv from "dotenv";
-dotenv.config();
+import config from 'config/config';
 
 export default function() {
   return (
@@ -83,7 +84,20 @@ function App() {
             <Terms />
             <Foot />
           </Route>
+          <Route path="/faq">
+            <Head />
+            <FAQ />
+            <Foot />
+          </Route>
           <Route path="/">
+            {/*
+              <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
+            */}
+            {/*
+              <Head />
+              <Home />
+              <Foot />
+            */}
             <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
           </Route>
         </Switch>
@@ -126,6 +140,11 @@ function App() {
 //             <Terms />
 //             <Foot />
 //           </Route>
+//           <Route path="/faq">
+//             <Head />
+//             <FAQ />
+//             <Foot />
+//           </Route>
 //           <Route path="/">
 //             <ComingSoon timeRemaining={timeRemaining} />
 //           </Route>
@@ -147,6 +166,9 @@ function App() {
 //           </Route>
 //           <Route path="/tos">
 //             <Terms />
+//           </Route>
+//           <Route path="/faq">
+//             <FAQ />
 //           </Route>
 //           <Route path="/">
 //             <Home />

@@ -24,6 +24,7 @@ import { RiHeartsFill } from 'react-icons/ri';
 import { GiReceiveMoney } from 'react-icons/gi';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
+import EPNSChannelItems from 'components/EPNSChannelItems';
 import Medium from 'components/Medium';
 import TeamMember from 'components/TeamMember';
 
@@ -225,7 +226,7 @@ function Home() {
 
                 <ItemH align="flex-start" justify="flex-start" margin="10px -10px 10px -10px" size="0.8rem">
                   <Anchor href="https://whitepaper.epns.io" title="Read Whitepaper of Ethereum Push Notification Service (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Read Whitepaper</Anchor>
-                  <Anchor href="https://whitepaper.epns.io" title="Integrate Ethereum Push Notification Service Protocol (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Integrate</Anchor>
+                  <Anchor href="./#contact" title="Integrate Ethereum Push Notification Service Protocol (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Integrate</Anchor>
                 </ItemH>
 
               </Item>
@@ -451,7 +452,7 @@ function Home() {
                   </EmphasisImage>
 
                   <EmphasisText>
-                    Services expect Users to repeatedly check their Actions.
+                    Services expect users to repeatedly check their actions.
                   </EmphasisText>
                 </EmphasisBlock>
 
@@ -461,7 +462,7 @@ function Home() {
                   </EmphasisImage>
 
                   <EmphasisText>
-                    Lack of Alerts for any Web3 Activity to Wallet Addresses.
+                    Wallet addresses do not receive alerts from any Web3 activity.
                   </EmphasisText>
                 </EmphasisBlock>
 
@@ -471,7 +472,7 @@ function Home() {
                   </EmphasisImage>
 
                   <EmphasisText>
-                    Leads to Communication Void, UX and Engagement suffers Terribly.
+                    The disconnection leads to poor UX, communication, and engagement.
                   </EmphasisText>
                 </EmphasisBlock>
               </ItemH>
@@ -537,7 +538,7 @@ function Home() {
                     <H2 textTransform="uppercase" spacing="0.1em" margin="30px 0px 0px -1px">
                       <Span bg="#fff" color="#000" weight="600" padding="0px 8px">Content Independent</Span>
                     </H2>
-                    <Span margin="20px" color="#fff" weight="200">Protocol doesn't dictate what what content can or can't be delivered to users of a service, that option is left on the Service. In other words, <b>Services decide what to communicate</b> to their users!</Span>
+                    <Span margin="20px" color="#fff" weight="200">Protocol does not dictate what content can or can't be delivered to service users. Only <b>services can decide what to communicate</b> to their users!</Span>
                   </ShadowBox>
                   <ShadowBox align="flex-start" bg="#674c9f" margin="30px 0px">
                     <Showoff
@@ -769,13 +770,13 @@ function Home() {
       <Section id="supported" theme="#fff" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
-            <Item align="stretch" justify="flex-start" margin="0px 0px 40px 0px">
+            <Item align="stretch" justify="flex-start" margin="0px 0px 30px 0px">
               <H2 textTransform="uppercase" spacing="0.1em">
                 <Span bg="#35c5f3" color="#fff" weight="600" padding="0px 8px">Notifications</Span><Span weight="200"> Enabled Platforms</Span>
               </H2>
             </Item>
 
-            <ItemH margin="0px -20px 40px -20px" rowGap="40px" columnGap="40px" align="stretch" justify="space-around">
+            <ItemH margin="0px -20px 40px -20px" align="stretch" justify="space-around">
 
               <Supported margin="20px" minWidth="280px" align="center">
                 <Anchor
@@ -875,6 +876,34 @@ function Home() {
 
             </ItemH>
 
+            <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="20px 0px 40px 0px" textAlign="right" tabletTextAlign="left">
+              <H2 textTransform="uppercase" spacing="0.1em">
+                <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Latest</Span><Span weight="200"> Channels</Span>
+              </H2>
+              <H3>Delivering Decentralized Notifications For</H3>
+            </Item>
+
+            <Item margin="0px -20px 40px -20px" align="stretch" justify="space-around" width="100%">
+              <EPNSChannelItems
+                numberOfChannels={5}
+              />
+            </Item>
+
+            <Item margin="0px 0px 40px 0px" align="flex-end" justify="space-between">
+              <Anchor
+                href="https://app.epns.io"
+                target="_blank"
+                title="Check out the dApp of Ethereum Push Notification Service"
+                bg="#000"
+                color="#fff"
+                spacing="0.2em"
+                size="0.8rem"
+                margin="10px 0px"
+                radius="4px"
+              >
+                Explore More
+              </Anchor>
+            </Item>
 
           </Item>
         </Content>
@@ -899,7 +928,7 @@ function Home() {
       <Section id="partners" theme="#f1f1f1" padding="20px 0px 80px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
-            <Item align="stretch" align="flex-end" tabletAlign="flex-start" margin="0px 0px 40px 0px" textAlign="right" tabletTextAlign="left">
+            <Item align="stretch" align="flex-start" margin="0px 0px 40px 0px">
               <H2 textTransform="uppercase" spacing="0.1em">
                 <Span bg="#e20880" color="#fff" weight="600" padding="0px 8px">Partners</Span><Span weight="200"> AND <Span bg="#674c9f" size="0.8em" color="#fff" weight="600" padding="0px 8px">Collaborators</Span></Span>
               </H2>
@@ -1542,9 +1571,9 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
-                  href="https://koji.capital/"
+                  href="https://fourthrevolution.capital/"
                   target="_blank"
-                  title="Learn about our Investor - KOJI Capital"
+                  title="Learn about our Investor - Fourth Revolution Capital"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1554,9 +1583,9 @@ function Home() {
                   <Item>
                     <Item>
                       <Image
-                        src="./investors/kojicapital.png"
-                        srcSet="./investors/kojicapital@2x.png 2x, ./investors/kojicapital@3x.png 3x"
-                        alt="Logo of KOJI Capital, Crypto Fund"
+                        src="./investors/fourthrevolution.png"
+                        srcSet="./investors/fourthrevolution@2x.png 2x, ./investors/fourthrevolution@3x.png 3x"
+                        alt="Logo of Fourth Revolution Capital, Crypto Fund"
                       />
                     </Item>
                   </Item>
@@ -1899,9 +1928,9 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
-                  href="https://www.linkedin.com/in/dannychrist/"
+                  href="https://br.capital/#team"
                   target="_blank"
-                  title="Learn about our Investor - Danny J.C., Angel Investor"
+                  title="Learn about our Investor - Evgeny Zandman, Angel Investor"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1912,12 +1941,12 @@ function Home() {
                   <Item>
                     <Item>
                       <Image
-                        src="./investors/danny.png"
-                        srcSet="./investors/danny@2x.png 2x, ./investors/danny@3x.png 3x"
-                        alt="Sketch of Investor - Danny J.C., Angel Investor"
+                        src="./investors/rezo.png"
+                        srcSet="./investors/rezo@2x.png 2x, ./investors/rezo@3x.png 3x"
+                        alt="Sketch of Investor - Rezo, CEO, BR Capital"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Danny J. C.</Span>
-                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                    <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Rezo Shmertz</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">CEO, BR Capital</AngelJob>
                     </Item>
                   </Item>
                 </Anchor>
@@ -1951,6 +1980,59 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
+                  href="https://www.linkedin.com/in/dannychrist/"
+                  target="_blank"
+                  title="Learn about our Investor - Danny J.C., Angel Investor"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/danny.png"
+                        srcSet="./investors/danny@2x.png 2x, ./investors/danny@3x.png 3x"
+                        alt="Sketch of Investor - Danny J.C., Angel Investor"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Danny J. C.</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://www.linkedin.com/in/acschen/"
+                  disabled={true}
+                  target="_blank"
+                  title="Learn about our Investor -  Andrew Chen, Entrepreneur"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/andrew.png"
+                        srcSet="./investors/andrew@2x.png 2x, ./investors/andrew@3x.png 3x"
+                        alt="Sketch of Investor - Andrew Chen, Entrepreneur"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Andrew Chen</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entrepreneur</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
                   href="#"
                   disabled={true}
                   target="_blank"
@@ -1968,6 +2050,33 @@ function Home() {
                         src="./investors/thomas.png"
                         srcSet="./investors/thomas@2x.png 2x, ./investors/thomas@3x.png 3x"
                         alt="Sketch of Investor - Thomsa Kaseng AO, Angel Investor"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="#"
+                  disabled={true}
+                  target="_blank"
+                  title="Learn about our Investor -  Karthik, Angel Investor"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/karthik.png"
+                        srcSet="./investors/karthik@2x.png 2x, ./investors/karthik@3x.png 3x"
+                        alt="Sketch of Investor - Karthik, Angel Investor"
                       />
                       <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>

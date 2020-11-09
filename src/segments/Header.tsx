@@ -31,7 +31,7 @@ function Head() {
             </HeadAnchor>
           </Item>
 
-          <NavPrimary direction="row" forceDisplay={showMenu} align="stretch" justify="flex-start" minWidth="auto" margin="0px 0px 0px 10px">
+          <NavPrimary direction="row" forceDisplay={showMenu} align="stretch" justify="flex-start" minWidth="auto" margin="0px 0px 0px 20px">
             <NavItems>
               <NavItem align="center" margin="0px 10px" minWidth="auto" flex="0">
                 <HeadAnchor
@@ -76,17 +76,47 @@ function Head() {
                 </NavSubItems>
               </NavSub>
 
-              <NavItem align="center" margin="0px" minWidth="auto" flex="0">
-                <HeadAnchor
-                  href="./#story"
-                  title="Read our story"
-                  bg="transparent"
-                  hoverBG="#fff"
-                  padding="4px 15px"
-                >
-                  Blog
-                </HeadAnchor>
-              </NavItem>
+              <NavSub align="center" margin="0px 10px" minWidth="auto" flex="none">
+                <NavItem align="center" margin="0px" minWidth="auto" flex="none">
+                  <HeadAnchor
+                    title="Documentation"
+                    bg="transparent"
+                    hoverBG="#fff"
+                    padding="4px 15px"
+                  >
+                    <ItemH minWidth="auto" margin="0px">
+                      <Span color="#fff" weight="400" size="0.8rem" spacing="0.2em" margin="0px 5px 0px 0px">Learn</Span>
+                      <BsChevronDown size={12} color="#fff"/>
+                    </ItemH>
+                  </HeadAnchor>
+                </NavItem>
+
+                <NavSubItems>
+                  <NavSubItem align="center" margin="0px" minWidth="auto" flex="0">
+                    <HeadAnchor
+                      href="./#story"
+                      title="Read our story"
+                      bg="transparent"
+                      hoverBG="#fff"
+                      padding="4px 15px"
+                    >
+                      Blog
+                    </HeadAnchor>
+                  </NavSubItem>
+
+                  <NavSubItem align="center" margin="0px" minWidth="auto" flex="0">
+                    <HeadAnchor
+                      href="./faq"
+                      title="Frequently Asked Questions"
+                      bg="transparent"
+                      hoverBG="#fff"
+                      padding="4px 15px"
+                    >
+                      FAQ
+                    </HeadAnchor>
+                  </NavSubItem>
+                </NavSubItems>
+              </NavSub>
 
               <NavItem align="center" margin="0px" minWidth="auto" flex="0">
                 <HeadAnchor
@@ -230,10 +260,11 @@ const HeadAnchor = styled(Anchor)`
 
 const NavSubItems = styled(NavItems)`
   display: none;
+  min-width: 100px;
   flex-direction: column;
   position: absolute;
   top: 60px;
-  background: #00000040;
+  background: #000000AA;
 `
 
 const NavSub = styled(NavItems)`

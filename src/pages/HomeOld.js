@@ -11,12 +11,6 @@ import { GiTwitter } from 'react-icons/gi';
 import { FaCheckCircle, FaBolt, FaTwitter, FaTelegramPlane, FaMedium, FaGithub, FaGooglePlay } from 'react-icons/fa';
 import { IoMdRocket, IoMdHeart, IoMdNotifications } from 'react-icons/io';
 
-import { gsap } from 'gsap';
-import { TextPlugin } from 'gsap/TextPlugin';
-import { Controls, PlayState, Tween } from 'react-gsap';
-
-gsap.registerPlugin(TextPlugin);
-
 // Create Header
 function HomeOld({ setBadgeCount, bellPressed }) {
   ReactGA.pageview('/home');

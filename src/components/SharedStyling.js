@@ -66,7 +66,7 @@ export const Item = styled.div`
 
   border: ${props => props.border || "none"};
   border-radius: ${props => props.radius || "0px"};
-  overflow: ${props => props.overflow || "inital"};
+  overflow: ${props => props.overflow || "initial"};
 
   &:hover & {
     filter: ${props => (props.filterHover ? props.filterHover : (props.hover ? props.hover : "none")) || "none"};
@@ -182,7 +182,7 @@ export const P = styled.p`
   margin: ${props => props.margin || "20px 0px"};
   padding: ${props => props.padding || "0px"};
   letter-spacing: ${props => props.spacing || "inherit"};
-  text-align: ${props => props.textAlign || "inital"};
+  text-align: ${props => props.textAlign || "initial"};
 `
 
 export const Para = styled(P)`
@@ -204,7 +204,7 @@ export const Span = styled.span`
   margin: ${props => props.margin || "0px"};
   padding: ${props => props.padding || "0px"};
   letter-spacing: ${props => props.spacing || "inherit"};
-  text-align: ${props => props.textAlign || "inital"};
+  text-align: ${props => props.textAlign || "initial"};
 
   position: ${props => props.pos || 'initial'};
   right: ${props => props.right || 'auto'};
@@ -244,6 +244,7 @@ export const Anchor = styled.a`
   letter-spacing: ${props => props.spacing || "0.2em"};
   border: ${props => props.border || "none"};
   border-radius: ${props => props.radius || "0px"};
+  width: ${props => props.width || "initial" };
 
   position: relative;
   text-decoration: none;
