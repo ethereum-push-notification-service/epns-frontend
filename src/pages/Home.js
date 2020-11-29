@@ -319,6 +319,27 @@ function Home() {
               </Feature>
 
               <Feature
+                href="https://yourstory.com/2020/11/husband-wife-duo-need-blockchain-push-notifications"
+                target="_blank"
+                title="Yourstory talks about EPNS and why blockchain push notifications are important"
+              >
+                <Item minWidth="auto">
+                  <FeatureImage src="./featured/yourstory.png" srcSet="./featured/yourstory@2x.png 2x, ./featured/yourstory@3x.png 3x" alt="YourStory Logo" />
+                </Item>
+              </Feature>
+
+              <Feature
+                href="https://blog.coinlist.co/introducing-the-coinlist-seed-fall-2020-batch/"
+                target="_blank"
+                title="Ethereum Push Notification Service graduates from CoinList Seed Batch 2020"
+                bg="#e20880"
+              >
+                <Item minWidth="auto">
+                  <FeatureImage src="./featured/coinlist.png" srcSet="./featured/coinlist@2x.png 2x, ./featured/coinlist@3x.png 3x" alt="Coinlist Logo" />
+                </Item>
+              </Feature>
+
+              <Feature
                 href="https://podcast.ethhub.io/ethhub-weekly-119-yield-farming-defi-valuations-on-the-rise-eths-value-prop-epns-introduced-consensys-staking-as-a-service-reddits-scaling-ethereum-challenge-and-matter-labs-zk-sync"
                 target="_blank"
                 title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project"
@@ -328,28 +349,29 @@ function Home() {
                 </Item>
               </Feature>
 
-              <Feature
-                href="https://twitter.com/DeFi_Dad/status/1297544923219189760?s=20"
-                target="_blank"
-                title="DeFi Dad upcoming podcast about EPNS"
-              >
-                <Item minWidth="auto">
-                  <FeatureImage src="./featured/defidad.png" srcSet="./featured/defidad@2x.png 2x, ./featured/defidad@3x.png 3x" alt="DeFi Dad Logo" />
-                </Item>
-              </Feature>
-
-              <Feature
-                href="https://www.edcon.io/#maodian"
-                target="_blank"
-                title="EDCON Panel featuring Harsh Rajat, founder, EPNS talks about DeFi Cross Composability"
-              >
-                <Item minWidth="auto">
-                  <FeatureImage src="./featured/edcon.png" srcSet="./featured/edcon@2x.png 2x, ./featured/edcon@3x.png 3x" alt="Edcon Logo" />
-                </Item>
-              </Feature>
-
               {featuredShowAll &&
                 <>
+
+                  <Feature
+                    href="https://twitter.com/DeFi_Dad/status/1297544923219189760?s=20"
+                    target="_blank"
+                    title="DeFi Dad upcoming podcast about EPNS"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/defidad.png" srcSet="./featured/defidad@2x.png 2x, ./featured/defidad@3x.png 3x" alt="DeFi Dad Logo" />
+                    </Item>
+                  </Feature>
+
+                  <Feature
+                    href="https://www.edcon.io/#maodian"
+                    target="_blank"
+                    title="EDCON Panel featuring Harsh Rajat, founder, EPNS talks about DeFi Cross Composability"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/edcon.png" srcSet="./featured/edcon@2x.png 2x, ./featured/edcon@3x.png 3x" alt="Edcon Logo" />
+                    </Item>
+                  </Feature>
+
                   <Feature
                     href="https://inc42.com/buzz/cryptocurrency-this-week-wazirx-talks-defi-indias-crypto-ban-more/"
                     target="_blank"
@@ -778,6 +800,30 @@ function Home() {
 
             <ItemH margin="0px -20px 40px -20px" align="stretch" justify="space-around">
 
+              <Supported margin="20px" minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://apps.apple.com/us/app/ethereum-push-service-epns/id1528614910"
+                  target="_blank"
+                  title="Download Ethereum Push Notification Service (EPNS) from Apple App Store"
+                  direction="column"
+                  bg="#fff"
+                  hover="#fafafa"
+                  radius="12px"
+                  align="stretch"
+                >
+                  <Item margin="0px 0px 5px 0px" self="center">
+                    <Image
+                      src="./supported/epnsios.png"
+                      srcSet="./supported/epnsios@2x.png 2x, ./supported/epnsios@3x.png 3x"
+                      alt="Ethereum Push Notification Service (EPNS) + Apple App Store Logo"
+                    />
+                  </Item>
+                  <Item margin="5px 0px">
+                    <Span size="0.85em" color="#000" spacing="0.2em" weight="400" textAlign="center">EPNS iOS App</Span>
+                  </Item>
+                </Anchor>
+              </Supported>
+
               <Supported margin="20px" minWidth="280px" align="center">
                 <Anchor
                   href="https://play.google.com/store/apps/details?id=io.epns.epns"
@@ -823,29 +869,6 @@ function Home() {
                   </Item>
                   <Item margin="5px 0px">
                     <Span size="0.85em" color="#000" spacing="0.2em" weight="400" textAlign="center">EPNS dApp (Coming Soon)</Span>
-                  </Item>
-                </Anchor>
-              </Supported>
-
-              <Supported margin="20px" minWidth="280px" align="stretch">
-                <Anchor
-                  title="Download Ethereum Push Notification Service (EPNS) from Apple App Store (Coming Soon)"
-                  disabled={true}
-                  direction="column"
-                  bg="#fff"
-                  hoverBG="#f1f1f1"
-                  radius="12px"
-                  align="stretch"
-                >
-                  <Item margin="0px 0px 5px 0px" self="center">
-                    <Image
-                      src="./supported/epnsios.png"
-                      srcSet="./supported/epnsios@2x.png 2x, ./supported/epnsios@3x.png 3x"
-                      alt="Ethereum Push Notification Service (EPNS) + Apple App Store Logo"
-                    />
-                  </Item>
-                  <Item margin="5px 0px">
-                    <Span size="0.85em" color="#000" spacing="0.2em" weight="400" textAlign="center">EPNS iOS App (Coming Soon)</Span>
                   </Item>
                 </Anchor>
               </Supported>
@@ -1119,7 +1142,7 @@ function Home() {
             <ItemH margin="20px -20px 20px -20px" justify="space-between" align="flex-start" columnGap="40px" rowGap="40px">
               <TweetItem margin="20px">
                 <Tweet
-                  tweetId="1305795954742898691"
+                  tweetId="1296110819604922369"
                   options={{ theme: "dark", align: "center" }}
                 />
               </TweetItem>
@@ -1168,7 +1191,7 @@ function Home() {
 
 
       {/* TEAM SECTION | 1=Founder, 2=Founder+Lead, 3=Founder+Team, 4=Lead, 5=Team, 6=Advisor */}
-      <Section id="team" theme="#fff" padding="20px 0px 80px 0px">
+      <Section id="team" theme="#fff" padding="20px 0px 120px 0px">
         <Content className="contentBox">
           <Item align="stretch" justify="flex-start" margin="0px 20px">
             <Item align="stretch" justify="flex-start" margin="0px 0px 20px 0px">
@@ -1178,9 +1201,10 @@ function Home() {
               <H3>{randomTeamQuotes[Math.floor(Math.random() * (randomTeamQuotes.length))]}</H3>
             </Item>
 
-            <ItemH self="stretch" align="stretch" margin="20px -20px" rowGap="20px" columnGap="40px" minWidth="auto">
+            <ItemH self="stretch" align="stretch" flex="initial" margin="20px -20px" minWidth="auto">
               <TeamMember
-                img="./team/Harsh.jpg"
+                img="./team/harsh.jpg"
+                srcSet="./team/harsh@2x.jpg 2x, ./team/harsh@3x.jpg 3x"
                 type={2}
                 name="Harsh Rajat"
                 title="Founder / Project Lead"
@@ -1189,7 +1213,8 @@ function Home() {
                 email="mailto://harsh@epns.io"
               />
               <TeamMember
-                img="./team/Richa.jpg"
+                img="./team/richa.jpg"
+                srcSet="./team/richa@2x.jpg 2x, ./team/richa@3x.jpg 3x"
                 type={2}
                 name="Richa Joshi"
                 title="Co-Founder / Marketing Lead"
@@ -1198,7 +1223,8 @@ function Home() {
                 email="mailto://richa@epns.io"
               />
               <TeamMember
-                img="./team/Jaf.jpg"
+                img="./team/jaf.jpg"
+                srcSet="./team/jaf@2x.jpg 2x, ./team/jaf@3x.jpg 3x"
                 type={4}
                 name="Jafett Sandi"
                 title="Product / Dev Lead"
@@ -1207,7 +1233,8 @@ function Home() {
                 email="mailto://jaf@epns.io"
               />
               <TeamMember
-                img="./team/Andrew.jpg"
+                img="./team/andrew.jpg"
+                srcSet="./team/andrew@2x.jpg 2x, ./team/andrew@3x.jpg 3x"
                 type={4}
                 name="Andrew Redden"
                 title="Protocol / Bizdev Lead"
@@ -1216,7 +1243,18 @@ function Home() {
                 email="mailto://andrew@epns.io"
               />
               <TeamMember
-                img="./team/Awosika.jpg"
+                img="./team/everett.jpg"
+                srcSet="./team/everett@2x.jpg 2x, ./team/everett@3x.jpg 3x"
+                type={4}
+                name="Everett Muzzy"
+                title="Strategy Lead"
+                twitter="https://twitter.com/everett_muzzy"
+                linkedin="https://www.linkedin.com/in/everett-muzzy/"
+              />
+              {/*
+              <TeamMember
+                img="./team/awosika.jpg"
+                srcSet="./team/awosika@2x.png 2x, ./team/awosika@3x.png 3x"
                 type={4}
                 name="Awosika Ayodeji"
                 title="Community Lead"
@@ -1224,22 +1262,44 @@ function Home() {
                 linkedin="https://www.linkedin.com/in/ayodeji-israel-awosika-69924124/"
                 email="mailto://ayodeji@epns.io"
               />
+              */}
               <TeamMember
-                img="./team/Jude.jpg"
+                img="./team/stan.jpg"
+                srcSet="./team/stan@2x.jpg 2x, ./team/stan@3x.jpg 3x"
+                type={5}
+                name="Dantes Stanley"
+                title="Community Manager"
+                twitter="https://twitter.com/Ebunayo08"
+                linkedin="https://www.linkedin.com/in/ayodeji-israel-awosika-69924124/"
+                email="mailto://ayodeji@epns.io"
+              />
+              <TeamMember
+                img="./team/jude.jpg"
+                srcSet="./team/jude@2x.jpg 2x, ./team/jude@3x.jpg 3x"
                 type={5}
                 name="Jude Dike"
                 title="Developer"
                 linkedin="https://www.linkedin.com/in/dikejudein/"
               />
               <TeamMember
-                img="./team/Victor.jpg"
+                img="./team/victor.jpg"
+                srcSet="./team/victor@2x.jpg 2x, ./team/victor@3x.jpg 3x"
                 type={5}
                 name="Victor Nwagbogwu"
-                title="Developer (Intern)"
+                title="Developer"
                 linkedin="https://www.linkedin.com/in/victor-nwagbogwu/"
               />
               <TeamMember
-                img="./team/Robin.jpg"
+                img="./team/aishwarya.jpg"
+                srcSet="./team/aishwarya@2x.jpg 2x, ./team/aishwarya@3x.jpg 3x"
+                type={5}
+                name="Aishwarya Walter"
+                title="Developer (Intern)"
+                linkedin="https://www.linkedin.com/in/aiswaryawalter/"
+              />
+              <TeamMember
+                img="./team/robin.jpg"
+                srcSet="./team/robin@2x.jpg 2x, ./team/robin@3x.jpg 3x"
                 type={5}
                 name="Robin Roy Thomas"
                 title="Content Writer (Intern)"
@@ -1247,9 +1307,10 @@ function Home() {
                 linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
               />
             </ItemH>
-            <ItemH self="stretch" align="stretch" margin="20px 0px" rowGap="20px" columnGap="40px" minWidth="auto">
+            <ItemH self="stretch" align="stretch" flex="1" margin="20px 0px" minWidth="auto">
               <TeamMember
-                img="./team/Nischal.jpg"
+                img="./team/nischal.jpg"
+                srcSet="./team/nischal@2x.jpg 2x, ./team/nischal@3x.jpg 3x"
                 type={6}
                 name="Nischal Shetty"
                 title="Founder / CEO, WazirX"
@@ -1257,14 +1318,16 @@ function Home() {
                 linkedIn="https://www.linkedin.com/in/nischalshetty/"
               />
               <TeamMember
-                img="./team/DefiDad.jpg"
+                img="./team/defidad.jpg"
+                srcSet="./team/defidad@2x.jpg 2x, ./team/defidad@3x.jpg 3x"
                 type={6}
                 name="DeFi Dad"
                 title="COO, Zapper.Fi"
                 twitter="https://twitter.com/DeFi_Dad"
               />
               <TeamMember
-                img="./team/Vivek.jpg"
+                img="./team/vivek.jpg"
+                srcSet="./team/vivek@2x.jpg 2x, ./team/harsh@3x.jpg 3x"
                 type={6}
                 name="Vivek Singh"
                 title="Co-Founder, Gitcoin"
@@ -1617,6 +1680,29 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
+                  href="https://ldcap.com"
+                  target="_blank"
+                  title="Learn about our Investor - LD Capital"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/ldcapital.png"
+                        srcSet="./investors/ldcapital@2x.png 2x, ./investors/ldcapital@3x.png 3x"
+                        alt="Logo of LD Capital, Crypto Fund"
+                      />
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
                   href="https://proofsystems.io/"
                   target="_blank"
                   title="Learn about our Investor - ProofSystems"
@@ -1660,31 +1746,6 @@ function Home() {
                   </Item>
                 </Anchor>
               </Investor>
-
-              {/*}
-              <Investor minWidth="280px" align="stretch">
-                <Anchor
-                  href="https://fourthrevolution.capital"
-                  target="_blank"
-                  title="Learn about our Investor - Fourth Revolution Capital"
-                  bg="#fff"
-                  hoverBG="transparent"
-                  radius="12px"
-                  align="stretch"
-                  margin="10px"
-                >
-                  <Item>
-                    <Item>
-                      <Image
-                        src="./investors/fourthrevolution.png"
-                        srcSet="./investors/fourthrevolution@2x.png 2x, ./investors/fourthrevolution@3x.png 3x"
-                        alt="Logo of Fourth Revolution Capital, Crypto Fund"
-                      />
-                    </Item>
-                  </Item>
-                </Anchor>
-              </Investor>
-              */}
 
             </VCs>
 
@@ -1796,9 +1857,9 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
-                  href="https://twitter.com/Beler"
+                  href="https://twitter.com/iam_preethi"
                   target="_blank"
-                  title="Learn about our Investor - Luka Sukik, Entreprenuer"
+                  title="Learn about our Investor - Preethi Kasireddy, Angel Investor"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1809,12 +1870,12 @@ function Home() {
                   <Item>
                     <Item>
                       <Image
-                        src="./investors/lukasukik.png"
-                        srcSet="./investors/lukasukik@2x.png 2x, ./investors/lukasukik@3x.png 3x"
-                        alt="Sketch of Investor - Luka Sukik, Entrepreneur"
+                        src="./investors/preethi.png"
+                        srcSet="./investors/preethi@2x.png 2x, ./investors/preethi@3x.png 3x"
+                        alt="Sketch of Investor - Preethi Kasireddy, Angel Investor"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Luka Sučić</Span>
-                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entrepreneur</AngelJob>
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Preethi Kasireddy</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
                   </Item>
                 </Anchor>
@@ -1902,9 +1963,9 @@ function Home() {
             <AngelsOptional margin="-10px">
               <Investor minWidth="280px" align="stretch">
                 <Anchor
-                  href="https://twitter.com/benlakoff"
+                  href="https://twitter.com/Beler"
                   target="_blank"
-                  title="Learn about our Investor - Ben Lakoff, Entrepreneur"
+                  title="Learn about our Investor - Luka Sukik, Entreprenuer"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1915,12 +1976,12 @@ function Home() {
                   <Item>
                     <Item>
                       <Image
-                        src="./investors/ben.png"
-                        srcSet="./investors/ben@2x.png 2x, ./investors/ben@3x.png 3x"
-                        alt="Sketch of Investor - Ben Lakoff, Entrepreneur"
+                        src="./investors/lukasukik.png"
+                        srcSet="./investors/lukasukik@2x.png 2x, ./investors/lukasukik@3x.png 3x"
+                        alt="Sketch of Investor - Luka Sukik, Entrepreneur"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ben Lakoff</Span>
-                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entreprenuer</AngelJob>
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Luka Sučić</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entrepreneur</AngelJob>
                     </Item>
                   </Item>
                 </Anchor>
@@ -1930,7 +1991,7 @@ function Home() {
                 <Anchor
                   href="https://br.capital/#team"
                   target="_blank"
-                  title="Learn about our Investor - Evgeny Zandman, Angel Investor"
+                  title="Learn about our Investor - Rezo Shmertz, CEO, BR Capital"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1973,6 +2034,32 @@ function Home() {
                       />
                       <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Evgeny Zandman</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/benlakoff"
+                  target="_blank"
+                  title="Learn about our Investor - Ben Lakoff, Entrepreneur"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/ben.png"
+                        srcSet="./investors/ben@2x.png 2x, ./investors/ben@3x.png 3x"
+                        alt="Sketch of Investor - Ben Lakoff, Entrepreneur"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ben Lakoff</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Entreprenuer</AngelJob>
                     </Item>
                   </Item>
                 </Anchor>
@@ -2036,7 +2123,7 @@ function Home() {
                   href="#"
                   disabled={true}
                   target="_blank"
-                  title="Learn about our Investor -  Thomsa Kaseng AO, Angel Investor"
+                  title="Learn about our Investor -  Thomas Kaseng AO, Angel Investor"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -2049,7 +2136,7 @@ function Home() {
                       <Image
                         src="./investors/thomas.png"
                         srcSet="./investors/thomas@2x.png 2x, ./investors/thomas@3x.png 3x"
-                        alt="Sketch of Investor - Thomsa Kaseng AO, Angel Investor"
+                        alt="Sketch of Investor - Thomas Kaseng AO, Angel Investor"
                       />
                       <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
@@ -2063,7 +2150,7 @@ function Home() {
                   href="#"
                   disabled={true}
                   target="_blank"
-                  title="Learn about our Investor -  Karthik, Angel Investor"
+                  title="Learn about our Investor -  Karthik Garg, Angel Investor"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -2076,9 +2163,9 @@ function Home() {
                       <Image
                         src="./investors/karthik.png"
                         srcSet="./investors/karthik@2x.png 2x, ./investors/karthik@3x.png 3x"
-                        alt="Sketch of Investor - Karthik, Angel Investor"
+                        alt="Sketch of Investor - Karthik Garg, Angel Investor"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Karthik</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
                   </Item>
@@ -2345,17 +2432,15 @@ const AngelJob = styled(Span)`
 `
 
 const VCs = styled(ItemH)`
-  justify-content: space-between;
+  justify-content: space-around;
 
   @media (max-width: 768px) {
-    column-gap: 20px;
-    row-gap: 20px;
-
     justify-content: space-around;
   }
 
   ${Investor} {
-    flex: 0 1 calc(16% - 10px);
+    flex: 0 1 calc(15% - 10px);
+    margin: 0px;
     min-width: auto;
 
     @media (max-width: 768px) {
@@ -2380,14 +2465,12 @@ const Angels = styled(VCs)`
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    column-gap: 10px;
-    row-gap: 10px;
-
     justify-content: space-around;
   }
 
   ${Investor} {
     flex: 0 1 calc(25% - 20px);
+    margin: 0px;
     min-width: auto;
 
     @media (max-width: 768px) {

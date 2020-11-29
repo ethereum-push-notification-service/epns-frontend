@@ -98,7 +98,9 @@ function App() {
               <Home />
               <Foot />
             */}
-            <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
+            <Head />
+            <Home />
+            <Foot />
           </Route>
         </Switch>
       </ParentContainer>

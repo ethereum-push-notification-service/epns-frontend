@@ -8,7 +8,7 @@ import { FaLinkedinIn } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 
 // Create Header
-function TeamMember( {img, type, name, title, twitter, linkedin, email }) {
+function TeamMember( {img, srcSet, type, name, title, twitter, linkedin, email }) {
   const [openFlag, setOpenFlag] = React.useState(false);
 
   React.useEffect(() => {
@@ -18,7 +18,7 @@ function TeamMember( {img, type, name, title, twitter, linkedin, email }) {
   // to create blockies
 
   return (
-    <Item margin="20px 20px" minWidth="240px">
+    <Item margin="20px 15px" minWidth="240px" flex="inherit">
       {(twitter || linkedin || email) &&
         <Converse margin="0px">
           <ConverseInner>
@@ -74,7 +74,7 @@ function TeamMember( {img, type, name, title, twitter, linkedin, email }) {
       }
       <Profile margin="0px">
         <ProfileBG type={type} />
-        <ProfileImage src={img} />
+        <ProfileImage src={img} srcSet={srcSet} />
       </Profile>
       <Span margin="5px 0px 2px 0px">{name}</Span>
       <Span weight="400">{title}</Span>
