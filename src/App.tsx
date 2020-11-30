@@ -31,7 +31,7 @@ export default function() {
   )
 }
 
-const launchEpoch = 1605621600; // Tuesday, November 17, 2020 2:00:00 PM GMT
+const launchEpoch = 1607436000; // Tuesday, December 8, 2020 2:00:00 PM GMT
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -69,43 +69,79 @@ function App() {
   });
 
   return (
-    <Router>
-      <ParentContainer>
-        {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. Home needs to be last always*/}
-        <Switch>
-          <Route path="/privacy">
-            <Head />
-            <Privacy />
-            <Foot />
-          </Route>
-          <Route path="/terms">
-            <Head />
-            <Terms />
-            <Foot />
-          </Route>
-          <Route path="/faq">
-            <Head />
-            <FAQ />
-            <Foot />
-          </Route>
-          <Route path="/">
-            {/*
-              <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
-            */}
-            {/*
-              <Head />
-              <Home />
-              <Foot />
-            */}
-            <Head />
-            <Home />
-            <Foot />
-          </Route>
-        </Switch>
-      </ParentContainer>
+    <>
+      {loading &&
+        <SectionFSHero align="center">
+          <Item margin="30px 30px 20px 30px" flex="initial" filter="brightness(0) invert(1)" >
+            <Image src="./logos/epnsfullname.png" srcSet="./logos/epnsfullname@2x.png 2x, ./logos/epnsfullname@3x.png 3x" />
+          </Item>
+          <Item margin="0px 30px 30px 30px" flex="initial">
+            <Loader
+             type="Oval"
+             color="#fff"
+             height={32}
+             width={32}
+            />
+          </Item>
+        </SectionFSHero>
+      }
 
-    </Router>
+      {!loading && comingSoon &&
+        <Router>
+          <ParentContainer>
+            {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+            <Switch>
+              <Route path="/privacy">
+                <Head />
+                <Privacy />
+                <Foot />
+              </Route>
+              <Route path="/tos">
+                <Head />
+                <Terms />
+                <Foot />
+              </Route>
+              <Route path="/faq">
+                <Head />
+                <FAQ />
+                <Foot />
+              </Route>
+              <Route path="/">
+                <ComingSoon timeRemaining={timeRemaining} />
+              </Route>
+            </Switch>
+          </ParentContainer>
+        </Router>
+      }
+
+      {!loading && !comingSoon &&
+        <Router>
+          <Head />
+
+          <ParentContainer>
+            {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+            <Switch>
+              <Route path="/privacy">
+                <Privacy />
+              </Route>
+              <Route path="/tos">
+                <Terms />
+              </Route>
+              <Route path="/faq">
+                <FAQ />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </ParentContainer>
+
+          <Foot />
+        </Router>
+      }
+    </>
   );
 }
 
@@ -183,6 +219,44 @@ function App() {
 //   }
 // </>
 
+
+// <Router>
+//   <ParentContainer>
+//     {/* A <Switch> looks through its children <Route>s and
+//       renders the first one that matches the current URL. Home needs to be last always*/}
+//     <Switch>
+//       <Route path="/privacy">
+//         <Head />
+//         <Privacy />
+//         <Foot />
+//       </Route>
+//       <Route path="/terms">
+//         <Head />
+//         <Terms />
+//         <Foot />
+//       </Route>
+//       <Route path="/faq">
+//         <Head />
+//         <FAQ />
+//         <Foot />
+//       </Route>
+//       <Route path="/">
+//         {/*
+//           <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
+//         */}
+//         {/*
+//           <Head />
+//           <Home />
+//           <Foot />
+//         */}
+//         <Head />
+//         <Home />
+//         <Foot />
+//       </Route>
+//     </Switch>
+//   </ParentContainer>
+//
+// </Router>
 
 // CSS STYLES
 const HeaderContainer = styled.div`
