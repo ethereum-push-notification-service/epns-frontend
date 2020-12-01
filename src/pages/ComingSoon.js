@@ -178,9 +178,10 @@ function ComingSoon({ timeRemaining }) {
             setMailListProcessing(2);
           })
         .catch(err => {
+          setMailListProcessing(2);
           // console.log(err);
-          setMailListError("Mayday! Mayday! something went wrong. Please retry...");
-          setMailListProcessing(0);
+          // setMailListError("Mayday! Mayday! something went wrong. Please retry...");
+          // setMailListProcessing(0);
         });
     }
     else {
@@ -286,7 +287,9 @@ function ComingSoon({ timeRemaining }) {
                 >
 
                   <Item align="stretch">
-                    <Span weight="300" textTransform="uppercase" color="#fff" spacing="0.1em">Subscribe to our mailing list!</Span>
+                    {mailListProcessing == 0 &&
+                      <Span weight="300" textTransform="uppercase" color="#fff" spacing="0.1em">Subscribe to our mailing list!</Span>
+                    }
                     <ItemH margin="10px -10px" rowGap="20px" columnGap="20px">
                       {mailListProcessing == 0 &&
                         <>
