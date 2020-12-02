@@ -17,7 +17,7 @@ function EPNSChannelItem({ channelID, loaded, epnsContract }) {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const enableLogs = 1;
+    const enableLogs = 0;
 
     if (loaded && channelID && epnsContract) {
       // Get channels

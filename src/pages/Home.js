@@ -1264,16 +1264,6 @@ function Home() {
               />
               */}
               <TeamMember
-                img="./team/stan.jpg"
-                srcSet="./team/stan@2x.jpg 2x, ./team/stan@3x.jpg 3x"
-                type={5}
-                name="Dantes Stanley"
-                title="Community Manager"
-                twitter="https://twitter.com/Ebunayo08"
-                linkedin="https://www.linkedin.com/in/ayodeji-israel-awosika-69924124/"
-                email="mailto://ayodeji@epns.io"
-              />
-              <TeamMember
                 img="./team/jude.jpg"
                 srcSet="./team/jude@2x.jpg 2x, ./team/jude@3x.jpg 3x"
                 type={5}
@@ -1298,6 +1288,23 @@ function Home() {
                 linkedin="https://www.linkedin.com/in/aiswaryawalter/"
               />
               <TeamMember
+                img="./team/keyur.jpg"
+                srcSet="./team/keyur@2x.jpg 2x, ./team/keyur@3x.jpg 3x"
+                type={5}
+                name="Keyur Shah"
+                title="Finance Consultant (CA)"
+                twitter="https://twitter.com/keyur12392"
+                linkedin="https://www.linkedin.com/in/keyur-shah-551b31b3"
+              />
+              <TeamMember
+                img="./team/stan.jpg"
+                srcSet="./team/stan@2x.jpg 2x, ./team/stan@3x.jpg 3x"
+                type={5}
+                name="Dantes Stanley"
+                title="Community Manager"
+                linkedin="https://www.linkedin.com/in/igwilo-stanley-12571583"
+              />
+              <TeamMember
                 img="./team/robin.jpg"
                 srcSet="./team/robin@2x.jpg 2x, ./team/robin@3x.jpg 3x"
                 type={5}
@@ -1306,6 +1313,17 @@ function Home() {
                 twitter="https://twitter.com/robin_rrtx"
                 linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
               />
+              {/*
+              <TeamMember
+                img="./team/robin.jpg"
+                srcSet="./team/robin@2x.jpg 2x, ./team/robin@3x.jpg 3x"
+                type={5}
+                name="Robin Roy Thomas"
+                title="Content Writer (Intern)"
+                twitter="https://twitter.com/robin_rrtx"
+                linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
+              />
+              */}
             </ItemH>
             <ItemH self="stretch" align="stretch" flex="1" margin="20px 0px" minWidth="auto">
               <TeamMember

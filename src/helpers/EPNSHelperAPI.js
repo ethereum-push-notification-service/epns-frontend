@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ethers } from "ethers";
+const ethers = require('ethers');
 
 // FeedDB Helper Function
 const EPNSHelperAPI = {
@@ -15,7 +15,6 @@ const EPNSHelperAPI = {
     });
 
     const contract = new ethers.Contract(deployedContract, deployedContractABI, provider);
-
     let contractWithSigner = null;
 
     if (walletPK) {
@@ -31,14 +30,16 @@ const EPNSHelperAPI = {
   },
   // To retrieve a channel address from it's id
   getChannelAddressFromID: async (channelID, contract) => {
+    const enableLogs = 0;
+
     return new Promise ((resolve, reject) => {
       // To get channel info from a channel address
       contract.mapAddressChannels(channelID)
         .then(response => {
-          console.log("getChannelAddressFromID() --> %o", response.toString());
+          if (enableLogs) console.log("getChannelAddressFromID() --> %o", response.toString());
           resolve(response.toString());
         })
-        .catch(err => { console.log("!!!Error, getChannelAddressFromID() --> %o", err); reject(err); });
+        .catch(err => { if (enableLogs) console.log("!!!Error, getChannelAddressFromID() --> %o", err); reject(err); });
     })
   },
   // To retrieve a channel's Info from channel address
