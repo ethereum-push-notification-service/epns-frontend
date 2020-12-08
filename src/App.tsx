@@ -40,7 +40,7 @@ function App() {
 
   // Initialize GA
   ReactGA.initialize('UA-165415629-2');
-  ReactGA.pageview('/app');
+  ReactGA.pageview('/entry');
 
   React.useEffect(() => {
     fetch('https://showcase.api.linx.twenty57.net/UnixTime/tounixtimestamp?datetime=now', {
@@ -219,44 +219,45 @@ function App() {
 //   }
 // </>
 
+// ---------- SEGREGATION --------
 
-// <Router>
-//   <ParentContainer>
-//     {/* A <Switch> looks through its children <Route>s and
-//       renders the first one that matches the current URL. Home needs to be last always*/}
-//     <Switch>
-//       <Route path="/privacy">
-//         <Head />
-//         <Privacy />
-//         <Foot />
-//       </Route>
-//       <Route path="/terms">
-//         <Head />
-//         <Terms />
-//         <Foot />
-//       </Route>
-//       <Route path="/faq">
-//         <Head />
-//         <FAQ />
-//         <Foot />
-//       </Route>
-//       <Route path="/">
-//         {/*
-//           <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
-//         */}
-//         {/*
-//           <Head />
-//           <Home />
-//           <Foot />
-//         */}
-//         <Head />
-//         <Home />
-//         <Foot />
-//       </Route>
-//     </Switch>
-//   </ParentContainer>
-//
-// </Router>
+  // <Router>
+  //   <ParentContainer>
+  //     {/* A <Switch> looks through its children <Route>s and
+  //       renders the first one that matches the current URL. Home needs to be last always*/}
+  //     <Switch>
+  //       <Route path="/privacy">
+  //         <Head />
+  //         <Privacy />
+  //         <Foot />
+  //       </Route>
+  //       <Route path="/terms">
+  //         <Head />
+  //         <Terms />
+  //         <Foot />
+  //       </Route>
+  //       <Route path="/faq">
+  //         <Head />
+  //         <FAQ />
+  //         <Foot />
+  //       </Route>
+  //       <Route path="/">
+  //         {/*
+  //           <HomeOld setBadgeCount={0} bellPressed={() => {console.log("Bell Pressed!")}}/>
+  //         */}
+  //         {/*
+  //           <Head />
+  //           <Home />
+  //           <Foot />
+  //         */}
+  //         <Head />
+  //         <Home />
+  //         <Foot />
+  //       </Route>
+  //     </Switch>
+  //   </ParentContainer>
+  //
+  // </Router>
 
 // CSS STYLES
 const HeaderContainer = styled.div`

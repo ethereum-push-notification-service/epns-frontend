@@ -1,10 +1,14 @@
 import React from "react";
 import styled, { css, keyframes } from 'styled-components';
 
+import { useHistory } from 'react-router-dom';
+
 // Create Header
-function Bell({ belltheme, badgeCount, bellPressedCB, hideBadge, width, height }) {
+function Bell({ uri, belltheme, badgeCount, bellPressedCB, hideBadge, width, height }) {
   const [badge, setBadge] = React.useState(0);
   const [ring, setRing] = React.useState(false);
+
+  const history = useHistory();
 
   React.useEffect(() => {
     // Set new badge count and ring the bell
@@ -16,6 +20,14 @@ function Bell({ belltheme, badgeCount, bellPressedCB, hideBadge, width, height }
   }, [badgeCount]);
 
   const setResetRinger = () => {
+    // Not home, goto home
+    if (uri != "/") {
+      // Return to homepage if not homepage
+      history.push("/");
+
+      return;
+    }
+
     setRing(true);
 
     setTimeout(() => {

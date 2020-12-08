@@ -7,12 +7,17 @@ import { BsChevronDown } from 'react-icons/bs';
 import { CgMenuHotdog, CgClose } from 'react-icons/cg';
 
 import Bell from 'components/Bell';
-
+import { useLocation } from 'react-router-dom';
 
 // Create Header
 function Head() {
   const [badge, setBadge] = React.useState(0);
   const [showMenu, setShowMenu] = React.useState(false);
+
+  const location = useLocation();
+
+  React.useEffect(() => {
+  });
 
   return (
     <Header forceDisplay={showMenu}>
@@ -27,7 +32,7 @@ function Head() {
               padding="0px"
               overflow="visible"
             >
-              <Bell belltheme="white" hideBadge={false} badgeCount={badge} bellPressedCB={() => setBadge(badge + 1)} width={32} height={32} />
+              <Bell uri={location.pathname} belltheme="white" hideBadge={false} badgeCount={badge} bellPressedCB={() => setBadge(badge + 1)} width={32} height={32} />
             </HeadAnchor>
           </Item>
 

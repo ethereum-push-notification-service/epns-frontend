@@ -62,7 +62,7 @@ function EPNSChannelItem({ channelID, loaded, epnsContract }) {
           <ChannelLogoOuter>
             <ChannelLogoInner>
               {loading &&
-                <Skeleton color="#eee" width="100%" height="100%" />
+                <Skeleton color="#eee" width={'100%'} height={'100%'} />
               }
               {!loading &&
                 <Image src={`${meta.icon}`} />
@@ -73,10 +73,10 @@ function EPNSChannelItem({ channelID, loaded, epnsContract }) {
 
         <Item self="stretch" align="center" margin="10px 0px 0px 0px">
           {loading &&
-            <Skeleton color="#eee" width="80%" height={24} />
+            <Skeleton color="#eee" width={'80%'} height={24} />
           }
           {!loading &&
-            <Span>{meta.name}</Span>
+            <Span textAlign="center">{meta.name}</Span>
           }
         </Item>
       </Anchor>

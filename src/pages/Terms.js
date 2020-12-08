@@ -1,5 +1,6 @@
 import React from "react";
 import ReactGA from 'react-ga';
+import MetaTags, {ReactTitle} from 'react-meta-tags';
 
 import styled from 'styled-components';
 import {Section, SectionHero, Content, Item, WaveOuter, WaveInner, H1, H2, H3, Image, P, Para, UL, LI, A, B, Span, Anchor, Button} from 'components/SharedStyling';
@@ -17,6 +18,15 @@ function Terms() {
   // RENDER
   return (
     <>
+      {/* OPEN GRAPH DEFINITION */}
+      <ReactTitle title="Terms"/>
+      <MetaTags>
+        <title>Ethereum Push Notification Service (EPNS) | Terms of Service</title>
+        <meta name="description" content="Read Terms of Service of Ethereum Push Notification Service (EPNS) - #BUIDLing World's first notification protocol" />
+        <meta property="og:title" content="Ethereum Push Notification Service | Terms of Service" />
+        <meta property="og:image" content="./previews/terms.jpg" />
+      </MetaTags>
+
       {/* HERO SECTION */}
       <SectionHero padding="50px 0px 80px 0px">
         <Content className="contentBox">

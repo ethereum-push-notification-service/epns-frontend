@@ -3,7 +3,7 @@ import React from "react";
 import styled, { css } from 'styled-components';
 import {Section, Content, Item, ItemH, WaveOuter, WaveInner, Button, Image, Span, Anchor, FormSubmision, Input, ItemBreak} from 'components/SharedStyling';
 
-import { FaCheckCircle, FaTwitter, FaTelegramPlane, FaMedium, FaGithub, FaGooglePlay } from 'react-icons/fa';
+import { FaCheckCircle, FaTwitter, FaApple, FaTelegramPlane, FaMedium, FaGithub, FaGooglePlay } from 'react-icons/fa';
 import { IoMdRocket, IoMdHeart, IoMdNotifications } from 'react-icons/io';
 
 import Loader from 'react-loader-spinner';
@@ -115,7 +115,7 @@ function Foot() {
               <Item flex="1" minWidth="200px" maxWidth="400px">
                 <ItemH margin="0px -10px 0px -10px" columnGap="20px" rowGap="20px">
                   <Item margin="20px 10px" height="80px" width="80px" bg="#fff" radius="80px" flex="initial">
-                    <Bell belltheme="color" width={48} height={48} badgeCount={badgeCounter} bellPressedCB={() => setBadgeCounter(badgeCounter + 1)} hideBadge={true}/>
+                    <Bell uri="/" belltheme="color" width={48} height={48} badgeCount={badgeCounter} bellPressedCB={() => setBadgeCounter(badgeCounter + 1)} hideBadge={true}/>
                   </Item>
                   <Span margin="10px 10px" textTransform="uppercase" size="1.2em" spacing="0.2em" color="#fff" flex="inherit">Ethereum Push Notification Service</Span>
                 </ItemH>
@@ -243,8 +243,8 @@ function Foot() {
 
             {/* SOCIAL LINKS */}
             <FooterItem self="center" margin="0px 20px 10px 20px" minWidth="800px">
-              <ItemH self="stretch" margin="0px -20px" align="stretch" justify="space-between">
-                <Item bg="#fff" radius="12px" overflow="hidden" flex="1" minWidth="280px" margin="20px">
+              <ItemH self="stretch" margin="0px -20px" align="stretch" justify="center">
+                <Item bg="#fff" radius="12px" overflow="hidden" flex="initial" minWidth="280px" margin="20px">
                   <ItemH bg="#000" self="stretch" margin="0px 0px 5px">
                     <Span color="#fff" textAlign="center" padding="6px 4px 6px 4px">
                       Follow our story!
@@ -283,7 +283,7 @@ function Foot() {
                   </ItemH>
                 </Item>
 
-                <Item bg="#fff" align="stretch" radius="12px" overflow="hidden" flex="1" minWidth="280px" margin="20px">
+                <Item bg="#fff" align="stretch" radius="12px" overflow="hidden" flex="initial" minWidth="280px" margin="20px">
                   <ItemH bg="#000" margin="0px 0px 5px">
                     <Span color="#fff" textAlign="center" padding="6px 4px 6px 4px">
                       Repo / Alpha Access
@@ -292,13 +292,13 @@ function Foot() {
 
                   <ItemH padding="10px">
                     <Anchor
-                      href="https://github.com/ethereum-push-notification-service"
+                      href="https://apps.apple.com/app/ethereum-push-service-epns/id1528614910"
                       target="_blank"
                       bg="#000000"
                       radius="4px"
                       margin="10px"
                     >
-                      <FaGithub size={20} color="#e20880"/>
+                      <FaApple size={20} color="#e20880"/>
                     </Anchor>
                     <Anchor
                       href="https://play.google.com/store/apps/details?id=io.epns.epns"
@@ -317,6 +317,15 @@ function Foot() {
                       margin="10px"
                     >
                       <IoMdNotifications size={20} color="#35c5f3"/>
+                    </Anchor>
+                    <Anchor
+                      href="https://github.com/ethereum-push-notification-service"
+                      target="_blank"
+                      bg="#000000"
+                      radius="4px"
+                      margin="10px"
+                    >
+                      <FaGithub size={20} color="#fff"/>
                     </Anchor>
                   </ItemH>
                 </Item>

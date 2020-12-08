@@ -49,7 +49,7 @@ function EPNSChannelItems({ numberOfChannels }) {
       config.web3RopstenNetwork,                                      // Network for which the interactable contract is req
       {                                                               // API Keys
         etherscanAPI: config.etherscanAPI,
-        infuraAPI: config.infuraAPI,
+        infuraAPI: null, //config.infuraAPI,
         alchemyAPI: config.alchemyAPI
       },
       null,                                                           // Private Key of the Wallet
@@ -78,7 +78,7 @@ function EPNSChannelItems({ numberOfChannels }) {
             <EPNSChannelItem
               channelID={item.channelID}
               loaded={item.loaded}
-              key={item.id}
+              key={id}
               epnsContract={epnsInteactable.contract}
             />
           );

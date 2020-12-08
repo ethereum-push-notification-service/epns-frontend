@@ -1,6 +1,7 @@
 import React from "react";
 
 const ethers = require('ethers');
+ethers.utils.Logger.setLogLevel('off')
 
 // FeedDB Helper Function
 const EPNSHelperAPI = {

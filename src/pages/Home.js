@@ -1,5 +1,6 @@
 import React from "react";
 import ReactGA from 'react-ga';
+import MetaTags, {ReactTitle} from 'react-meta-tags';
 
 import styled, { css } from 'styled-components';
 import {Section, SectionFS, SectionFSHero, Content, Item, ItemH, ItemBreak, WaveOuter, WaveInner, Arc, H1, H2, H3, Image, P, Span, Anchor, Button, Showoff, FormSubmision, Input, TextField} from 'components/SharedStyling';
@@ -213,6 +214,15 @@ function Home() {
   // RENDER
   return (
     <>
+      {/* OPEN GRAPH DEFINITION */}
+      <ReactTitle title="Home"/>
+      <MetaTags>
+        <title>Ethereum Push Notification Service (EPNS) | Homepage</title>
+        <meta name="description" content="Homepage of Ethereum Push Notification Service (EPNS) - #BUIDLing World's first notification protocol" />
+        <meta property="og:title" content="Ethereum Push Notification Service | Homepage" />
+        <meta property="og:image" content="./previews/homepage.jpg" />
+      </MetaTags>
+
       {/* HERO SECTION */}
       <ScrollTrigger onEnter={() => {setAnimateHero(true)}} onExit={() => {setAnimateHero(false)}} triggerOnLoad={false}>
         <SectionFSHero id="hero" padding="15px 0px 0px 0px">
@@ -222,10 +232,10 @@ function Home() {
                 <H1>Ethereum Push Notification Service</H1>
                 <Span margin="-25px 0 0 0"><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Subscribe. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Notify. </Span><Span color="rgba(255, 255, 255, 0.5)" weight="600" size="0.9rem">Earn.</Span></Span>
 
-                  <Span margin="20px 0px" color="rgba(255, 255, 255, 0.5)" size="1.5rem" weight="200">Protocol for <Span color="#fff" weight="400">Platform Agnostic, </Span><Span color="#fff" weight="400">Incentivized Notifications</Span> from <Span color="rgba(255, 255, 255, 0.5)" weight="600">Blockchain!</Span></Span>
+                  <Span margin="20px 0px" color="rgba(255, 255, 255, 0.5)" size="1.5rem" weight="200">Protocol for <Span color="#fff" weight="600">blockchain</Span> based <Span color="#fff" weight="600">notifications</Span> that are <Span color="rgba(255, 255, 255, 0.5)" weight="600">platform agnostic</Span> and <Span color="rgba(255, 255, 255, 0.5)" weight="600">incentivized!</Span></Span>
 
                 <ItemH align="flex-start" justify="flex-start" margin="10px -10px 10px -10px" size="0.8rem">
-                  <Anchor href="https://whitepaper.epns.io" title="Read Whitepaper of Ethereum Push Notification Service (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Read Whitepaper</Anchor>
+                  <Anchor href="./LitepaperEthereumPushNotificationService.pdf" title="Read Litepaper of Ethereum Push Notification Service (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Read Litepaper</Anchor>
                   <Anchor href="./#contact" title="Integrate Ethereum Push Notification Service Protocol (EPNS)" target="_blank" bg="#674c9f" margin="10px" radius="4px">Integrate</Anchor>
                 </ItemH>
 
@@ -802,7 +812,7 @@ function Home() {
 
               <Supported margin="20px" minWidth="280px" align="stretch">
                 <Anchor
-                  href="https://apps.apple.com/us/app/ethereum-push-service-epns/id1528614910"
+                  href="https://apps.apple.com/app/ethereum-push-service-epns/id1528614910"
                   target="_blank"
                   title="Download Ethereum Push Notification Service (EPNS) from Apple App Store"
                   direction="column"
@@ -1263,6 +1273,16 @@ function Home() {
                 email="mailto://ayodeji@epns.io"
               />
               */}
+
+              <TeamMember
+                img="./team/keyur.jpg"
+                srcSet="./team/keyur@2x.jpg 2x, ./team/keyur@3x.jpg 3x"
+                type={5}
+                name="Keyur Shah"
+                title="Finance Consultant (CA)"
+                twitter="https://twitter.com/keyur12392"
+                linkedin="https://www.linkedin.com/in/keyur-shah-551b31b3"
+              />
               <TeamMember
                 img="./team/jude.jpg"
                 srcSet="./team/jude@2x.jpg 2x, ./team/jude@3x.jpg 3x"
@@ -1288,30 +1308,12 @@ function Home() {
                 linkedin="https://www.linkedin.com/in/aiswaryawalter/"
               />
               <TeamMember
-                img="./team/keyur.jpg"
-                srcSet="./team/keyur@2x.jpg 2x, ./team/keyur@3x.jpg 3x"
-                type={5}
-                name="Keyur Shah"
-                title="Finance Consultant (CA)"
-                twitter="https://twitter.com/keyur12392"
-                linkedin="https://www.linkedin.com/in/keyur-shah-551b31b3"
-              />
-              <TeamMember
                 img="./team/stan.jpg"
                 srcSet="./team/stan@2x.jpg 2x, ./team/stan@3x.jpg 3x"
                 type={5}
                 name="Dantes Stanley"
                 title="Community Manager"
                 linkedin="https://www.linkedin.com/in/igwilo-stanley-12571583"
-              />
-              <TeamMember
-                img="./team/robin.jpg"
-                srcSet="./team/robin@2x.jpg 2x, ./team/robin@3x.jpg 3x"
-                type={5}
-                name="Robin Roy Thomas"
-                title="Content Writer (Intern)"
-                twitter="https://twitter.com/robin_rrtx"
-                linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
               />
               {/*
               <TeamMember
@@ -1721,7 +1723,7 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
-                  href="https://proofsystems.io/"
+                  href="https://d64.vc/"
                   target="_blank"
                   title="Learn about our Investor - ProofSystems"
                   bg="#fff"
@@ -1733,9 +1735,9 @@ function Home() {
                   <Item>
                     <Item>
                       <Image
-                        src="./investors/proofsystems.png"
-                        srcSet="./investors/proofsystems@2x.png 2x, ./investors/proofsystems@3x.png 3x"
-                        alt="Logo of Proof Systems, Digital Marketing Agency"
+                        src="./investors/proofsystems_d64.png"
+                        srcSet="./investors/proofsystems_d64@2x.png 2x, ./investors/proofsystems_d64@3x.png 3x"
+                        alt="Logo of D64 Ventures, VC Fund"
                       />
                     </Item>
                   </Item>
@@ -1877,7 +1879,7 @@ function Home() {
                 <Anchor
                   href="https://twitter.com/iam_preethi"
                   target="_blank"
-                  title="Learn about our Investor - Preethi Kasireddy, Angel Investor"
+                  title="Learn about our Investor - Preethi Kasireddy, Entrepreneur"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -1890,10 +1892,10 @@ function Home() {
                       <Image
                         src="./investors/preethi.png"
                         srcSet="./investors/preethi@2x.png 2x, ./investors/preethi@3x.png 3x"
-                        alt="Sketch of Investor - Preethi Kasireddy, Angel Investor"
+                        alt="Sketch of Investor - Preethi Kasireddy, Entrepreneur"
                       />
                       <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Preethi Kasireddy</Span>
-                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Writer / Entrepreneur</AngelJob>
                     </Item>
                   </Item>
                 </Anchor>
@@ -2085,6 +2087,32 @@ function Home() {
 
               <Investor minWidth="280px" align="stretch">
                 <Anchor
+                  href="https://twitter.com/auryn_macmillan"
+                  target="_blank"
+                  title="Learn about our Investor - Auryn Macmillan, Gnosis"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/Auryn.png"
+                        srcSet="./investors/Auryn@2x.png 2x, ./investors/Auryn@3x.png 3x"
+                        alt="Sketch of Investor - Auryn Macmillan, Gnosis"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Auryn Macmillan</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Gnosis</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
                   href="https://www.linkedin.com/in/dannychrist/"
                   target="_blank"
                   title="Learn about our Investor - Danny J.C., Angel Investor"
@@ -2156,7 +2184,7 @@ function Home() {
                         srcSet="./investors/thomas@2x.png 2x, ./investors/thomas@3x.png 3x"
                         alt="Sketch of Investor - Thomas Kaseng AO, Angel Investor"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomsa Kaseng AO</Span>
+                    <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Thomas Kaseng AO</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
                   </Item>
@@ -2168,7 +2196,7 @@ function Home() {
                   href="#"
                   disabled={true}
                   target="_blank"
-                  title="Learn about our Investor -  Karthik Garg, Angel Investor"
+                  title="Learn about our Investor -  Kartik Garg, Angel Investor"
                   bg="#fff"
                   hoverBG="transparent"
                   radius="12px"
@@ -2183,7 +2211,33 @@ function Home() {
                         srcSet="./investors/karthik@2x.png 2x, ./investors/karthik@3x.png 3x"
                         alt="Sketch of Investor - Karthik Garg, Angel Investor"
                       />
-                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Karthik</Span>
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Kartik Garg</Span>
+                      <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
+                    </Item>
+                  </Item>
+                </Anchor>
+              </Investor>
+
+              <Investor minWidth="280px" align="stretch">
+                <Anchor
+                  href="https://twitter.com/ganeshram_g"
+                  target="_blank"
+                  title="Learn about our Investor -  Ganeshram Gunalan, Angel Investor"
+                  bg="#fff"
+                  hoverBG="transparent"
+                  radius="12px"
+                  align="stretch"
+                  margin="10px"
+                  padding="10px"
+                >
+                  <Item>
+                    <Item>
+                      <Image
+                        src="./investors/ganeshram.png"
+                        srcSet="./investors/ganeshram@2x.png 2x, ./investors/ganeshram@3x.png 3x"
+                        alt="Sketch of Investor - Ganeshram Gunalan, Angel Investor"
+                      />
+                      <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Ganeshram Gunalan</Span>
                       <AngelJob size="0.5em" color="#233234" spacing="0.2em" weight="600" textAlign="center">Angel Investor</AngelJob>
                     </Item>
                   </Item>
@@ -2480,7 +2534,7 @@ const VCs = styled(ItemH)`
 `
 
 const Angels = styled(VCs)`
-  justify-content: space-between;
+  justify-content: space-around;
 
   @media (max-width: 768px) {
     justify-content: space-around;

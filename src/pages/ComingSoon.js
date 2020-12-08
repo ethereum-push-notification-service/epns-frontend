@@ -1,5 +1,6 @@
 import React, {useRef} from "react";
 import ReactGA from 'react-ga';
+import MetaTags, {ReactTitle} from 'react-meta-tags';
 
 import styled, { css } from 'styled-components';
 import {SectionFSHero, Content, Item, ItemH, ItemBreak, Image, Span, Anchor, Button, FormSubmision, Input} from 'components/SharedStyling';
@@ -202,6 +203,15 @@ function ComingSoon({ timeRemaining }) {
   // RENDER
   return (
     <>
+      {/* OPEN GRAPH DEFINITION */}
+      <ReactTitle title="Coming Soon"/>
+      <MetaTags>
+        <title>Ethereum Push Notification Service (EPNS) | Coming Soon</title>
+        <meta name="description" content="[Coming Soon!] Ethereum Push Notification Service (EPNS) - #BUIDLing World's first notification protocol" />
+        <meta property="og:title" content="Ethereum Push Notification Service | Coming Soon" />
+        <meta property="og:image" content="./previews/comingsoon.jpg" />
+      </MetaTags>
+
       {/* HERO SECTION */}
       <SectionFSHero>
 
