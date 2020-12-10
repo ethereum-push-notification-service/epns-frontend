@@ -337,7 +337,6 @@ function Foot() {
               <Item align="center" margin="0px" minWidth="auto" flex="initial">
                 <Anchor
                   href="./privacy"
-                  target="_blank"
                   bg="transparent"
                   padding="4px 15px"
                   margin="10px"
@@ -348,8 +347,7 @@ function Foot() {
 
               <Item align="center" margin="0px" minWidth="auto" flex="initial">
                 <Anchor
-                  href="./terms"
-                  target="_blank"
+                  href="./tos"
                   bg="transparent"
                   padding="4px 15px"
                   margin="10px"

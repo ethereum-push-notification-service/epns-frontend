@@ -70,77 +70,30 @@ function App() {
 
   return (
     <>
-      {loading &&
-        <SectionFSHero align="center">
-          <Item margin="30px 30px 20px 30px" flex="initial" filter="brightness(0) invert(1)" >
-            <Image src="./logos/epnsfullname.png" srcSet="./logos/epnsfullname@2x.png 2x, ./logos/epnsfullname@3x.png 3x" />
-          </Item>
-          <Item margin="0px 30px 30px 30px" flex="initial">
-            <Loader
-             type="Oval"
-             color="#fff"
-             height={32}
-             width={32}
-            />
-          </Item>
-        </SectionFSHero>
-      }
+    <Router>
+      <Head />
 
-      {!loading && comingSoon &&
-        <Router>
-          <ParentContainer>
-            {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-            <Switch>
-              <Route path="/privacy">
-                <Head />
-                <Privacy />
-                <Foot />
-              </Route>
-              <Route path="/tos">
-                <Head />
-                <Terms />
-                <Foot />
-              </Route>
-              <Route path="/faq">
-                <Head />
-                <FAQ />
-                <Foot />
-              </Route>
-              <Route path="/">
-                <ComingSoon timeRemaining={timeRemaining} />
-              </Route>
-            </Switch>
-          </ParentContainer>
-        </Router>
-      }
+      <ParentContainer>
+        {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/privacy">
+            <Privacy />
+          </Route>
+          <Route path="/tos">
+            <Terms />
+          </Route>
+          <Route path="/faq">
+            <FAQ />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </ParentContainer>
 
-      {!loading && !comingSoon &&
-        <Router>
-          <Head />
-
-          <ParentContainer>
-            {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-            <Switch>
-              <Route path="/privacy">
-                <Privacy />
-              </Route>
-              <Route path="/tos">
-                <Terms />
-              </Route>
-              <Route path="/faq">
-                <FAQ />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </ParentContainer>
-
-          <Foot />
-        </Router>
-      }
+      <Foot />
+    </Router>
     </>
   );
 }

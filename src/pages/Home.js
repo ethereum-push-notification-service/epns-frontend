@@ -1308,15 +1308,6 @@ function Home() {
                 linkedin="https://www.linkedin.com/in/aiswaryawalter/"
               />
               <TeamMember
-                img="./team/stan.jpg"
-                srcSet="./team/stan@2x.jpg 2x, ./team/stan@3x.jpg 3x"
-                type={5}
-                name="Dantes Stanley"
-                title="Community Manager"
-                linkedin="https://www.linkedin.com/in/igwilo-stanley-12571583"
-              />
-              {/*
-              <TeamMember
                 img="./team/robin.jpg"
                 srcSet="./team/robin@2x.jpg 2x, ./team/robin@3x.jpg 3x"
                 type={5}
@@ -1325,7 +1316,14 @@ function Home() {
                 twitter="https://twitter.com/robin_rrtx"
                 linkedin="https://www.linkedin.com/in/robin-roy-thomas-597974198/"
               />
-              */}
+              <TeamMember
+                img="./team/stan.jpg"
+                srcSet="./team/stan@2x.jpg 2x, ./team/stan@3x.jpg 3x"
+                type={5}
+                name="Dantes Stanley"
+                title="Community Manager"
+                linkedin="https://www.linkedin.com/in/igwilo-stanley-12571583"
+              />
             </ItemH>
             <ItemH self="stretch" align="stretch" flex="1" margin="20px 0px" minWidth="auto">
               <TeamMember
@@ -1347,7 +1345,7 @@ function Home() {
               />
               <TeamMember
                 img="./team/vivek.jpg"
-                srcSet="./team/vivek@2x.jpg 2x, ./team/harsh@3x.jpg 3x"
+                srcSet="./team/vivek@2x.jpg 2x, ./team/vivek@3x.jpg 3x"
                 type={6}
                 name="Vivek Singh"
                 title="Co-Founder, Gitcoin"
@@ -2100,8 +2098,8 @@ function Home() {
                   <Item>
                     <Item>
                       <Image
-                        src="./investors/Auryn.png"
-                        srcSet="./investors/Auryn@2x.png 2x, ./investors/Auryn@3x.png 3x"
+                        src="./investors/auryn.png"
+                        srcSet="./investors/auryn@2x.png 2x, ./investors/auryn@3x.png 3x"
                         alt="Sketch of Investor - Auryn Macmillan, Gnosis"
                       />
                       <Span size="0.85em" color="#233234" spacing="0.2em" weight="400" textAlign="center">Auryn Macmillan</Span>
