@@ -175,7 +175,7 @@ function Home() {
           })
         };
 
-        fetch('https://backend.epns.io/apis/mailing/send_mail', requestOptions)
+        fetch('https://backend-staging.epns.io/apis/mailing/send_mail', requestOptions)
           .then(response => response.json())
           .then(jsondata => {
               // console.log(jsondata);
@@ -216,12 +216,14 @@ function Home() {
     <>
       {/* OPEN GRAPH DEFINITION */}
       <ReactTitle title="Home"/>
+      {/*
       <MetaTags>
         <title>Ethereum Push Notification Service (EPNS) | Homepage</title>
         <meta name="description" content="Homepage of Ethereum Push Notification Service (EPNS) - #BUIDLing World's first notification protocol" />
         <meta property="og:title" content="Ethereum Push Notification Service | Homepage" />
-        <meta property="og:image" content="./previews/homepage.jpg" />
+        <meta property="og:image" content="https://epns.io/previews/homepage.jpg" />
       </MetaTags>
+      */}
 
       {/* HERO SECTION */}
       <ScrollTrigger onEnter={() => {setAnimateHero(true)}} onExit={() => {setAnimateHero(false)}} triggerOnLoad={false}>

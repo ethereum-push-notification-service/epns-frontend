@@ -204,13 +204,15 @@ function ComingSoon({ timeRemaining }) {
   return (
     <>
       {/* OPEN GRAPH DEFINITION */}
+      {/*
       <ReactTitle title="Coming Soon"/>
       <MetaTags>
         <title>Ethereum Push Notification Service (EPNS) | Coming Soon</title>
         <meta name="description" content="[Coming Soon!] Ethereum Push Notification Service (EPNS) - #BUIDLing World's first notification protocol" />
         <meta property="og:title" content="Ethereum Push Notification Service | Coming Soon" />
-        <meta property="og:image" content="./previews/comingsoon.jpg" />
+        <meta property="og:image" content="https://epns.io/previews/comingsoon.jpg" />
       </MetaTags>
+      */}
 
       {/* HERO SECTION */}
       <SectionFSHero>

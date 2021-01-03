@@ -19,14 +19,16 @@ function Terms() {
   return (
     <>
       {/* OPEN GRAPH DEFINITION */}
+      {/*
       <ReactTitle title="Terms"/>
       <MetaTags>
         <title>Ethereum Push Notification Service (EPNS) | Terms of Service</title>
         <meta name="description" content="Read Terms of Service of Ethereum Push Notification Service (EPNS) - #BUIDLing World's first notification protocol" />
         <meta property="og:title" content="Ethereum Push Notification Service | Terms of Service" />
-        <meta property="og:image" content="./previews/terms.jpg" />
+        <meta property="og:image" content="https://epns.io/previews/terms.jpg" />
       </MetaTags>
-
+      */}
+      
       {/* HERO SECTION */}
       <SectionHero padding="50px 0px 80px 0px">
         <Content className="contentBox">
