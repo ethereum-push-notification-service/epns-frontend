@@ -331,12 +331,12 @@ function Home() {
               </Feature>
 
               <Feature
-                href="https://yourstory.com/2020/11/husband-wife-duo-need-blockchain-push-notifications"
+                href="https://defiprime.com/ethereum-push-notification-service"
                 target="_blank"
-                title="Yourstory talks about EPNS and why blockchain push notifications are important"
+                title="Harsh Rajat, our founder talks about future of banking, EPNS protocol incentives and where is a business model for decentralized push notifications."
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./featured/yourstory.png" srcSet="./featured/yourstory@2x.png 2x, ./featured/yourstory@3x.png 3x" alt="YourStory Logo" />
+                  <FeatureImage src="./featured/defiprime.png" srcSet="./featured/defiprime@2x.png 2x, ./featured/defiprime@3x.png 3x" alt="DeFiPrime Logo" />
                 </Item>
               </Feature>
 
@@ -351,18 +351,97 @@ function Home() {
                 </Item>
               </Feature>
 
-              <Feature
-                href="https://podcast.ethhub.io/ethhub-weekly-119-yield-farming-defi-valuations-on-the-rise-eths-value-prop-epns-introduced-consensys-staking-as-a-service-reddits-scaling-ethereum-challenge-and-matter-labs-zk-sync"
+              <FeatureTabletOptional
+                href="https://www.theblockcrypto.com/linked/86953/ethereum-notification-system-seed-funding"
                 target="_blank"
-                title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project"
+                title="Balaji Srinivasan, Gitcoin co-founder back $750K seed round for decentralized notification system on Ethereum"
               >
                 <Item minWidth="auto">
-                  <FeatureImage src="./featured/ethhub.png" srcSet="./featured/ethhub@2x.png 2x, ./featured/ethhub@3x.png 3x" alt="EthHub Logo" />
+                  <FeatureImage src="./featured/theblock.png" srcSet="./featured/theblock@2x.png 2x, ./featured/theblock@3x.png 3x" alt="The Block Crypto Logo" />
                 </Item>
-              </Feature>
+              </FeatureTabletOptional>
+
+              <FeatureTabletOptional
+                href="https://www.youtube.com/watch?v=ptDzAm62ATg&feature=youtu.be"
+                target="_blank"
+                title="Alex Saunders talks about EPNS on Nugget News"
+              >
+                <Item minWidth="auto">
+                  <FeatureImage src="./featured/nuggetnews.png" srcSet="./featured/nuggetnews@2x.png 2x, ./featured/nuggetnews@3x.png 3x" alt="Nugget News Logo" />
+                </Item>
+              </FeatureTabletOptional>
+
+              <FeatureTabletOptional
+                href="https://yourstory.com/2020/11/husband-wife-duo-need-blockchain-push-notifications"
+                target="_blank"
+                title="Yourstory talks about EPNS and why blockchain push notifications are important"
+              >
+                <Item minWidth="auto">
+                  <FeatureImage src="./featured/yourstory.png" srcSet="./featured/yourstory@2x.png 2x, ./featured/yourstory@3x.png 3x" alt="YourStory Logo" />
+                </Item>
+              </FeatureTabletOptional>
+
+              <FeatureTabletOptional
+                href="https://www.youtube.com/watch?v=4k159Kob0Cs"
+                target="_blank"
+                title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project on the DailyGWEI Channel"
+              >
+                <Item minWidth="auto">
+                  <FeatureImage src="./featured/dailygwei.png" srcSet="./featured/dailygwei@2x.png 2x, ./featured/dailygwei@3x.png 3x" alt="DailyGWEI Logo" />
+                </Item>
+              </FeatureTabletOptional>
 
               {featuredShowAll &&
                 <>
+                  <FeatureDesktopOptional
+                    href="https://www.theblockcrypto.com/linked/86953/ethereum-notification-system-seed-funding"
+                    target="_blank"
+                    title="Balaji Srinivasan, Gitcoin co-founder back $750K seed round for decentralized notification system on Ethereum"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/theblock.png" srcSet="./featured/theblock@2x.png 2x, ./featured/theblock@3x.png 3x" alt="The Block Crypto Logo" />
+                    </Item>
+                  </FeatureDesktopOptional>
+
+                  <FeatureDesktopOptional
+                    href="https://www.youtube.com/watch?v=ptDzAm62ATg&feature=youtu.be"
+                    target="_blank"
+                    title="Alex Saunders talks about EPNS on Nugget News"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/nuggetnews.png" srcSet="./featured/nuggetnews@2x.png 2x, ./featured/nuggetnews@3x.png 3x" alt="Nugget News Logo" />
+                    </Item>
+                  </FeatureDesktopOptional>
+
+                  <FeatureDesktopOptional
+                    href="https://yourstory.com/2020/11/husband-wife-duo-need-blockchain-push-notifications"
+                    target="_blank"
+                    title="Yourstory talks about EPNS and why blockchain push notifications are important"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/yourstory.png" srcSet="./featured/yourstory@2x.png 2x, ./featured/yourstory@3x.png 3x" alt="YourStory Logo" />
+                    </Item>
+                  </FeatureDesktopOptional>
+
+                  <FeatureDesktopOptional
+                    href="https://www.youtube.com/watch?v=4k159Kob0Cs"
+                    target="_blank"
+                    title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project on the DailyGWEI Channel"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/dailygwei.png" srcSet="./featured/dailygwei@2x.png 2x, ./featured/dailygwei@3x.png 3x" alt="DailyGWEI Logo" />
+                    </Item>
+                  </FeatureDesktopOptional>
+
+                  <Feature
+                    href="https://podcast.ethhub.io/ethhub-weekly-119-yield-farming-defi-valuations-on-the-rise-eths-value-prop-epns-introduced-consensys-staking-as-a-service-reddits-scaling-ethereum-challenge-and-matter-labs-zk-sync"
+                    target="_blank"
+                    title="Anthony Sassano talks about Ethereum Push Notification Service (EPNS) Project on ETHHub"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/ethhub.png" srcSet="./featured/ethhub@2x.png 2x, ./featured/ethhub@3x.png 3x" alt="EthHub Logo" />
+                    </Item>
+                  </Feature>
 
                   <Feature
                     href="https://twitter.com/DeFi_Dad/status/1297544923219189760?s=20"
@@ -412,6 +491,17 @@ function Home() {
                   >
                     <Item minWidth="auto">
                       <FeatureImage src="./featured/defipulse.png" srcSet="./featured/defipulse@2x.png 2x, ./featured/defipulse@3x.png 3x" alt="DefiPulse Logo" />
+                    </Item>
+                  </Feature>
+
+                  <Feature
+                    href="https://cryptodose.co/ethereum-based-web3-push-notifications-service-epns-raises-750k-seed/"
+                    target="_blank"
+                    title="CryptoDose covers EPNS Seed Round"
+                    bg="#e20880"
+                  >
+                    <Item minWidth="auto">
+                      <FeatureImage src="./featured/cryptodose.png" srcSet="./featured/cryptodose@2x.png 2x, ./featured/cryptodose@3x.png 3x" alt="CryptoDose Logo" />
                     </Item>
                   </Feature>
 
@@ -1165,6 +1255,7 @@ function Home() {
                   options={{ theme: "dark", align: "center" }}
                 />
               </TweetItem>
+
             </ItemH>
 
             <Item margin="0px 0px 40px 0px" align="flex-end" justify="space-between">
@@ -2283,6 +2374,18 @@ const Feature = styled.a`
 
   &:hover {
     background: ${props => props.bg || "#fff"};
+  }
+`
+
+const FeatureTabletOptional = styled(Feature)`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
+const FeatureDesktopOptional = styled(Feature)`
+  @media (min-width: 768px) {
+    display: none;
   }
 `
 
